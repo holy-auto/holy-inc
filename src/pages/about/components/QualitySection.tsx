@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import CraftCanvas from '@/components/base/CraftCanvas';
 
 interface QualityItem {
   id: string;
@@ -18,6 +19,13 @@ const qualityImages: Record<string, string> = {
     'https://readdy.ai/api/search-image?query=Macro%20photograph%20of%20crystal%20clear%20water%20droplets%20beading%20on%20a%20freshly%20polished%20dark%20car%20surface%20after%20professional%20hand%20wash%2C%20morning%20dew%20on%20glossy%20automotive%20paint%20reflecting%20warm%20golden%20sunlight%2C%20each%20water%20bead%20perfectly%20spherical%20showing%20superior%20coating%20protection%2C%20intimate%20detail%20shot%20of%20pristine%20clean%20vehicle%20finish%2C%20warm%20amber%20natural%20lighting%2C%20shallow%20depth%20of%20field%20with%20blurred%20greenery%20background%2C%20professional%20automotive%20photography%2C%20no%20blue%20no%20purple&width=600&height=400&seq=about-quality-mobile-v2-003&orientation=landscape',
   training:
     'https://readdy.ai/api/search-image?query=Professional%20certification%20documents%20and%20achievement%20badges%20displayed%20on%20a%20dark%20wooden%20desk%20alongside%20premium%20car%20detailing%20tools%2C%20elegant%20framed%20certificates%20with%20gold%20seals%20for%20automotive%20coating%20specialists%2C%20warm%20ambient%20lighting%20creating%20cozy%20prestigious%20atmosphere%2C%20leather%20portfolio%20and%20inspection%20clipboard%20nearby%2C%20sophisticated%20small%20business%20success%20scene%2C%20rich%20warm%20brown%20and%20gold%20tones%2C%20overhead%20flat%20lay%20photography%20style%2C%20no%20blue%20no%20purple&width=600&height=400&seq=about-quality-training-v2-004&orientation=landscape',
+};
+
+const qualityMotifs: Record<string, { variant: 'thread' | 'grid' | 'ripple' | 'sheen'; kanji: string }> = {
+  coating: { variant: 'sheen', kanji: '匠' },
+  film: { variant: 'sheen', kanji: '匠' },
+  mobile: { variant: 'ripple', kanji: '洗' },
+  training: { variant: 'grid', kanji: '証' },
 };
 
 const qualityNumbers = ['01', '02', '03', '04'];
@@ -74,7 +82,7 @@ const QualitySection: FC = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
           {items.map((item, index) => {
-            const imageUrl = qualityImages[item.id] || qualityImages.coating;
+            const motif = qualityMotifs[item.id] || qualityMotifs.coating;
             const isEven = index % 2 === 0;
 
             return (
@@ -90,15 +98,7 @@ const QualitySection: FC = () => {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img
-                    src={imageUrl}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                    decoding="async"
-                    width={600}
-                    height={400}
-                  />
+                  <CraftCanvas variant={motif.variant} kanji={motif.kanji} rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-110" />
                   {/* Overlay - darker default, lighter on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40 group-hover:from-slate-900/95 group-hover:via-slate-900/85 transition-all duration-500" />
                 </div>

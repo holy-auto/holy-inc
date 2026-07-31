@@ -150,17 +150,8 @@ const AboutPage: FC = () => {
               {/* Image */}
               <div className="w-full lg:w-2/5">
                 <FadeIn delay={200} direction="right">
-                  <div className="rounded-lg overflow-hidden aspect-[3/4] bg-slate-200">
-                    <img
-                      src="https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/eee0256c-cd9f-4da9-aeab-09c744539aa5_IMG_0882.jpg?v=845e635276c2bcb01ffcfc92126df646"
-                      alt={t('about.greeting.representative')}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
-                      width={450}
-                      height={600}
-                    />
+                  <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
+                    <CraftCanvas variant="thread" kanji="誠" rounded={false} className="absolute inset-0 h-full w-full" />
                   </div>
                 </FadeIn>
               </div>

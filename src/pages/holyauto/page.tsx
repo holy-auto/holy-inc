@@ -260,16 +260,14 @@ const HolyAutoPage: FC = () => {
                   >
                     {/* Image */}
                     <div className="w-full lg:w-1/2">
-                      <div className="rounded-lg overflow-hidden aspect-[5/3.5] bg-slate-200">
-                        <img
-                          src={service.imageUrl}
-                          alt={service.name}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                          fetchPriority="low"
-                          width={700}
-                          height={490}
+                      <div className="rounded-lg overflow-hidden aspect-[5/3.5]">
+                        <CraftCanvas
+                          variant="sheen"
+                          kanji={service.id === 'coating' ? '光' : service.id === 'film' ? '護' : service.id === 'training' ? '継' : '匠'}
+                          eyebrow="HOLY AUTO"
+                          title={service.name}
+                          rounded={false}
+                          className="h-full w-full"
                         />
                       </div>
                     </div>

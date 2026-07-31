@@ -339,16 +339,14 @@ const LedraPage: FC = () => {
                   >
                     {/* Image */}
                     <div className="w-full lg:w-1/2">
-                      <div className="rounded-lg overflow-hidden aspect-[5/3.5] bg-slate-200">
-                        <img
-                          src={useCase.imageUrl}
-                          alt={useCase.role}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                          fetchPriority="low"
-                          width={700}
-                          height={490}
+                      <div className="rounded-lg overflow-hidden aspect-[5/3.5]">
+                        <CraftCanvas
+                          variant="grid"
+                          kanji="証"
+                          eyebrow={useCase.role}
+                          title={useCase.title}
+                          rounded={false}
+                          className="h-full w-full"
                         />
                       </div>
                     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import CraftCanvas from '@/components/base/CraftCanvas';
 
 interface TimelineEvent {
   year: string;
@@ -68,16 +69,8 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
         {/* Content side */}
         <div className="flex-1 pb-10">
           <div className="bg-stone-50 rounded-xl border border-stone-200 overflow-hidden hover:border-stone-300 transition-all duration-300 hover:-translate-y-1">
-            <div className="aspect-[16/10] w-full overflow-hidden">
-              <img
-                src={imageUrl}
-                alt={event.title}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-                decoding="async"
-                width={500}
-                height={320}
-              />
+            <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <CraftCanvas variant="thread" kanji="継" rounded={false} className="absolute inset-0 h-full w-full hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="p-4">
               <div className="flex items-baseline gap-2 mb-2">
@@ -98,16 +91,8 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
             {/* Left content */}
             <div className="text-right pr-8">
               <div className="bg-stone-50 rounded-xl border border-stone-200 overflow-hidden hover:border-stone-300 transition-all duration-300 hover:-translate-y-1 inline-block text-left w-full max-w-lg">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={imageUrl}
-                    alt={event.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    decoding="async"
-                    width={500}
-                    height={320}
-                  />
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <CraftCanvas variant="thread" kanji="継" rounded={false} className="absolute inset-0 h-full w-full hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-5">
                   <div className="flex items-baseline gap-2 mb-2">
@@ -139,16 +124,8 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
             {/* Right content */}
             <div className="pl-8">
               <div className="bg-stone-50 rounded-xl border border-stone-200 overflow-hidden hover:border-stone-300 transition-all duration-300 hover:-translate-y-1 inline-block w-full max-w-lg">
-                <div className="aspect-[16/9] w-full overflow-hidden">
-                  <img
-                    src={imageUrl}
-                    alt={event.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    decoding="async"
-                    width={500}
-                    height={320}
-                  />
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <CraftCanvas variant="thread" kanji="継" rounded={false} className="absolute inset-0 h-full w-full hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-5">
                   <div className="flex items-baseline gap-2 mb-2">

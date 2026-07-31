@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SeoHead from '@/components/base/SeoHead';
+import CraftCanvas from "@/components/base/CraftCanvas";
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
 
@@ -120,19 +121,10 @@ export default function CareersPage() {
       <Breadcrumb className="bg-white border-b border-slate-100" />
 
       {/* Hero */}
-      <section className="relative h-[480px] md:h-[600px] overflow-hidden pt-16">
+      <section className="relative h-[480px] md:h-[600px] overflow-hidden pt-16 bg-stone-950">
         <div className="absolute inset-0">
-          <img
-            src="https://readdy.ai/api/search-image?query=senior%20automotive%20craftsman%20mentoring%20young%20apprentice%20in%20professional%20workshop%20cool%20blue%20lighting%20passing%20down%20skills%20through%20hands%20on%20guidance%20slate%20and%20teal%20cool%20tones%20clean%20organized%20workspace%20intergenerational%20knowledge%20transfer%20high%20quality%20photography&seq=holy-careers-hero&width=1600&height=900&orientation=landscape"
-            alt=""
-            className="w-full h-full object-cover opacity-55"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            width={1600}
-            height={900}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
+          <CraftCanvas variant="thread" kanji="志" rounded={false} className="absolute inset-0 h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
         </div>
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
