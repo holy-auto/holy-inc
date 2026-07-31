@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+out/
+
+# auto-generated types
+auto-imports.d.ts
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# env
+.env
+.env.*
+!.env.example

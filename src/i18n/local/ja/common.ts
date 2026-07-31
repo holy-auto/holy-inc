@@ -107,6 +107,15 @@ export default {
     vision: "技術が、資産になる。",
     viewBrands: "ブランドを見る",
     contactUs: "お問い合わせ",
+    headlineA: "職人の技術を、",
+    headlineB: "次へつなぐ。",
+    lead: "一つの技を、次の時代へ。 コーティング・洗車・証明——三つの事業で、職人の仕事を資産に変えていく。",
+    pillarsLabel: "三つの事業",
+    autoDesc: "施工・コーティング",
+    washDesc: "出張洗車",
+    ledraDesc: "技術の証明",
+    aboutLink: "HOLYについて",
+    since: "Since 2024 ・ 東京・北青山",
   },
 
   // MVV

@@ -1,93 +1,213 @@
-import type { FC } from "react";
+import type { CSSProperties, FC } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const textShadowStyle = { textShadow: '0 2px 30px rgba(0,0,0,0.6), 0 1px 10px rgba(0,0,0,0.5), 0 0 3px rgba(0,0,0,0.4)' };
+/**
+ * Hero — "一線" (the line that continues).
+ *
+ * A sumi-dark, image-free hero built entirely in code, so it always renders
+ * and never depends on an external stock/AI image. The composition tells a
+ * short story on load: the wordmark settles, the headline rises, then a single
+ * luminous thread draws across the canvas and ignites three nodes — the three
+ * businesses (HOLY AUTO / MobileWash / Ledra) held together by one craft.
+ */
+
+const anim = (
+  name: string,
+  duration: string,
+  delay: string,
+  easing = "cubic-bezier(0.22, 1, 0.36, 1)",
+): CSSProperties => ({
+  animation: `${name} ${duration} ${easing} ${delay} both`,
+});
+
+const pillars = [
+  { name: "HOLY AUTO", descKey: "hero.autoDesc", href: "/holy-auto", pos: 18 },
+  { name: "MobileWash", descKey: "hero.washDesc", href: "/mobilewash", pos: 50 },
+  { name: "Ledra", descKey: "hero.ledraDesc", href: "/ledra", pos: 82 },
+] as const;
 
 const HeroSection: FC = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className="relative w-full min-h-[700px] md:min-h-[800px] flex items-center justify-center overflow-hidden bg-slate-50">
-      {/* Background image - three businesses in one cinematic scene */}
-      <img
-        src="https://readdy.ai/api/search-image?query=A%20breathtaking%20ultra-wide%20cinematic%20automotive%20hero%20composition%20showing%20a%20gleaming%20black%20luxury%20sedan%20at%20the%20center%20with%20flawless%20mirror-like%20ceramic%20coating%20reflecting%20dramatic%20amber%20and%20teal%20studio%20lights%2C%20thick%20white%20premium%20foam%20gently%20cascading%20from%20above%20onto%20the%20hood%2C%20translucent%20holographic%20data%20streams%20and%20glowing%20blockchain%20network%20nodes%20orbiting%20the%20vehicle%20like%20digital%20satellites%2C%20a%20pristine%20modern%20Japanese%20automotive%20atelier%20with%20polished%20dark%20concrete%20floors%20and%20precision%20equipment%20silhouettes%20in%20background%2C%20golden%20hour%20warmth%20meeting%20cool%20technology%20glow%2C%20professional%20Hasselblad%20medium%20format%20editorial%20photography%2C%208K%20ultra%20detailed%2C%20extreme%20shallow%20depth%20of%20field%20with%20creamy%20bokeh%2C%20cinematic%20color%20grading%20with%20rich%20warm%20amber%20and%20deep%20teal%20contrast%2C%20dark%20sophisticated%20atmosphere%2C%20no%20text&width=1440&height=900&seq=holy-hero-pro-006&orientation=landscape"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-        width="1440"
-        height="900"
-        decoding="async"
+    <section className="relative w-full min-h-[100svh] flex flex-col overflow-hidden bg-stone-950 text-white">
+      {/* ---- Atmosphere (kept deliberately minimal) ---- */}
+      {/* Warm ember rising from below — the only light source */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(115% 85% at 50% 118%, rgba(217,119,6,0.20), rgba(217,119,6,0.05) 38%, transparent 62%)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Cool depth in the top corner keeps it from feeling flat */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 85% 0%, rgba(28,25,23,0.9), transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Craft watermark — 継 (to inherit / to carry on). Whisper-subtle texture */}
+      <span
+        className="hero-anim pointer-events-none absolute -right-[6vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none text-white/[0.035]"
+        style={{ fontSize: "clamp(20rem, 46vw, 52rem)", ...anim("hero-fade", "1.6s", "0.1s") }}
+        aria-hidden="true"
+      >
+        継
+      </span>
+      {/* Fine vignette for cinematic falloff */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ boxShadow: "inset 0 -140px 160px -60px rgba(0,0,0,0.9), inset 0 0 240px 40px rgba(0,0,0,0.55)" }}
+        aria-hidden="true"
       />
 
-      {/* Light overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
+      {/* ---- Content ---- */}
+      <div className="relative z-10 flex flex-1 items-center">
+        <div className="w-full max-w-6xl mx-auto px-6 md:px-10 pt-28 pb-40 md:pt-32">
+          {/* Overline */}
+          <div
+            className="hero-anim flex items-center gap-4 mb-8"
+            style={anim("hero-rise", "0.8s", "0.05s")}
+          >
+            <span className="h-px w-10 bg-gradient-to-r from-amber-400 to-amber-400/0" />
+            <span className="text-amber-300/90 text-xs md:text-sm tracking-[0.35em] font-medium">
+              {t("hero.companyName")}
+            </span>
+            <span className="text-white/35 text-[11px] tracking-[0.25em] hidden sm:inline">
+              {t("hero.since")}
+            </span>
+          </div>
 
-      {/* Subtle radial accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-transparent" />
-
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" aria-hidden="true" />
-
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto">
-        {/* Brand Name */}
-        <div className="mb-6">
-          <h1 className="text-white text-6xl md:text-8xl font-bold tracking-[0.3em] mb-2 animate-fade-in-up" style={textShadowStyle}>
-            HOLY
+          {/* Headline */}
+          <h1 className="font-serif font-medium leading-[1.14] tracking-tight text-[clamp(2.6rem,7vw,5.75rem)]">
+            <span
+              className="hero-anim block text-white"
+              style={anim("hero-rise", "1s", "0.2s")}
+            >
+              {t("hero.headlineA")}
+            </span>
+            <span
+              className="hero-anim block text-gradient-accent"
+              style={anim("hero-rise", "1s", "0.38s")}
+            >
+              {t("hero.headlineB")}
+            </span>
           </h1>
-          <p className="text-white/95 text-xs md:text-sm tracking-[0.5em] uppercase animate-fade-in-up" style={{ ...textShadowStyle, animationDelay: '0.15s' }}>
-            {t("hero.companyName")}
+
+          {/* Lead */}
+          <p
+            className="hero-anim mt-8 max-w-xl text-stone-300/90 text-base md:text-lg leading-relaxed font-light"
+            style={anim("hero-rise", "1s", "0.6s")}
+          >
+            {t("hero.lead")}
           </p>
-        </div>
 
-        {/* Divider */}
-        <div className="mx-auto mb-8 h-px w-16 animate-fade-in-up bg-gradient-to-r from-transparent via-teal-400 to-transparent" style={{ animationDelay: '0.3s' }} />
-
-        {/* Mission & Vision */}
-        <p className="text-white text-xl md:text-3xl font-normal tracking-wider mb-3 animate-fade-in-up" style={{ ...textShadowStyle, animationDelay: '0.45s' }}>
-          {t("hero.mission")}
-        </p>
-        <p className="text-white/90 text-sm md:text-base tracking-wide animate-fade-in-up" style={{ ...textShadowStyle, animationDelay: '0.6s' }}>
-          {t("hero.vision")}
-        </p>
-
-        {/* CTA */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.75s' }}>
-          <a
-            href="#brands"
-            className="group inline-flex items-center gap-2.5 bg-white/95 hover:bg-white text-slate-900 px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 whitespace-nowrap hover:scale-[1.02]"
+          {/* CTA */}
+          <div
+            className="hero-anim mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+            style={anim("hero-rise", "1s", "0.78s")}
           >
-            {t("hero.viewBrands")}
-            <span className="w-4 h-4 flex items-center justify-center transition-transform duration-300 group-hover:translate-y-0.5">
-              <i className="ri-arrow-down-s-line" />
-            </span>
-          </a>
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2.5 border border-white/50 hover:border-white hover:bg-white/10 text-white px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap hover:scale-[1.02]"
-            style={textShadowStyle}
-          >
-            {t("hero.contactUs")}
-            <span className="w-4 h-4 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
-              <i className="ri-arrow-right-s-line" />
-            </span>
-          </a>
+            <a
+              href="#brands"
+              className="group inline-flex items-center gap-3 rounded-full bg-amber-400 px-8 py-3.5 text-sm font-semibold tracking-wide text-stone-950 transition-all duration-300 hover:bg-amber-300 hover:gap-4 hover:shadow-[0_0_40px_-8px_rgba(251,191,36,0.6)]"
+            >
+              {t("hero.viewBrands")}
+              <i className="ri-arrow-right-line text-base transition-transform duration-300 group-hover:translate-x-0.5" />
+            </a>
+            <Link
+              to="/about"
+              className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide text-white/70 transition-colors duration-300 hover:text-white"
+            >
+              {t("hero.aboutLink")}
+              <span className="inline-block h-px w-6 bg-white/40 transition-all duration-300 group-hover:w-9 group-hover:bg-amber-300" />
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <a
-        href="#mvv"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/50 hover:text-white/80 transition-colors duration-500 cursor-pointer group"
-      >
-        <span className="text-[10px] tracking-[0.3em] uppercase font-medium opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-          {t("ui.scroll")}
-        </span>
-        <div className="relative w-5 h-10 rounded-full border border-white/30 group-hover:border-white/50 transition-colors duration-500 flex justify-center pt-2">
-          <div className="w-1 h-2 rounded-full bg-white/70 group-hover:bg-white/90 animate-scroll-dot" />
+      {/* ---- The thread: one line, three works ---- */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-10 pb-16 md:pb-20">
+        <p
+          className="hero-anim mb-6 text-[11px] tracking-[0.3em] uppercase text-white/40"
+          style={anim("hero-fade", "0.8s", "1.15s")}
+        >
+          {t("hero.pillarsLabel")}
+        </p>
+
+        <div className="relative">
+          {/* The luminous horizontal thread */}
+          <div className="absolute left-0 right-0 top-[6px] h-px overflow-hidden">
+            <div
+              className="hero-anim h-px w-full origin-left bg-gradient-to-r from-amber-400/10 via-amber-300/80 to-amber-400/10"
+              style={anim("hero-draw-x", "1.3s", "1.2s")}
+            />
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 md:gap-8">
+            {pillars.map((p, i) => (
+              <Link
+                key={p.name}
+                to={p.href}
+                className="group relative pt-6"
+                aria-label={p.name}
+              >
+                {/* Node on the thread */}
+                <span
+                  className="hero-anim absolute top-0 block"
+                  style={{ ...anim("hero-ignite", "0.7s", `${1.5 + i * 0.28}s`), left: `calc(${p.pos}% - 6px)` }}
+                >
+                  <span className="relative block h-3 w-3">
+                    <span
+                      className="hero-anim absolute inset-[-6px] rounded-full bg-amber-400/30 blur-[3px]"
+                      style={anim("hero-halo", "3.2s", `${2 + i * 0.28}s`, "ease-in-out")}
+                    />
+                    <span className="absolute inset-0 rounded-full bg-amber-300 ring-4 ring-amber-400/15 shadow-[0_0_14px_2px_rgba(251,191,36,0.55)]" />
+                  </span>
+                </span>
+
+                {/* Label */}
+                <div className="transition-transform duration-300 group-hover:-translate-y-0.5">
+                  <span
+                    className="hero-anim block font-serif text-base md:text-2xl text-white/90 transition-colors duration-300 group-hover:text-amber-300"
+                    style={anim("hero-rise", "0.7s", `${1.65 + i * 0.28}s`)}
+                  >
+                    {p.name}
+                  </span>
+                  <span
+                    className="hero-anim mt-1 block text-[11px] md:text-sm tracking-wide text-white/45"
+                    style={anim("hero-fade", "0.7s", `${1.8 + i * 0.28}s`)}
+                  >
+                    {t(p.descKey)}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
+      </div>
+
+      {/* ---- Scroll cue ---- */}
+      <a
+        href="#brands"
+        className="group absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/40 transition-colors duration-500 hover:text-white/80 md:flex"
+        aria-label={t("ui.scroll")}
+      >
+        <span className="text-[10px] tracking-[0.3em] uppercase">{t("ui.scroll")}</span>
+        <span className="h-8 w-px overflow-hidden">
+          <span
+            className="hero-anim block h-full w-px bg-gradient-to-b from-amber-300 to-transparent"
+            style={anim("hero-scroll", "2.4s", "2.4s", "ease-in-out")}
+          />
+        </span>
       </a>
+
+      {/* Seam into the light section below */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/25 to-transparent" aria-hidden="true" />
     </section>
   );
 };

@@ -44,7 +44,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        background: #f8fafc;
+        background: #0c0a09;
         pointer-events: none;
         font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
       }
@@ -52,73 +52,77 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse at top right, rgba(13,148,137,0.06), transparent, transparent);
+        background: radial-gradient(115% 85% at 50% 118%, rgba(217,119,6,0.20), rgba(217,119,6,0.05) 38%, transparent 62%);
       }
       #hero-crit::after {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 50%, rgba(13,148,137,0.03) 0%, transparent 70%);
+        box-shadow: inset 0 -140px 160px -60px rgba(0,0,0,0.9), inset 0 0 240px 40px rgba(0,0,0,0.55);
       }
       #hero-crit-inner {
         position: relative;
         z-index: 10;
-        text-align: center;
+        text-align: left;
+        width: 100%;
         padding: 0 1.5rem;
-        max-width: 56rem;
+        max-width: 72rem;
         margin: 0 auto;
       }
-      #hero-crit h1 {
-        color: #0f172a;
-        font-size: 3.75rem;
-        font-weight: 700;
-        letter-spacing: 0.3em;
-        margin-bottom: 0.5rem;
-        line-height: 1.2;
+      #hero-crit .overline {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      #hero-crit .overline i {
+        display: inline-block;
+        width: 2.5rem;
+        height: 1px;
+        background: linear-gradient(90deg, #fbbf24, rgba(251,191,36,0));
       }
       #hero-crit .subtitle {
-        color: #64748b;
-        font-size: 0.75rem;
-        letter-spacing: 0.5em;
-        text-transform: uppercase;
-        margin-bottom: 1.5rem;
+        color: rgba(252,211,77,0.9);
+        font-size: 0.8rem;
+        letter-spacing: 0.35em;
+        font-weight: 500;
       }
-      #hero-crit .divider {
-        width: 4rem;
-        height: 1px;
-        background: #0d9489;
-        margin: 0 auto 2rem;
+      #hero-crit h1 {
+        color: #ffffff;
+        font-size: 2.6rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1.14;
       }
-      #hero-crit .mission {
-        color: #0f172a;
-        font-size: 1.25rem;
+      #hero-crit h1 .accent {
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      #hero-crit .lead {
+        color: rgba(214,211,209,0.9);
+        font-size: 1rem;
         font-weight: 300;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.75rem;
-        line-height: 1.4;
-      }
-      #hero-crit .vision {
-        color: #475569;
-        font-size: 0.875rem;
-        letter-spacing: 0.025em;
-        line-height: 1.6;
+        letter-spacing: 0.02em;
+        line-height: 1.7;
+        margin-top: 2rem;
+        max-width: 36rem;
       }
       #hero-crit .cta-row {
-        margin-top: 3rem;
+        margin-top: 2.5rem;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 1rem;
+        gap: 2rem;
       }
       #hero-crit .cta-primary {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        background: #0d9489;
-        color: #ffffff;
-        padding: 0.75rem 2rem;
-        border-radius: 0.375rem;
+        gap: 0.75rem;
+        background: #fbbf24;
+        color: #0c0a09;
+        padding: 0.85rem 2rem;
+        border-radius: 9999px;
         font-size: 0.875rem;
         font-weight: 600;
         letter-spacing: 0.025em;
@@ -129,24 +133,17 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        border: 1px solid #cbd5e1;
-        color: #475569;
-        padding: 0.75rem 2rem;
-        border-radius: 0.375rem;
+        color: rgba(255,255,255,0.7);
         font-size: 0.875rem;
+        font-weight: 500;
         letter-spacing: 0.025em;
         text-decoration: none;
         white-space: nowrap;
       }
       @media (min-width: 640px) {
-        #hero-crit h1 { font-size: 6rem; }
-        #hero-crit .mission { font-size: 1.875rem; }
-        #hero-crit .vision { font-size: 1rem; }
-        #hero-crit .cta-row { flex-direction: row; }
+        #hero-crit h1 { font-size: 4.5rem; }
       }
     </style>
-    <!-- Hero background image preload -->
-    <link rel="preload" as="image" href="https://readdy.ai/api/search-image?query=A%20professional%20automotive%20detailer%20standing%20beside%20an%20orange%20McLaren%20720S%20in%20a%20dimly%20lit%20premium%20garage%2C%20the%20supercars%20dihedral%20doors%20partially%20open%20revealing%20luxurious%20interior%2C%20dramatic%20single%20spotlight%20from%20above%20creates%20a%20pool%20of%20light%20on%20the%20glossy%20carbon%20fiber%20and%20vibrant%20orange%20paintwork%2C%20deep%20shadows%20surround%20the%20scene%20with%20subtle%20teal%20ambient%20rim%20lighting%20along%20the%20walls%2C%20photorealistic%2C%20cinematic%20automotive%20photography%20style%2C%20sense%20of%20exclusivity%20and%20high%20performance%2C%20dark%20moody%20atmosphere%20with%20rich%20contrast%2C%20no%20text&width=1440&height=900&seq=holy-hero-mclaren-001&orientation=landscape" fetchpriority="high">
     <!-- Remixicon async load -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css"></noscript>
@@ -157,14 +154,12 @@
     <!-- Critical HTML: visible before React mounts, eliminates white-screen LCP penalty -->
     <section id="hero-crit" aria-label="HOLY">
       <div id="hero-crit-inner">
-        <h1>HOLY</h1>
-        <p class="subtitle">株式会社HOLY</p>
-        <div class="divider"></div>
-        <p class="mission">職人の技術を、次へつなぐ</p>
-        <p class="vision">自動車業界に新たな価値基準を創造する</p>
+        <p class="overline"><i></i><span class="subtitle">株式会社HOLY</span></p>
+        <h1>職人の技術を、<br><span class="accent">次へつなぐ。</span></h1>
+        <p class="lead">一つの技を、次の時代へ。コーティング・洗車・証明——三つの事業で、職人の仕事を資産に変えていく。</p>
         <div class="cta-row">
-          <a href="#brands" class="cta-primary">サービスを見る</a>
-          <a href="#contact" class="cta-secondary">お問い合わせ</a>
+          <a href="#brands" class="cta-primary">ブランドを見る</a>
+          <a href="/about" class="cta-secondary">HOLYについて</a>
         </div>
       </div>
     </section>
