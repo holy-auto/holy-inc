@@ -72,7 +72,7 @@ const MobileWashPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="product"
-        ogImage="https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/de343a3c-f936-44de-b853-641c1bdee16e_ChatGPT-Image-2026514-22_14_08.png?v=c1e7617480180d33843ee74cdf1696a6"
+        ogImage="/og/og-mobilewash.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },

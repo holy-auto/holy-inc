@@ -102,7 +102,7 @@ export default function CareersPage() {
         description={t("careers.seo.description")}
         keywords={t("careers.seo.keywords")}
         ogType="website"
-        ogImage="https://readdy.ai/api/search-image?query=senior%20automotive%20craftsman%20mentoring%20young%20apprentice%20in%20professional%20workshop%20cool%20blue%20lighting%20passing%20down%20skills%20through%20hands%20on%20guidance%20slate%20and%20teal%20cool%20tones%20clean%20organized%20workspace%20intergenerational%20knowledge%20transfer%20high%20quality%20photography&seq=holy-careers-hero&width=1600&height=900&orientation=landscape"
+        ogImage="/og/og-careers.png"
         structuredData={[
           {
             "@context": "https://schema.org",

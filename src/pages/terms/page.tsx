@@ -29,7 +29,7 @@ const TermsPage: FC = () => {
         keywords={seo.keywords}
         ogType="website"
         noindex={true}
-        ogImage="https://readdy.ai/api/search-image?query=Abstract%20minimalist%20legal%20and%20compliance%20concept%20with%20document%20and%20scale%20symbols%20in%20a%20cool%20neutral%20studio%20environment%20subtle%20teal%20lighting%20clean%20corporate%20editorial%20photography%20slate%20and%20steel%20blue%20tones%20professional%20justice%20visualization%20high%20quality%20background%20image%20with%20soft%20gradients&width=1400&height=500&seq=terms-hero-002&orientation=landscape"
+        ogImage="/og/og-default.png"
       />
       <main>
         {/* Hero */}

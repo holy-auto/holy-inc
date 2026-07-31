@@ -2,8 +2,12 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const BASE_URL = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
-const DEFAULT_OG_IMAGE =
-  'https://readdy.ai/api/search-image?query=Premium%20Japanese%20automotive%20corporate%20brand%20visual%20with%20abstract%20minimalist%20dark%20background%20cool%20teal%20blue%20light%20rays%20and%20geometric%20patterns%20professional%20corporate%20identity%20design%20landscape%20format%20high%20quality%20editorial%20style%20elegant%20subtle%20glow&width=1200&height=630&seq=og-default-002&orientation=landscape';
+const DEFAULT_OG_IMAGE = '/og/og-default.png';
+
+// og:image must be an absolute URL for social crawlers; allow pages to pass a
+// site-relative path and resolve it against BASE_URL here.
+const toAbsolute = (src: string) =>
+  src.startsWith('http') ? src : `${BASE_URL}${src.startsWith('/') ? '' : '/'}${src}`;
 
 interface SeoHeadProps {
   title: string;
@@ -34,7 +38,7 @@ export default function SeoHead({
 
   const pageUrl = ogUrl || `${BASE_URL}${location.pathname}`;
   const pageCanonical = canonical || `${BASE_URL}${location.pathname}`;
-  const pageOgImage = ogImage || DEFAULT_OG_IMAGE;
+  const pageOgImage = toAbsolute(ogImage || DEFAULT_OG_IMAGE);
 
   useEffect(() => {
     document.title = title;

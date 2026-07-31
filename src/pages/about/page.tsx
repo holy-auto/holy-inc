@@ -39,7 +39,7 @@ const AboutPage: FC = () => {
         description={t('about.seo.description')}
         keywords={t('about.seo.keywords')}
         ogType="website"
-        ogImage="https://readdy.ai/api/search-image?query=A%20small%20cozy%20Japanese%20startup%20garage%20workshop%20interior%20with%20warm%20amber%20lighting%2C%20compact%20workspace%20with%20neatly%20organized%20tools%20on%20the%20wall%2C%20one%20vehicle%20partially%20visible%2C%20humble%20two-person%20auto%20shop%20atmosphere%2C%20clean%20minimal%20design%20with%20concrete%20floor%20and%20warm%20wood%20accents%2C%20authentic%20startup%20company%20interior%20scene%2C%20suitable%20for%20website%20hero%20banner%20with%20text%20overlay%2C%20warm%20neutral%20stone%20color%20palette%2C%20no%20blue%20no%20purple&width=1440&height=900&seq=about-hero-startup-002&orientation=landscape"
+        ogImage="/og/og-about.png"
         structuredData={[
           {
             '@context': 'https://schema.org',
@@ -58,7 +58,7 @@ const AboutPage: FC = () => {
             name: '株式会社HOLY',
             alternateName: 'HOLY Inc.',
             url: baseUrl,
-            image: 'https://readdy.ai/api/search-image?query=A%20small%20cozy%20Japanese%20startup%20garage%20workshop%20interior%20with%20warm%20amber%20lighting%2C%20compact%20workspace%20with%20neatly%20organized%20tools%20on%20the%20wall%2C%20one%20vehicle%20partially%20visible%2C%20humble%20two-person%20auto%20shop%20atmosphere%2C%20clean%20minimal%20design%20with%20concrete%20floor%20and%20warm%20wood%20accents%2C%20authentic%20startup%20company%20interior%20scene%2C%20suitable%20for%20website%20hero%20banner%20with%20text%20overlay%2C%20warm%20neutral%20stone%20color%20palette%2C%20no%20blue%20no%20purple&width=1440&height=900&seq=about-hero-startup-002&orientation=landscape',
+            image: `${baseUrl}/og/og-about.png`,
             description: t('about.seo.description'),
             foundingDate: '2024-11-12',
             address: {

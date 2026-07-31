@@ -32,7 +32,7 @@ export default function Home() {
             name: "株式会社HOLY",
             alternateName: "HOLY Inc.",
             url: baseUrl,
-            logo: `${baseUrl}/favicon.png`,
+            logo: `${baseUrl}/favicon-512.png`,
             description: "自動車コーティング・出張洗車・ブロックチェーン証明インフラを展開。職人の技術を次世代へ継承する企業。",
             foundingDate: "2024-11-12",
             sameAs: [

@@ -9,20 +9,6 @@ interface TimelineEvent {
   description: string;
 }
 
-const eventImages: Record<string, string> = {
-  '2024-11': 'https://readdy.ai/api/search-image?query=a%20minimalist%20modern%20corporate%20office%20corner%20with%20two%20people%20at%20a%20sleek%20white%20desk%20facing%20a%20large%20panoramic%20window%20overlooking%20the%20Tokyo%20skyline%20at%20golden%20hour%2C%20clean%20architectural%20lines%2C%20soft%20diffused%20natural%20light%2C%20potted%20monstera%20plant%2C%20warm%20beige%20and%20cream%20interior%20palette%2C%20professional%20yet%20intimate%20startup%20atmosphere%2C%20editorial%20photography%20style%2C%20shallow%20depth%20of%20field%2C%20muted%20earth%20tones&width=500&height=320&seq=about-timeline-2024-11-v3&orientation=landscape',
-  '2024-12': 'https://readdy.ai/api/search-image?query=a%20professional%20automotive%20detailing%20studio%20interior%20with%20a%20single%20luxury%20sedan%20under%20soft%20overhead%20studio%20lighting%2C%20glossy%20coated%20hood%20reflecting%20warm%20light%2C%20pristine%20white%20walls%20and%20polished%20concrete%20floor%2C%20organized%20premium%20tools%20and%20products%20on%20a%20floating%20shelf%2C%20sophisticated%20car%20care%20environment%2C%20editorial%20commercial%20photography%2C%20warm%20amber%20and%20cream%20tones%2C%20clean%20modern%20aesthetic&width=500&height=320&seq=about-timeline-2024-12-v3&orientation=landscape',
-  '2025-01': 'https://readdy.ai/api/search-image?query=a%20sleek%20modern%20workspace%20with%20a%20large%20ultrawide%20monitor%20displaying%20an%20abstract%20blockchain%20data%20visualization%20with%20glowing%20nodes%20and%20connections%2C%20minimalist%20white%20desk%20with%20wireless%20keyboard%2C%20ambient%20warm%20task%20lamp%2C%20a%20cup%20of%20coffee%2C%20large%20window%20with%20soft%20daylight%2C%20clean%20Scandinavian%20interior%2C%20muted%20warm%20gray%20and%20cream%20palette%2C%20editorial%20tech%20photography&width=500&height=320&seq=about-timeline-2025-01-v3&orientation=landscape',
-  '2025-03': 'https://readdy.ai/api/search-image?query=a%20modern%20meeting%20room%20with%20a%20matte%20glass%20whiteboard%20showing%20hand-drawn%20mission%20statement%20words%20in%20elegant%20marker%20script%2C%20two%20chairs%20pulled%20up%20to%20a%20light%20oak%20table%2C%20soft%20natural%20light%20from%20floor-to-ceiling%20windows%2C%20indoor%20greenery%2C%20warm%20neutral%20color%20scheme%20with%20cream%20walls%20and%20beige%20accents%2C%20professional%20corporate%20interior%20photography%2C%20calm%20and%20focused%20atmosphere&width=500&height=320&seq=about-timeline-2025-03-v3&orientation=landscape',
-  '2025-10': 'https://readdy.ai/api/search-image?query=a%20compact%20modern%20service%20van%20parked%20in%20front%20of%20a%20stylish%20minimalist%20building%20facade%20during%20soft%20morning%20light%2C%20the%20van%20wrapped%20in%20a%20clean%20matte%20white%20finish%20with%20subtle%20branding%2C%20organized%20equipment%20visible%20through%20open%20side%20door%2C%20urban%20setting%20with%20warm%20stone%20pavement%2C%20professional%20mobile%20service%20launch%20scene%2C%20editorial%20commercial%20photography%2C%20warm%20earth%20tone%20palette%20with%20cream%20and%20taupe&width=500&height=320&seq=about-timeline-2025-10-v3&orientation=landscape',
-};
-
-const getEventImage = (year: string, month: string): string => {
-  const key = `${year}-${month}`;
-  if (eventImages[key]) return eventImages[key];
-  return eventImages[year] || eventImages['2020'];
-};
-
 const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }> = ({
   event,
   index,
@@ -51,7 +37,6 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
     return () => observer.disconnect();
   }, []);
 
-  const imageUrl = getEventImage(event.year, event.month);
   const delayClass = `transition-delay-${Math.min(index * 100, 500)}`;
 
   return (

@@ -37,7 +37,7 @@ const ContactPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="website"
-        ogImage="https://readdy.ai/api/search-image?query=Modern%20Japanese%20corporate%20office%20interior%20with%20cool%20natural%20lighting%20through%20large%20windows%20minimalist%20reception%20desk%20with%20slate%20and%20metal%20materials%20teal%20cool%20tones%20premium%20corporate%20headquarters%20atmosphere%20clean%20architectural%20photography%20professional%20business%20environment%20high%20quality%20editorial%20style&width=1400&height=600&seq=contact-hero-002&orientation=landscape"
+        ogImage="/og/og-contact.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },

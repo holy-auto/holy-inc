@@ -74,7 +74,7 @@ const HolyAutoPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="product"
-        ogImage="https://readdy.ai/api/search-image?query=A%20master%20automotive%20coating%20craftsman%20meticulously%20polishing%20the%20hood%20of%20a%20gleaming%20black%20luxury%20sports%20car%20inside%20an%20ultra-modern%20Japanese%20detailing%20workshop%2C%20the%20paint%20surface%20showing%20mesmerizing%20mirror-like%20reflections%20of%20dramatic%20overhead%20studio%20lights%2C%20premium%20coating%20tools%20and%20digital%20paint%20thickness%20gauges%20arranged%20on%20a%20pristine%20stainless%20steel%20workbench%2C%20polished%20dark%20concrete%20floors%20reflecting%20the%20warm%20ambient%20glow%2C%20shot%20with%20professional%20Hasselblad%20medium%20format%20camera%2C%20editorial%20automotive%20photography%20style%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%2C%20cinematic%20color%20grading%20with%20rich%20teal%20and%20warm%20amber%20tones%2C%20dark%20sophisticated%20atmosphere%2C%20no%20text&width=1440&height=700&seq=holyauto-og-pro-005&orientation=landscape"
+        ogImage="/og/og-holyauto.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },

@@ -70,7 +70,7 @@ const LedraPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="product"
-        ogImage="https://readdy.ai/api/search-image?query=Abstract%20futuristic%20blockchain%20technology%20visualization%20with%20interconnected%20glowing%20nodes%20forming%20a%20secure%20digital%20network%20around%20a%20holographic%20luxury%20vehicle%20silhouette%2C%20encrypted%20data%20streams%20flowing%20through%20translucent%20geometric%20pathways%2C%20deep%20teal%20and%20electric%20cyan%20light%20trails%20against%20an%20ultra-dark%20background%2C%20premium%20automotive%20data%20security%20concept%20art%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20lighting%20with%20volumetric%20light%20rays%2C%20dark%20cyberpunk%20atmosphere%20with%20sophisticated%20color%20grading%2C%20no%20text&width=1440&height=700&seq=ledra-og-pro-005&orientation=landscape"
+        ogImage="/og/og-ledra.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },
