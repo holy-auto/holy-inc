@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '../../components/base/SeoHead';
 import FadeIn from '../../components/base/FadeIn';
-import ParallaxBackground from '../../components/base/ParallaxBackground';
+import CraftCanvas from '../../components/base/CraftCanvas';
 import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
@@ -100,17 +100,9 @@ const LedraPage: FC = () => {
       <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main className="w-full">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-slate-50">
-          <ParallaxBackground
-            src="https://readdy.ai/api/search-image?query=Abstract%20futuristic%20blockchain%20technology%20visualization%20with%20interconnected%20glowing%20nodes%20forming%20a%20secure%20digital%20network%20around%20a%20holographic%20luxury%20vehicle%20silhouette%2C%20encrypted%20data%20streams%20flowing%20through%20translucent%20geometric%20pathways%2C%20deep%20teal%20and%20electric%20cyan%20light%20trails%20against%20an%20ultra-dark%20background%2C%20premium%20automotive%20data%20security%20concept%20art%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20lighting%20with%20volumetric%20light%20rays%2C%20dark%20cyberpunk%20atmosphere%20with%20sophisticated%20color%20grading%2C%20no%20text&width=1440&height=700&seq=ledra-hero-pro-005&orientation=landscape"
-            alt="Ledra Technology"
-            speed={0.35}
-            fetchPriority="high"
-            imgClassName="opacity-60"
-            overlay={
-              <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
-            }
-          />
+        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-stone-950">
+          <CraftCanvas variant="grid" kanji="証" rounded={false} className="absolute inset-0 h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
 
           <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto pt-20">
             <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">

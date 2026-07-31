@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '../../components/base/SeoHead';
 import FadeIn from '../../components/base/FadeIn';
-import ParallaxBackground from '../../components/base/ParallaxBackground';
+import CraftCanvas from '../../components/base/CraftCanvas';
 import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
@@ -112,17 +112,9 @@ const HolyAutoPage: FC = () => {
       <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main className="w-full">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-slate-50">
-          <ParallaxBackground
-            src="https://readdy.ai/api/search-image?query=A%20master%20automotive%20coating%20craftsman%20meticulously%20polishing%20the%20hood%20of%20a%20gleaming%20black%20luxury%20sports%20car%20inside%20an%20ultra-modern%20Japanese%20detailing%20workshop%2C%20the%20paint%20surface%20showing%20mesmerizing%20mirror-like%20reflections%20of%20dramatic%20overhead%20studio%20lights%2C%20premium%20coating%20tools%20and%20digital%20paint%20thickness%20gauges%20arranged%20on%20a%20pristine%20stainless%20steel%20workbench%2C%20polished%20dark%20concrete%20floors%20reflecting%20the%20warm%20ambient%20glow%2C%20shot%20with%20professional%20Hasselblad%20medium%20format%20camera%2C%20editorial%20automotive%20photography%20style%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%2C%20cinematic%20color%20grading%20with%20rich%20teal%20and%20warm%20amber%20tones%2C%20dark%20sophisticated%20atmosphere%2C%20no%20text&width=1440&height=700&seq=holyauto-hero-pro-005&orientation=landscape"
-            alt="HOLY AUTO"
-            speed={0.35}
-            fetchPriority="high"
-            imgClassName="opacity-60"
-            overlay={
-              <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
-            }
-          />
+        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-stone-950">
+          <CraftCanvas variant="sheen" kanji="匠" rounded={false} className="absolute inset-0 h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
 
           <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto pt-20">
             <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">

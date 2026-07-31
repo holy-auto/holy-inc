@@ -121,9 +121,14 @@ const CraftCanvas: FC<CraftCanvasProps> = ({
     boxShadow: "inset 0 0 120px 24px rgba(0,0,0,0.55)",
   };
 
+  // Callers that pass their own `absolute` (full-bleed backgrounds) must not
+  // also get `relative` — Tailwind emits `.relative` after `.absolute`, so a
+  // hardcoded `relative` would win and knock the canvas back into flow.
+  const position = /(^|\s)(absolute|fixed)(\s|$)/.test(className) ? "" : "relative";
+
   return (
     <div
-      className={`relative overflow-hidden bg-stone-950 ${rounded ? "rounded-lg" : ""} ${className}`}
+      className={`${position} overflow-hidden bg-stone-950 ${rounded ? "rounded-lg" : ""} ${className}`}
       role="img"
       aria-label={title || kanji || "HOLY"}
     >
@@ -139,7 +144,9 @@ const CraftCanvas: FC<CraftCanvasProps> = ({
         </span>
       )}
       <div className="pointer-events-none absolute inset-0" style={vignetteStyle} aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-amber-400/15" aria-hidden="true" />
+      {rounded && (
+        <div className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-amber-400/15" aria-hidden="true" />
+      )}
 
       {(eyebrow || title) && (
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
