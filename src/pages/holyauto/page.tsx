@@ -622,18 +622,9 @@ const HolyAutoPage: FC = () => {
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
                   <div className="w-full md:w-2/5 relative overflow-hidden">
-                    <div className="aspect-[16/10] md:aspect-auto md:h-full bg-slate-200">
-                      <img
-                        src="https://readdy.ai/api/search-image?query=Futuristic%20holographic%20blockchain%20verification%20interface%20floating%20above%20a%20sleek%20silver%20luxury%20car%20in%20a%20premium%20showroom%2C%20glowing%20digital%20data%20streams%20and%20encrypted%20network%20nodes%20encircling%20the%20vehicle%2C%20translucent%20teal%20and%20cyan%20interface%20panels%20displaying%20vehicle%20records%2C%20ultra-modern%20automotive%20technology%20visualization%2C%20dark%20sophisticated%20showroom%20with%20dramatic%20spotlighting%20and%20reflective%20polished%20floors%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20atmosphere%20with%20neon%20teal%20accents%20against%20deep%20black%20background%2C%20no%20text&width=640&height=360&seq=holyauto-next-ledra-pro-005&orientation=landscape"
-                        alt="Ledra"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width={640}
-                        height={360}
-                      />
+                    <div className="aspect-[16/10] md:aspect-auto md:h-full">
+                      <CraftCanvas variant="grid" kanji="証" rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 md:to-white/40" />
                   </div>
 
                   {/* Content */}

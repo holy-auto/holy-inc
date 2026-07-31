@@ -577,18 +577,9 @@ const LedraPage: FC = () => {
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
                   <div className="w-full md:w-2/5 relative overflow-hidden">
-                    <div className="aspect-[16/10] md:aspect-auto md:h-full bg-slate-200">
-                      <img
-                        src="https://readdy.ai/api/search-image?query=Premium%20mobile%20car%20wash%20service%20van%20with%20professional%20equipment%20parked%20beside%20a%20gleaming%20luxury%20sedan%20at%20a%20modern%20urban%20residence%2C%20water%20droplets%20catching%20dramatic%20golden%20hour%20light%20as%20a%20uniformed%20technician%20performs%20meticulous%20hand%20washing%2C%20sleek%20branded%20service%20vehicle%20with%20polished%20chrome%20details%20and%20advanced%20cleaning%20apparatus%2C%20cinematic%20automotive%20care%20photography%2C%20professional%20commercial%20style%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%2C%20warm%20and%20cool%20lighting%20contrast%20against%20dark%20sophisticated%20background%2C%20no%20text&width=640&height=360&seq=ledra-next-mobilewash-pro-005&orientation=landscape"
-                        alt="MobileWash"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width={640}
-                        height={360}
-                      />
+                    <div className="aspect-[16/10] md:aspect-auto md:h-full">
+                      <CraftCanvas variant="ripple" kanji="洗" rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 md:to-white/40" />
                   </div>
 
                   {/* Content */}
