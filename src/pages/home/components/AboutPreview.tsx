@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import CraftCanvas from "../../../components/base/CraftCanvas";
 
 const AboutPreview: FC = () => {
   const { t } = useTranslation("common");
@@ -99,16 +100,14 @@ const AboutPreview: FC = () => {
             </div>
           </div>
 
-          {/* Image with border glow - intimate 2-person startup workshop */}
+          {/* Brand visual */}
           <div className="w-full lg:w-1/2 border-glow rounded-lg">
-            <img
-              src="https://readdy.ai/api/search-image?query=Two%20dedicated%20automotive%20craftsmen%20working%20side%20by%20side%20in%20an%20intimate%20ultra-modern%20Japanese%20detailing%20studio%2C%20one%20carefully%20inspecting%20paint%20finish%20under%20a%20precision%20LED%20lamp%20while%20the%20other%20organizes%20premium%20ceramic%20coating%20bottles%20on%20a%20pristine%20stainless%20steel%20shelf%2C%20warm%20amber%20workshop%20lighting%20casting%20soft%20dramatic%20shadows%20on%20clean%20white%20walls%2C%20professional%20tools%20neatly%20arranged%20on%20wall-mounted%20pegboards%2C%20compact%20yet%20meticulously%20organized%20startup%20workspace%2C%20polished%20concrete%20floor%20reflecting%20warm%20ambient%20glow%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%20focusing%20on%20the%20craftsmen%2C%20cinematic%20atmosphere%20with%20rich%20warm%20tones%20and%20subtle%20teal%20equipment%20accents%2C%20dark%20sophisticated%20background%2C%20no%20text&width=900&height=675&seq=holy-about-pro-006&orientation=landscape"
-              alt="HOLY Team"
-              className="w-full aspect-[4/3] object-cover rounded-lg"
-              loading="lazy"
-              width="900"
-              height="675"
-              decoding="async"
+            <CraftCanvas
+              variant="sheen"
+              kanji="匠"
+              eyebrow="Since 2024"
+              title={t("hero.companyName")}
+              className="aspect-[4/3] w-full"
             />
           </div>
         </div>
