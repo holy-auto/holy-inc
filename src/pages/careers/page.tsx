@@ -4,6 +4,7 @@ import SeoHead from '@/components/base/SeoHead';
 import CraftCanvas from "@/components/base/CraftCanvas";
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
+import { submitContactForm, collectFormFields } from '@/lib/contact';
 
 import {
   jobCategories,
@@ -347,30 +348,14 @@ export default function CareersPage() {
             ) : (
               <form
                 id="career-application"
-                data-readdy-form
-                action="https://readdy.ai/api/form/d81jvqumtmnm352pvka0"
-                method="POST"
                 onSubmit={async (e) => {
                   e.preventDefault();
                   const form = e.currentTarget;
-                  const formData = new FormData(form);
-                  const params = new URLSearchParams();
-                  formData.forEach((value, key) => {
-                    params.append(key, value as string);
-                  });
                   try {
-                    const res = await fetch(form.action, {
-                      method: "POST",
-                      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                      body: params.toString(),
-                    });
-                    if (res.ok) {
-                      setFormSubmitted(true);
-                      form.reset();
-                      setTimeout(() => setFormSubmitted(false), 5000);
-                    } else {
-                      alert(t("careers.applyError", "送信に失敗しました。時間をおいて再度お試しください。"));
-                    }
+                    await submitContactForm("careers", collectFormFields(form));
+                    setFormSubmitted(true);
+                    form.reset();
+                    setTimeout(() => setFormSubmitted(false), 5000);
                   } catch {
                     alert(t("careers.applyError", "送信に失敗しました。時間をおいて再度お試しください。"));
                   }
