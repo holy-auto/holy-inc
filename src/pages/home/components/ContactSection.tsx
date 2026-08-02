@@ -1,32 +1,25 @@
 import type { FC, FormEvent } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { submitContactForm, collectFormFields } from "@/lib/contact";
 
 const ContactSection: FC = () => {
   const { t } = useTranslation("common");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
 
     const form = e.currentTarget as HTMLFormElement;
-    const formData = new FormData(form);
 
-    fetch(form.action, {
-      method: "POST",
-      body: new URLSearchParams(formData as unknown as Record<string, string>),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    })
-      .then((res) => {
-        if (res.ok) {
-          setStatus("success");
-          form.reset();
-        } else {
-          setStatus("error");
-        }
-      })
-      .catch(() => setStatus("error"));
+    try {
+      await submitContactForm("home", collectFormFields(form));
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -49,10 +42,7 @@ const ContactSection: FC = () => {
 
         {/* Contact Form */}
         <form
-          data-readdy-form
           id="holy-contact"
-          action="https://readdy.ai/api/form/d7ub0ol8ka4otec5ptu0"
-          method="POST"
           onSubmit={handleSubmit}
           className="space-y-6"
         >
