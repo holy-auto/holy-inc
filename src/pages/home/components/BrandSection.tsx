@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import CraftCanvas, { type CraftVariant } from "../../../components/base/CraftCanvas";
 
 const BrandSection: FC = () => {
   const { t } = useTranslation("common");
@@ -17,6 +18,8 @@ const BrandSection: FC = () => {
       strokeColor: "#c05621",
       statValue: "∞",
       statLabel: "保存期間",
+      kanji: "証",
+      variant: "grid" as CraftVariant,
     },
     {
       id: "mobilewash",
@@ -27,6 +30,8 @@ const BrandSection: FC = () => {
       strokeColor: "#d97706",
       statValue: "即日",
       statLabel: "最短施工",
+      kanji: "洗",
+      variant: "ripple" as CraftVariant,
     },
     {
       id: "holy-auto",
@@ -37,6 +42,8 @@ const BrandSection: FC = () => {
       strokeColor: "#92400e",
       statValue: "3年〜",
       statLabel: "保証期間",
+      kanji: "匠",
+      variant: "sheen" as CraftVariant,
     },
   ];
 
@@ -200,26 +207,19 @@ const BrandSection: FC = () => {
                   }`}
                   style={{ transitionDelay: `${cardDelay}ms` }}
                 >
-                  {/* Image */}
+                  {/* Brand visual */}
                   <div className="w-full lg:w-1/2 border-glow rounded-lg relative group overflow-hidden">
-                    <img
-                      src={brand.id === "ledra"
-                        ? "https://readdy.ai/api/search-image?query=A%20professional%20automotive%20certification%20specialist%20in%20a%20crisp%20white%20lab%20coat%20carefully%20examining%20the%20driver-side%20door%20panel%20of%20a%20midnight-blue%20luxury%20sedan%20with%20a%20handheld%20digital%20paint%20thickness%20gauge%2C%20a%20large%20wall-mounted%20curved%20display%20behind%20him%20showing%20a%20detailed%20vehicle%20history%20timeline%20with%20blockchain%20verification%20stamps%20and%20maintenance%20records%20flowing%20vertically%2C%20the%20car%20positioned%20on%20a%20rotating%20inspection%20platform%20with%20soft%20neutral%20gray%20studio%20lighting%20from%20above%2C%20premium%20Japanese%20inspection%20facility%20with%20clean%20minimalist%20white%20walls%20and%20subtle%20ambient%20teal%20LED%20strips%20along%20the%20baseboards%2C%20organized%20diagnostic%20tablets%20and%20certification%20documents%20arranged%20on%20a%20sleek%20white%20console%20nearby%2C%20professional%20documentary%20photography%20style%20capturing%20the%20precise%20moment%20of%20quality%20verification%2C%208K%20ultra%20detailed%2C%20soft%20diffused%20lighting%2C%20warm%20and%20trustworthy%20atmosphere%20with%20clinical%20precision%2C%20no%20text&width=900&height=600&seq=holy-brand-ledra-pro-009&orientation=landscape"
-                        : brand.id === "mobilewash"
-                        ? "https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/6110ece4-0008-4a23-bce7-f90d29b87cce_ChatGPT-Image-2026513-22_11_05.png?v=c2ec3fcf89ff9f0fcd8e1209fc8bd37f"
-                        : "https://readdy.ai/api/search-image?query=Inside%20a%20meticulously%20organized%20Japanese%20automotive%20coating%20studio%2C%20a%20master%20craftsman%20wearing%20a%20fitted%20dark%20work%20apron%20and%20protective%20head%20covering%20is%20applying%20a%20final%20layer%20of%20ceramic%20sealant%20to%20the%20rear%20quarter%20panel%20of%20a%20candy-apple%20red%20premium%20coupe%20using%20a%20premium%20suede%20applicator%20block%2C%20dramatic%20side-lighting%20from%20a%20row%20of%20high-CRI%20LED%20strips%20mounted%20on%20a%20polished%20aluminum%20rail%20system%20reveals%20the%20wet%20coatings%20mirror-like%20liquid%20depth%20as%20it%20flows%20across%20the%20flawless%20paint%20surface%2C%20the%20background%20shows%20a%20complete%20coating%20workflow%20station%20with%20precisely%20labeled%20bottles%20of%20prep%20compounds%2C%20clay%20bars%2C%20and%20finishing%20polishes%20arranged%20on%20a%20carbon-fiber%20workbench%2C%20a%20professional%20dust-extraction%20system%20with%20flexible%20hose%20arms%20suspended%20from%20the%20ceiling%2C%20polished%20charcoal-gray%20concrete%20floor%20reflecting%20the%20warm%20amber%20workshop%20lights%2C%20professional%20documentary%20photography%20capturing%20the%20artisans%20concentrated%20expression%20and%20precise%20hand%20movement%2C%208K%20ultra%20detailed%2C%20cinematic%20workshop%20lighting%20with%20warm%20amber%20and%20cool%20neutral%20tones%2C%20dedicated%20craftsmanship%20atmosphere%2C%20no%20text&width=900&height=600&seq=holy-brand-auto-pro-009&orientation=landscape"
-                      }
-                      alt={brand.name}
-                      className="w-full aspect-[3/2] object-cover rounded-lg"
-                      loading="lazy"
-                      width="900"
-                      height="600"
-                      decoding="async"
+                    <CraftCanvas
+                      variant={brand.variant}
+                      kanji={brand.kanji}
+                      eyebrow={brand.name}
+                      title={brand.tagline}
+                      className="aspect-[3/2] w-full"
                     />
                     {/* Stat badge overlay */}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-slate-100 text-center">
-                      <p className="text-slate-900 font-bold text-lg leading-tight">{brand.statValue}</p>
-                      <p className="text-slate-500 text-[10px] leading-tight">{brand.statLabel}</p>
+                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-amber-400/20 text-center">
+                      <p className="text-amber-300 font-bold text-lg leading-tight">{brand.statValue}</p>
+                      <p className="text-white/60 text-[10px] leading-tight">{brand.statLabel}</p>
                     </div>
                   </div>
 

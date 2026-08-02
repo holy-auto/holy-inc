@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import CraftCanvas from "../../../components/base/CraftCanvas";
 
 const MVVSection: FC = () => {
   const { t } = useTranslation("common");
@@ -160,16 +161,14 @@ const MVVSection: FC = () => {
           </div>
         </div>
 
-        {/* Craftsmanship Photo */}
-        <div className="mb-20 rounded-lg overflow-hidden border border-slate-100">
-          <img
-            src="https://readdy.ai/api/search-image?query=Extreme%20close-up%20macro%20shot%20of%20master%20craftsman%20hands%20gently%20guiding%20a%20premium%20microfiber%20cloth%20across%20a%20flawless%20mirror-like%20ceramic%20coated%20luxury%20car%20surface%2C%20every%20paint%20reflection%20showing%20perfect%20clarity%20of%20overhead%20LED%20arrays%2C%20individual%20fabric%20fibers%20and%20water%20droplets%20visible%20in%20stunning%20detail%2C%20pristine%20bright%20workshop%20environment%20with%20soft%20cool%20ambient%20lighting%2C%20photorealistic%20texture%20emphasis%2C%20dedication%20and%20mastery%20embodied%20in%20the%20careful%20motion%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20extreme%20shallow%20depth%20of%20field%20with%20creamy%20bokeh%2C%20cinematic%20color%20grading%20with%20cool%20silver%20and%20subtle%20teal%20accent%20lighting%2C%20dark%20sophisticated%20background%2C%20no%20text&width=1440&height=500&seq=holy-mvv-pro-006&orientation=landscape"
-            alt="職人の技術"
-            className="w-full aspect-[1440/500] object-cover"
-            loading="lazy"
-            width="1440"
-            height="500"
-            decoding="async"
+        {/* Craftsmanship visual */}
+        <div className="mb-20">
+          <CraftCanvas
+            variant="thread"
+            kanji="技"
+            eyebrow="Craftsmanship"
+            title={t("mvv.missionText")}
+            className="aspect-[1440/500] w-full"
           />
         </div>
 

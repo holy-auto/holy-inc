@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '../../components/base/SeoHead';
 import FadeIn from '../../components/base/FadeIn';
-import ParallaxBackground from '../../components/base/ParallaxBackground';
+import CraftCanvas from '../../components/base/CraftCanvas';
 import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
@@ -72,7 +72,7 @@ const MobileWashPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="product"
-        ogImage="https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/de343a3c-f936-44de-b853-641c1bdee16e_ChatGPT-Image-2026514-22_14_08.png?v=c1e7617480180d33843ee74cdf1696a6"
+        ogImage="/og/og-mobilewash.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },
@@ -103,17 +103,9 @@ const MobileWashPage: FC = () => {
       <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main className="w-full">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-slate-50">
-          <ParallaxBackground
-            src="https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/de343a3c-f936-44de-b853-641c1bdee16e_ChatGPT-Image-2026514-22_14_08.png?v=c1e7617480180d33843ee74cdf1696a6"
-            alt="MobileWash"
-            speed={0.35}
-            fetchPriority="high"
-            imgClassName="opacity-60"
-            overlay={
-              <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
-            }
-          />
+        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-stone-950">
+          <CraftCanvas variant="ripple" kanji="洗" rounded={false} className="absolute inset-0 h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
 
           <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto pt-20">
             <p className="text-emerald-300 text-xs tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
@@ -636,18 +628,9 @@ const MobileWashPage: FC = () => {
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
                   <div className="w-full md:w-2/5 relative overflow-hidden">
-                    <div className="aspect-[16/10] md:aspect-auto md:h-full bg-slate-200">
-                      <img
-                        src="https://readdy.ai/api/search-image?query=Master%20automotive%20coating%20specialist%20performing%20final%20inspection%20on%20a%20mirror-finish%20luxury%20car%20inside%20an%20ultra-modern%20Japanese%20detailing%20workshop%2C%20the%20vehicle%20paint%20reflecting%20dramatic%20overhead%20studio%20lights%20in%20perfect%20clarity%2C%20premium%20coating%20equipment%20and%20digital%20measurement%20tools%20arranged%20on%20pristine%20stainless%20workbenches%2C%20dark%20polished%20concrete%20floors%20with%20warm%20ambient%20reflections%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20lighting%20with%20rich%20teal%20and%20warm%20amber%20tones%2C%20dark%20sophisticated%20atmosphere%2C%20no%20text&width=640&height=360&seq=mobilewash-next-holyauto-pro-005&orientation=landscape"
-                        alt="HOLY AUTO"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width={640}
-                        height={360}
-                      />
+                    <div className="aspect-[16/10] md:aspect-auto md:h-full">
+                      <CraftCanvas variant="sheen" kanji="匠" rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 md:to-white/40" />
                   </div>
 
                   {/* Content */}

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '../../components/base/SeoHead';
 import FadeIn from '../../components/base/FadeIn';
-import ParallaxBackground from '../../components/base/ParallaxBackground';
+import CraftCanvas from '../../components/base/CraftCanvas';
 import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
@@ -70,7 +70,7 @@ const LedraPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="product"
-        ogImage="https://readdy.ai/api/search-image?query=Abstract%20futuristic%20blockchain%20technology%20visualization%20with%20interconnected%20glowing%20nodes%20forming%20a%20secure%20digital%20network%20around%20a%20holographic%20luxury%20vehicle%20silhouette%2C%20encrypted%20data%20streams%20flowing%20through%20translucent%20geometric%20pathways%2C%20deep%20teal%20and%20electric%20cyan%20light%20trails%20against%20an%20ultra-dark%20background%2C%20premium%20automotive%20data%20security%20concept%20art%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20lighting%20with%20volumetric%20light%20rays%2C%20dark%20cyberpunk%20atmosphere%20with%20sophisticated%20color%20grading%2C%20no%20text&width=1440&height=700&seq=ledra-og-pro-005&orientation=landscape"
+        ogImage="/og/og-ledra.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },
@@ -100,17 +100,9 @@ const LedraPage: FC = () => {
       <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main className="w-full">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-slate-50">
-          <ParallaxBackground
-            src="https://readdy.ai/api/search-image?query=Abstract%20futuristic%20blockchain%20technology%20visualization%20with%20interconnected%20glowing%20nodes%20forming%20a%20secure%20digital%20network%20around%20a%20holographic%20luxury%20vehicle%20silhouette%2C%20encrypted%20data%20streams%20flowing%20through%20translucent%20geometric%20pathways%2C%20deep%20teal%20and%20electric%20cyan%20light%20trails%20against%20an%20ultra-dark%20background%2C%20premium%20automotive%20data%20security%20concept%20art%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20lighting%20with%20volumetric%20light%20rays%2C%20dark%20cyberpunk%20atmosphere%20with%20sophisticated%20color%20grading%2C%20no%20text&width=1440&height=700&seq=ledra-hero-pro-005&orientation=landscape"
-            alt="Ledra Technology"
-            speed={0.35}
-            fetchPriority="high"
-            imgClassName="opacity-60"
-            overlay={
-              <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
-            }
-          />
+        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-stone-950">
+          <CraftCanvas variant="grid" kanji="証" rounded={false} className="absolute inset-0 h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
 
           <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto pt-20">
             <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
@@ -347,16 +339,14 @@ const LedraPage: FC = () => {
                   >
                     {/* Image */}
                     <div className="w-full lg:w-1/2">
-                      <div className="rounded-lg overflow-hidden aspect-[5/3.5] bg-slate-200">
-                        <img
-                          src={useCase.imageUrl}
-                          alt={useCase.role}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                          fetchPriority="low"
-                          width={700}
-                          height={490}
+                      <div className="rounded-lg overflow-hidden aspect-[5/3.5]">
+                        <CraftCanvas
+                          variant="grid"
+                          kanji="証"
+                          eyebrow={useCase.role}
+                          title={useCase.title}
+                          rounded={false}
+                          className="h-full w-full"
                         />
                       </div>
                     </div>
@@ -585,18 +575,9 @@ const LedraPage: FC = () => {
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
                   <div className="w-full md:w-2/5 relative overflow-hidden">
-                    <div className="aspect-[16/10] md:aspect-auto md:h-full bg-slate-200">
-                      <img
-                        src="https://readdy.ai/api/search-image?query=Premium%20mobile%20car%20wash%20service%20van%20with%20professional%20equipment%20parked%20beside%20a%20gleaming%20luxury%20sedan%20at%20a%20modern%20urban%20residence%2C%20water%20droplets%20catching%20dramatic%20golden%20hour%20light%20as%20a%20uniformed%20technician%20performs%20meticulous%20hand%20washing%2C%20sleek%20branded%20service%20vehicle%20with%20polished%20chrome%20details%20and%20advanced%20cleaning%20apparatus%2C%20cinematic%20automotive%20care%20photography%2C%20professional%20commercial%20style%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%2C%20warm%20and%20cool%20lighting%20contrast%20against%20dark%20sophisticated%20background%2C%20no%20text&width=640&height=360&seq=ledra-next-mobilewash-pro-005&orientation=landscape"
-                        alt="MobileWash"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width={640}
-                        height={360}
-                      />
+                    <div className="aspect-[16/10] md:aspect-auto md:h-full">
+                      <CraftCanvas variant="ripple" kanji="洗" rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 md:to-white/40" />
                   </div>
 
                   {/* Content */}

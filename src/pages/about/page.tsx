@@ -2,6 +2,7 @@ import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '@/components/base/SeoHead';
 import FadeIn from '@/components/base/FadeIn';
+import CraftCanvas from '@/components/base/CraftCanvas';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import QualitySection from './components/QualitySection';
@@ -38,7 +39,7 @@ const AboutPage: FC = () => {
         description={t('about.seo.description')}
         keywords={t('about.seo.keywords')}
         ogType="website"
-        ogImage="https://readdy.ai/api/search-image?query=A%20small%20cozy%20Japanese%20startup%20garage%20workshop%20interior%20with%20warm%20amber%20lighting%2C%20compact%20workspace%20with%20neatly%20organized%20tools%20on%20the%20wall%2C%20one%20vehicle%20partially%20visible%2C%20humble%20two-person%20auto%20shop%20atmosphere%2C%20clean%20minimal%20design%20with%20concrete%20floor%20and%20warm%20wood%20accents%2C%20authentic%20startup%20company%20interior%20scene%2C%20suitable%20for%20website%20hero%20banner%20with%20text%20overlay%2C%20warm%20neutral%20stone%20color%20palette%2C%20no%20blue%20no%20purple&width=1440&height=900&seq=about-hero-startup-002&orientation=landscape"
+        ogImage="/og/og-about.png"
         structuredData={[
           {
             '@context': 'https://schema.org',
@@ -57,7 +58,7 @@ const AboutPage: FC = () => {
             name: '株式会社HOLY',
             alternateName: 'HOLY Inc.',
             url: baseUrl,
-            image: 'https://readdy.ai/api/search-image?query=A%20small%20cozy%20Japanese%20startup%20garage%20workshop%20interior%20with%20warm%20amber%20lighting%2C%20compact%20workspace%20with%20neatly%20organized%20tools%20on%20the%20wall%2C%20one%20vehicle%20partially%20visible%2C%20humble%20two-person%20auto%20shop%20atmosphere%2C%20clean%20minimal%20design%20with%20concrete%20floor%20and%20warm%20wood%20accents%2C%20authentic%20startup%20company%20interior%20scene%2C%20suitable%20for%20website%20hero%20banner%20with%20text%20overlay%2C%20warm%20neutral%20stone%20color%20palette%2C%20no%20blue%20no%20purple&width=1440&height=900&seq=about-hero-startup-002&orientation=landscape',
+            image: `${baseUrl}/og/og-about.png`,
             description: t('about.seo.description'),
             foundingDate: '2024-11-12',
             address: {
@@ -99,19 +100,10 @@ const AboutPage: FC = () => {
       <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main>
         {/* Page Hero */}
-        <section className="relative w-full pt-12 pb-16 md:pt-16 md:pb-24 bg-slate-50">
+        <section className="relative w-full pt-12 pb-16 md:pt-16 md:pb-24 bg-stone-950 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <img
-              src="https://readdy.ai/api/search-image?query=A%20small%20cozy%20Japanese%20startup%20garage%20workshop%20interior%20with%20warm%20amber%20lighting%2C%20compact%20workspace%20with%20neatly%20organized%20tools%20on%20the%20wall%2C%20one%20vehicle%20partially%20visible%2C%20humble%20two-person%20auto%20shop%20atmosphere%2C%20clean%20minimal%20design%20with%20concrete%20floor%20and%20warm%20wood%20accents%2C%20authentic%20startup%20company%20interior%20scene%2C%20suitable%20for%20website%20hero%20banner%20with%20text%20overlay%2C%20warm%20neutral%20stone%20color%20palette%2C%20no%20blue%20no%20purple&width=1440&height=900&seq=about-hero-startup-002&orientation=landscape"
-              alt=""
-              className="w-full h-full object-cover opacity-55"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              width={1440}
-              height={900}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
+            <CraftCanvas variant="thread" kanji="誠" rounded={false} className="absolute inset-0 h-full w-full" />
+            <div className="absolute inset-0 bg-gradient-to-b from-stone-950/40 via-stone-950/20 to-stone-950/60" />
           </div>
 
           <div className="relative z-10 px-6 md:px-10 max-w-6xl mx-auto">
@@ -158,17 +150,8 @@ const AboutPage: FC = () => {
               {/* Image */}
               <div className="w-full lg:w-2/5">
                 <FadeIn delay={200} direction="right">
-                  <div className="rounded-lg overflow-hidden aspect-[3/4] bg-slate-200">
-                    <img
-                      src="https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/eee0256c-cd9f-4da9-aeab-09c744539aa5_IMG_0882.jpg?v=845e635276c2bcb01ffcfc92126df646"
-                      alt={t('about.greeting.representative')}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
-                      width={450}
-                      height={600}
-                    />
+                  <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
+                    <CraftCanvas variant="thread" kanji="誠" rounded={false} className="absolute inset-0 h-full w-full" />
                   </div>
                 </FadeIn>
               </div>

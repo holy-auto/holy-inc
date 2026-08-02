@@ -187,6 +187,61 @@
   animation: scroll-dot 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
+/* ==========================================================================
+   Hero — "一線" (the line that continues)
+   Cinematic sumi-dark hero. Motion is layered to read as a short story:
+   overline → headline reveal → the thread draws → nodes ignite → CTA.
+   All motion is opt-in via .hero-anim and disabled under reduced-motion.
+   ========================================================================== */
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(1.1rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* The luminous thread drawing across the canvas */
+@keyframes hero-draw-x {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* A node igniting on the thread */
+@keyframes hero-ignite {
+  0%   { opacity: 0; transform: scale(0.2); }
+  60%  { opacity: 1; transform: scale(1.35); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Soft halo breathing around lit nodes */
+@keyframes hero-halo {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.85; }
+}
+
+/* Vertical scroll hairline pulse */
+@keyframes hero-scroll {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0.2; }
+  40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  60%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.2; }
+}
+
+.hero-anim { animation-fill-mode: both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
 /* Pin drop animation for map cards */
 @keyframes pin-drop {
   0% {

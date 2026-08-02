@@ -107,6 +107,15 @@ export default {
     vision: "Skills become assets.",
     viewBrands: "View Brands",
     contactUs: "Contact Us",
+    headlineA: "Passing the craft",
+    headlineB: "to the next.",
+    lead: "One craft, carried into the next era. Across coating, car wash and certification, we turn a craftsman's work into a lasting asset.",
+    pillarsLabel: "Three Businesses",
+    autoDesc: "Detailing & Coating",
+    washDesc: "Mobile Car Wash",
+    ledraDesc: "Proof of Craft",
+    aboutLink: "About HOLY",
+    since: "Since 2024 ・ Kita-Aoyama, Tokyo",
   },
 
   // MVV

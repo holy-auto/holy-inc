@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '../../components/base/SeoHead';
 import FadeIn from '../../components/base/FadeIn';
-import ParallaxBackground from '../../components/base/ParallaxBackground';
+import CraftCanvas from '../../components/base/CraftCanvas';
 import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
@@ -74,7 +74,7 @@ const HolyAutoPage: FC = () => {
         description={seo.description}
         keywords={seo.keywords}
         ogType="product"
-        ogImage="https://readdy.ai/api/search-image?query=A%20master%20automotive%20coating%20craftsman%20meticulously%20polishing%20the%20hood%20of%20a%20gleaming%20black%20luxury%20sports%20car%20inside%20an%20ultra-modern%20Japanese%20detailing%20workshop%2C%20the%20paint%20surface%20showing%20mesmerizing%20mirror-like%20reflections%20of%20dramatic%20overhead%20studio%20lights%2C%20premium%20coating%20tools%20and%20digital%20paint%20thickness%20gauges%20arranged%20on%20a%20pristine%20stainless%20steel%20workbench%2C%20polished%20dark%20concrete%20floors%20reflecting%20the%20warm%20ambient%20glow%2C%20shot%20with%20professional%20Hasselblad%20medium%20format%20camera%2C%20editorial%20automotive%20photography%20style%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%2C%20cinematic%20color%20grading%20with%20rich%20teal%20and%20warm%20amber%20tones%2C%20dark%20sophisticated%20atmosphere%2C%20no%20text&width=1440&height=700&seq=holyauto-og-pro-005&orientation=landscape"
+        ogImage="/og/og-holyauto.png"
         structuredData={[
           buildBreadcrumbJsonLd(baseUrl, [
             { name: 'ホーム', path: '/' },
@@ -112,17 +112,9 @@ const HolyAutoPage: FC = () => {
       <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main className="w-full">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-slate-50">
-          <ParallaxBackground
-            src="https://readdy.ai/api/search-image?query=A%20master%20automotive%20coating%20craftsman%20meticulously%20polishing%20the%20hood%20of%20a%20gleaming%20black%20luxury%20sports%20car%20inside%20an%20ultra-modern%20Japanese%20detailing%20workshop%2C%20the%20paint%20surface%20showing%20mesmerizing%20mirror-like%20reflections%20of%20dramatic%20overhead%20studio%20lights%2C%20premium%20coating%20tools%20and%20digital%20paint%20thickness%20gauges%20arranged%20on%20a%20pristine%20stainless%20steel%20workbench%2C%20polished%20dark%20concrete%20floors%20reflecting%20the%20warm%20ambient%20glow%2C%20shot%20with%20professional%20Hasselblad%20medium%20format%20camera%2C%20editorial%20automotive%20photography%20style%2C%208K%20ultra%20detailed%2C%20shallow%20depth%20of%20field%2C%20cinematic%20color%20grading%20with%20rich%20teal%20and%20warm%20amber%20tones%2C%20dark%20sophisticated%20atmosphere%2C%20no%20text&width=1440&height=700&seq=holyauto-hero-pro-005&orientation=landscape"
-            alt="HOLY AUTO"
-            speed={0.35}
-            fetchPriority="high"
-            imgClassName="opacity-60"
-            overlay={
-              <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
-            }
-          />
+        <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-stone-950">
+          <CraftCanvas variant="sheen" kanji="匠" rounded={false} className="absolute inset-0 h-full w-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
 
           <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto pt-20">
             <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
@@ -268,16 +260,14 @@ const HolyAutoPage: FC = () => {
                   >
                     {/* Image */}
                     <div className="w-full lg:w-1/2">
-                      <div className="rounded-lg overflow-hidden aspect-[5/3.5] bg-slate-200">
-                        <img
-                          src={service.imageUrl}
-                          alt={service.name}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
-                          fetchPriority="low"
-                          width={700}
-                          height={490}
+                      <div className="rounded-lg overflow-hidden aspect-[5/3.5]">
+                        <CraftCanvas
+                          variant="sheen"
+                          kanji={service.id === 'coating' ? '光' : service.id === 'film' ? '護' : service.id === 'training' ? '継' : '匠'}
+                          eyebrow="HOLY AUTO"
+                          title={service.name}
+                          rounded={false}
+                          className="h-full w-full"
                         />
                       </div>
                     </div>
@@ -630,18 +620,9 @@ const HolyAutoPage: FC = () => {
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
                   <div className="w-full md:w-2/5 relative overflow-hidden">
-                    <div className="aspect-[16/10] md:aspect-auto md:h-full bg-slate-200">
-                      <img
-                        src="https://readdy.ai/api/search-image?query=Futuristic%20holographic%20blockchain%20verification%20interface%20floating%20above%20a%20sleek%20silver%20luxury%20car%20in%20a%20premium%20showroom%2C%20glowing%20digital%20data%20streams%20and%20encrypted%20network%20nodes%20encircling%20the%20vehicle%2C%20translucent%20teal%20and%20cyan%20interface%20panels%20displaying%20vehicle%20records%2C%20ultra-modern%20automotive%20technology%20visualization%2C%20dark%20sophisticated%20showroom%20with%20dramatic%20spotlighting%20and%20reflective%20polished%20floors%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20cinematic%20atmosphere%20with%20neon%20teal%20accents%20against%20deep%20black%20background%2C%20no%20text&width=640&height=360&seq=holyauto-next-ledra-pro-005&orientation=landscape"
-                        alt="Ledra"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width={640}
-                        height={360}
-                      />
+                    <div className="aspect-[16/10] md:aspect-auto md:h-full">
+                      <CraftCanvas variant="grid" kanji="証" rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 md:to-white/40" />
                   </div>
 
                   {/* Content */}

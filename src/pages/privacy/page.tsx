@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '@/components/base/SeoHead';
 import FadeIn from '@/components/base/FadeIn';
+import CraftCanvas from '@/components/base/CraftCanvas';
 
 interface PrivacySection {
   num: string;
@@ -27,24 +28,18 @@ const PrivacyPage: FC = () => {
         keywords={seo.keywords}
         ogType="website"
         noindex={true}
-        ogImage="https://readdy.ai/api/search-image?query=Abstract%20minimalist%20data%20privacy%20concept%20with%20shield%20and%20lock%20symbols%20in%20a%20cool%20neutral%20studio%20environment%20subtle%20teal%20lighting%20clean%20corporate%20editorial%20photography%20slate%20and%20steel%20blue%20tones%20professional%20security%20visualization%20high%20quality%20background%20image%20with%20soft%20gradients&width=1400&height=500&seq=privacy-hero-002&orientation=landscape"
+        ogImage="/og/og-default.png"
       />
       <main>
         {/* Hero */}
-        <section className="relative bg-slate-50 text-slate-900 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src="https://readdy.ai/api/search-image?query=Abstract%20minimalist%20data%20privacy%20concept%20with%20shield%20and%20lock%20symbols%20in%20a%20cool%20neutral%20studio%20environment%2C%20subtle%20teal%20lighting%2C%20clean%20corporate%20editorial%20photography%2C%20slate%20and%20steel%20blue%20tones%2C%20professional%20security%20visualization%2C%20high%20quality%20background%20image%20with%20soft%20gradients&width=1400&height=500&seq=privacy-hero-002&orientation=landscape"
-              alt=""
-              className="w-full h-full object-cover opacity-55"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              width={1400}
-              height={500}
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/15 to-white/40" />
+        <section className="relative bg-stone-950 text-slate-900 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+          <CraftCanvas
+            variant="thread"
+            kanji="信"
+            rounded={false}
+            className="absolute inset-0 h-full w-full"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
           <div className="relative w-full px-6 md:px-10 max-w-4xl mx-auto text-center">
             <p className="text-teal-300 text-sm tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
               {t('privacy.hero.label')}

@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import FadeIn from '@/components/base/FadeIn';
+import CraftCanvas from '@/components/base/CraftCanvas';
 
 const TeamSection: FC = () => {
   const { t } = useTranslation('common');
@@ -37,14 +38,9 @@ const TeamSection: FC = () => {
               {(team.members as Array<{ name: string; role: string; bio: string; initials?: string }>)?.map((member, index) => (
                 <div key={member.name} className="bg-white rounded-lg p-5 border border-slate-200 flex items-start gap-4">
                   {index === 0 ? (
-                    <img
-                      src="https://storage.readdy-site.link/project_files/234865a6-4360-473d-8e75-b35b617c3eae/eee0256c-cd9f-4da9-aeab-09c744539aa5_IMG_0882.jpg?v=845e635276c2bcb01ffcfc92126df646"
-                      alt={member.name}
-                      className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                      loading="lazy"
-                      width={64}
-                      height={64}
-                    />
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                      <CraftCanvas variant="thread" kanji="人" rounded={false} className="absolute inset-0 h-full w-full" />
+                    </div>
                   ) : (
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-teal-700 flex items-center justify-center text-white text-lg font-bold flex-shrink-0">
                       {member.initials || 'H'}
