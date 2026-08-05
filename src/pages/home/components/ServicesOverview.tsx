@@ -7,7 +7,7 @@ const services = [
     id: "holy-auto",
     icon: "ri-car-line",
     keywordsKey: "servicesOverview.holyautoKeywords",
-    href: "/holy-auto",
+    href: "https://holy-auto.com",
     color: "#78716c",
     bgGlow: "from-slate-100 to-slate-50",
     iconBg: "bg-slate-100",
@@ -17,7 +17,7 @@ const services = [
     id: "mobilewash",
     icon: "ri-drop-line",
     keywordsKey: "servicesOverview.mobilewashKeywords",
-    href: "/mobilewash",
+    href: "https://mobilewash.jp",
     color: "#d97706",
     bgGlow: "from-cyan-50/50 to-white",
     iconBg: "bg-cyan-50",
@@ -27,7 +27,7 @@ const services = [
     id: "ledra",
     icon: "ri-shield-check-line",
     keywordsKey: "servicesOverview.ledraKeywords",
-    href: "/ledra",
+    href: "https://ledra.co.jp",
     color: "#c05621",
     bgGlow: "from-accent-teal/5 to-white",
     iconBg: "bg-accent-teal/10",
@@ -81,6 +81,8 @@ const ServicesOverview: FC = () => {
               <a
                 key={svc.id}
                 href={svc.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`group relative flex flex-col bg-white rounded-xl border border-slate-100 p-6 md:p-8 transition-all duration-500 hover:border-slate-200 hover:shadow-lg cursor-pointer ${
                   isVisible
                     ? "opacity-100 translate-y-0"
@@ -131,8 +133,8 @@ const ServicesOverview: FC = () => {
                   {/* CTA */}
                   <div className="mt-auto flex items-center gap-1.5 text-sm font-medium" style={{ color: svc.color }}>
                     <span>{t("ui.viewDetails")}</span>
-                    <span className="w-4 h-4 flex items-center justify-center group-hover:translate-x-1 transition-transform duration-200">
-                      <i className="ri-arrow-right-line" />
+                    <span className="w-4 h-4 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                      <i className="ri-external-link-line" />
                     </span>
                   </div>
                 </div>
