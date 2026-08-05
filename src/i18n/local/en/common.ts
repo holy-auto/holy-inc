@@ -537,8 +537,8 @@ export default {
     },
     access: {
       title: "Access",
-      subtitle: "Access routes from the nearest station and store locations.",
-      mapAriaLabel: "Map of HOLY AUTO Ginza Main Store",
+      subtitle: "Location of and access to our workshop in Koga.",
+      mapAriaLabel: "Map of HOLY AUTO Workshop (Koga)",
       routeSearch: "Search route on Google Maps",
     },
     inquiryTypes: [
@@ -561,7 +561,7 @@ export default {
       { question: "Is coating estimation free?", answer: "Yes, HOLY AUTO construction estimates are completely free. We will propose the optimal plan after checking the vehicle model, year, and current paint condition. We also accept in-store and on-site appraisals." },
       { question: "Which areas does MobileWash cover?", answer: "We currently cover Tokyo 23 wards, Kanagawa Prefecture (Yokohama / Kawasaki area), Chiba Prefecture (Funabashi / Kashiwa area), and Saitama Prefecture (Saitama City area). For corporate contracts, areas outside the above are also available for individual consultation." },
       { question: "How long does it take to implement the Ledra blockchain certification system?", answer: "The standard implementation period is approximately 2 to 4 weeks. After contract signing, we handle system initial setup, technician registration, and workflow adjustment, with a dedicated support person until completion." },
-      { question: "Where should I leave my vehicle during construction?", answer: "Please bring your vehicle to a HOLY AUTO store (Ginza, Shinjuku, or Shibuya). The duration is approximately 1 to 5 days depending on the construction content. Loaner cars are also available, so please consult in advance." },
+      { question: "Where should I leave my vehicle during construction?", answer: "Please bring your vehicle to the HOLY AUTO workshop in Koga, Ibaraki. The duration is approximately 1 to 5 days depending on the construction content. Loaner cars are also available, so please consult in advance." },
       { question: "How soon will I hear back after career entry?", answer: "You will be contacted by a representative via email or phone within 5 business days after entry. If you pass the document screening, we will guide you to an online or in-person interview." },
       { question: "What is the warranty period for PPF?", answer: "HOLY AUTO's PPF construction includes a quality guarantee of up to 5 years. If peeling, yellowing, or bubbling occurs at the construction site, we will re-construct free of charge. Warranty details are listed in the certificate provided at the time of construction." },
       { question: "How can I make my staff Ledra-certified technicians?", answer: "By registering as a partner store, your technicians can be guided to the Ledra certification program. The course is free, and a certification (NFT) is issued after passing online training and practical examinations." },
@@ -583,28 +583,12 @@ export default {
     ],
     stores: [
       {
-        name: "HOLY AUTO Ginza Main Store",
-        address: "3F Arcube Aoyama, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo",
-        access: "3 min walk from Aoyama-itchome Station (Tokyo Metro Ginza / Hanzomon Line)",
+        name: "HOLY AUTO Workshop (Koga)",
+        address: "623-1 Maebayashi, Koga, Ibaraki",
+        access: "About 10 min by car from Koga Station (JR Tohoku / Utsunomiya Line)",
         phone: "03-4363-3234",
         hours: "Mon-Fri 9:00-18:00 / Sat 10:00-17:00",
-        services: ["Glass Coating", "PPF Installation", "Technical Training"],
-      },
-      {
-        name: "HOLY AUTO Shinjuku Store",
-        address: "B1F HOLY Bldg., 2-8-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
-        access: "8 min walk from JR Shinjuku Station West Exit / 3 min walk from Nishi-Shinjuku Station (Tokyo Metro Marunouchi Line)",
-        phone: "03-2345-6789",
-        hours: "Mon-Fri 9:00-19:00 / Sat 10:00-18:00",
-        services: ["Glass Coating", "PPF Installation", "Technical Training"],
-      },
-      {
-        name: "HOLY AUTO Shibuya Store",
-        address: "3F HOLY Center, 1-1-1 Jinnan, Shibuya-ku, Tokyo",
-        access: "5 min walk from Shibuya Station (Tokyo Metro Ginza Line / JR)",
-        phone: "03-3456-7890",
-        hours: "Mon-Fri 10:00-20:00 / Sat-Sun 10:00-18:00",
-        services: ["Glass Coating", "Mobile Wash Reception"],
+        services: ["Custom Work", "Glass Coating", "PPF Installation"],
       },
     ],
     form: {
@@ -635,7 +619,7 @@ export default {
       channels: [
         { id: "web", title: "Web Form", description: "Available 24/7. Select an inquiry type and fill in the required fields.", icon: "ri-computer-line", action: "Contact via Form", href: "#contact-form" },
         { id: "phone", title: "Phone", description: "Available Mon-Fri 9:00-18:00, Sat 10:00-17:00. Best for urgent consultations and detailed discussions.", icon: "ri-phone-line", action: "03-4363-3234", href: "tel:03-4363-3234" },
-        { id: "visit", title: "In-Store Consultation", description: "Visit HOLY AUTO Ginza, Shinjuku, or Shibuya stores to consult while viewing the actual workshop environment.", icon: "ri-store-line", action: "View Store Info", href: "#stores" },
+        { id: "visit", title: "In-Store Consultation", description: "Visit our workshop in Koga to consult while viewing the actual construction environment (by appointment).", icon: "ri-store-line", action: "View Store Info", href: "#stores" },
         { id: "email", title: "Email", description: "Convenient when detailed documents or multiple photos need to be attached. Available 24/7.", icon: "ri-mail-line", action: "info@holy-inc.jp", href: "mailto:info@holy-inc.jp" },
       ],
     },
@@ -1082,7 +1066,7 @@ export default {
   brandHolyauto: {
     seo: {
       title: "HOLY AUTO | Custom · Coating · PPF · Technical Training | HOLY Inc.",
-      description: "HOLY AUTO offers custom work, coating, paint protection film (PPF), and technical training. The origin of HOLY that embodies craftsmen's skills and integrity. Accepting appointments at Ginza, Shinjuku, and Shibuya stores.",
+      description: "HOLY AUTO offers custom work, coating, paint protection film (PPF), and technical training. The origin of HOLY that embodies craftsmen's skills and integrity. Construction handled at our workshop in Koga, Ibaraki.",
       keywords: "HOLY AUTO, custom work, coating, PPF, paint protection film, technical training, glass coating, Tokyo",
       structuredDataName: "HOLY AUTO",
       structuredDataDesc: "Automotive custom work, coating, paint protection film installation, and technical training.",
