@@ -2,7 +2,6 @@ import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '@/components/base/SeoHead';
 import FadeIn from '@/components/base/FadeIn';
-import CraftCanvas from '@/components/base/CraftCanvas';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import QualitySection from './components/QualitySection';
@@ -99,28 +98,27 @@ const AboutPage: FC = () => {
 
       <main>
         {/* Page Hero */}
-        <section className="relative w-full pt-28 pb-16 md:pt-32 md:pb-24 bg-stone-950 overflow-hidden">
+        <section className="relative w-full pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden">
           <Breadcrumb variant="overlay" />
           <div className="absolute inset-0 overflow-hidden">
-            <CraftCanvas variant="thread" kanji="誠" rounded={false} className="absolute inset-0 h-full w-full" />
-            <div className="absolute inset-0 bg-gradient-to-b from-stone-950/40 via-stone-950/20 to-stone-950/60" />
+            <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">誠</span>
           </div>
 
           <div className="relative z-10 px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
-              <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+              <p className="text-[color:var(--neu-accent)] text-xs tracking-[0.3em] uppercase mb-3">
                 {t('about.hero.label')}
               </p>
-              <h1 className="text-white text-3xl md:text-5xl font-bold tracking-wide mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] [text-shadow:_0_1px_12px_rgba(0,0,0,0.3),_0_1px_2px_rgba(0,0,0,0.5)]">
+              <h1 className="text-[color:var(--neu-ink)] text-3xl md:text-5xl font-bold tracking-wide mb-4">
                 {t('about.hero.title')}
               </h1>
-              <div className="w-12 h-px bg-teal-300" />
+              <div className="w-12 h-px bg-[color:var(--neu-accent)]" />
             </FadeIn>
           </div>
         </section>
 
         {/* Greeting / Philosophy */}
-        <section id="message" className="w-full py-16 md:py-24 bg-white">
+        <section id="message" className="w-full py-16 md:py-24">
           <div className="px-6 md:px-10 max-w-6xl mx-auto">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
               {/* Message */}
@@ -151,7 +149,7 @@ const AboutPage: FC = () => {
               <div className="w-full lg:w-2/5">
                 <FadeIn delay={200} direction="right">
                   <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
-                    <CraftCanvas variant="thread" kanji="誠" rounded={false} className="absolute inset-0 h-full w-full" />
+                    <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">誠</span>
                   </div>
                 </FadeIn>
               </div>
@@ -175,7 +173,7 @@ const AboutPage: FC = () => {
             </FadeIn>
 
             <FadeIn delay={150}>
-              <div className="bg-white rounded-lg border border-slate-100 overflow-hidden">
+              <div className="neu-card rounded-[20px] overflow-hidden">
                 <table className="w-full text-sm">
                   <tbody>
                     {companyRows.map((item, index) => {
@@ -284,7 +282,7 @@ const AboutPage: FC = () => {
               <div className="w-12 h-px bg-teal-400 mx-auto mb-10" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div className="bg-white rounded-lg p-8 border border-slate-200">
+                <div className="bg-white rounded-lg p-8">
                   <p className="text-teal-600 text-xs font-bold tracking-[0.2em] uppercase mb-3">
                     {t('section.mission')}
                   </p>
@@ -292,7 +290,7 @@ const AboutPage: FC = () => {
                     {t('about.mvvRecap.mission')}
                   </h3>
                 </div>
-                <div className="bg-white rounded-lg p-8 border border-slate-200">
+                <div className="bg-white rounded-lg p-8">
                   <p className="text-teal-600 text-xs font-bold tracking-[0.2em] uppercase mb-3">
                     {t('section.vision')}
                   </p>
@@ -304,7 +302,7 @@ const AboutPage: FC = () => {
 
               <a
                 href="/"
-                className="inline-flex items-center gap-2 border border-slate-200 hover:border-teal-400 hover:text-teal-600 text-slate-800 px-8 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-2 hover:border-teal-400 hover:text-teal-600 text-slate-800 px-8 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap"
               >
                 {t('about.mvvRecap.backToTop')}
                 <span className="w-4 h-4 flex items-center justify-center">

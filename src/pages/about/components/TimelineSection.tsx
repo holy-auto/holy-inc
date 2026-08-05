@@ -135,7 +135,7 @@ const TimelineSection: FC = () => {
   const timelineEvents = t('about.timeline.events', { returnObjects: true }) as Array<TimelineEvent>;
 
   return (
-    <section id="history" className="w-full py-16 md:py-24 bg-white overflow-hidden">
+    <section id="history" className="w-full py-16 md:py-24 overflow-hidden">
       <div className="px-6 md:px-10 max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <p className="text-amber-600 text-xs tracking-[0.3em] uppercase mb-3">

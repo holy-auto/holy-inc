@@ -18,7 +18,7 @@ const StoreList: FC = () => {
       {stores.map((store) => (
         <div
           key={store.name}
-          className="bg-white rounded-lg border border-slate-100 p-5 hover:border-teal-300 transition-colors"
+          className="neu-card rounded-[20px] p-5 hover:border-teal-300 transition-colors"
         >
           <h3 className="font-bold text-slate-800 mb-3">{store.name}</h3>
           <div className="space-y-2 text-sm">

@@ -42,9 +42,9 @@ export default function Breadcrumb({ customCrumbs, className = '', variant = 'ba
     ? `absolute top-0 inset-x-0 z-20 px-6 md:px-10 pt-20 md:pt-24 ${className}`
     : `py-3 px-6 md:px-10 ${className}`;
 
-  const listClass = overlay
-    ? 'flex items-center gap-2 text-xs flex-wrap max-w-6xl mx-auto text-white/70 [text-shadow:_0_1px_3px_rgba(0,0,0,0.6)]'
-    : 'flex items-center gap-2 text-xs flex-wrap text-slate-500';
+  // Heroes are now the light matte material, so overlay crumbs read in ink.
+  const listClass = 'flex items-center gap-2 text-xs flex-wrap max-w-6xl mx-auto text-slate-500';
+  void overlay;
 
   return (
     <nav aria-label="Breadcrumb" className={navClass}>
@@ -54,27 +54,18 @@ export default function Breadcrumb({ customCrumbs, className = '', variant = 'ba
           return (
             <li key={crumb.path} className="flex items-center gap-2">
               {index > 0 && (
-                <span
-                  className={`w-4 h-4 flex items-center justify-center ${
-                    overlay ? 'text-white/50' : 'text-slate-500'
-                  }`}
-                >
+                <span className="w-4 h-4 flex items-center justify-center text-slate-400">
                   <i className="ri-arrow-right-s-line" />
                 </span>
               )}
               {isLast ? (
-                <span
-                  className={overlay ? 'text-white font-medium' : 'text-slate-600 font-medium'}
-                  aria-current="page"
-                >
+                <span className="text-slate-600 font-medium" aria-current="page">
                   {crumb.name}
                 </span>
               ) : (
                 <a
                   href={crumb.path}
-                  className={`whitespace-nowrap transition-colors ${
-                    overlay ? 'hover:text-white' : 'hover:text-teal-600'
-                  }`}
+                  className="whitespace-nowrap transition-colors hover:text-accent-teal"
                 >
                   {crumb.name}
                 </a>

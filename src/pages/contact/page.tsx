@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '@/components/base/SeoHead';
-import CraftCanvas from "@/components/base/CraftCanvas";
 import FadeIn from '@/components/base/FadeIn';
 import MapCard from '@/components/feature/MapCard';
 import ContactForm from './components/ContactForm';
@@ -86,20 +85,19 @@ const ContactPage: FC = () => {
       />
       <main>
         {/* Hero */}
-        <section className="relative bg-stone-950 text-slate-900 pt-28 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+        <section className="relative text-slate-900 pt-28 pb-20 md:pt-32 md:pb-28 overflow-hidden">
           <Breadcrumb variant="overlay" />
           <div className="absolute inset-0">
-            <CraftCanvas variant="thread" kanji="縁" rounded={false} className="absolute inset-0 h-full w-full" />
+            <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">縁</span>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
           <div className="relative w-full px-6 md:px-10 max-w-4xl mx-auto text-center">
-            <p className="text-teal-300 text-sm tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+            <p className="text-[color:var(--neu-accent)] text-sm tracking-[0.3em] uppercase mb-4">
               {t('contact.hero.label')}
             </p>
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] [text-shadow:_0_1px_12px_rgba(0,0,0,0.3),_0_1px_2px_rgba(0,0,0,0.5)]">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[color:var(--neu-ink)]">
               {t('contact.hero.title')}
             </h1>
-            <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]">
+            <p className="text-[color:var(--neu-muted)] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               {t('contact.hero.subtitle')}
             </p>
           </div>

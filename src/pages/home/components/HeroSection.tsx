@@ -56,9 +56,6 @@ const HeroSection: FC = () => {
             <span className="text-xs md:text-sm tracking-[0.35em] font-medium" style={{ color: "var(--neu-accent)" }}>
               {t("hero.companyName")}
             </span>
-            <span className="text-[11px] tracking-[0.25em] hidden sm:inline" style={{ color: "var(--neu-faint)" }}>
-              {t("hero.since")}
-            </span>
           </div>
 
           {/* Headline */}

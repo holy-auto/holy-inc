@@ -33,7 +33,7 @@ const ContactForm: FC = () => {
     <form
       id="contact-form"
       onSubmit={handleSubmit}
-      className="bg-white rounded-lg border border-slate-100 p-6 md:p-8"
+      className="neu-card rounded-[20px] p-6 md:p-8"
     >
       {status === 'success' && (
         <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-md text-emerald-700 text-sm">
@@ -67,7 +67,7 @@ const ContactForm: FC = () => {
             type="text"
             required
             placeholder={formLabels.namePlaceholder}
-            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+            className="w-full px-4 py-2.5 bg-slate-50 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
           />
         </div>
 
@@ -82,7 +82,7 @@ const ContactForm: FC = () => {
             type="email"
             required
             placeholder={formLabels.emailPlaceholder}
-            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+            className="w-full px-4 py-2.5 bg-slate-50 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
           />
         </div>
 
@@ -96,7 +96,7 @@ const ContactForm: FC = () => {
             name="phone"
             type="tel"
             placeholder={formLabels.phonePlaceholder}
-            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+            className="w-full px-4 py-2.5 bg-slate-50 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
           />
         </div>
 
@@ -109,7 +109,7 @@ const ContactForm: FC = () => {
             id="inquiry_type"
             name="inquiry_type"
             required
-            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-800 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+            className="w-full px-4 py-2.5 bg-slate-50 rounded-md text-sm text-slate-800 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
           >
             <option value="">{formLabels.selectPlaceholder}</option>
             {inquiryTypes.map((t) => (
@@ -128,7 +128,7 @@ const ContactForm: FC = () => {
           <select
             id="contact_method"
             name="contact_method"
-            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-800 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+            className="w-full px-4 py-2.5 bg-slate-50 rounded-md text-sm text-slate-800 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
           >
             {contactMethods.map((m) => (
               <option key={m.value} value={m.value}>
@@ -151,7 +151,7 @@ const ContactForm: FC = () => {
             maxLength={500}
             placeholder={formLabels.messagePlaceholder}
             onChange={(e) => setCharCount(e.target.value.length)}
-            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors resize-none"
+            className="w-full px-4 py-2.5 bg-slate-50 rounded-md text-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors resize-none"
           />
           <p className="text-xs text-slate-500 mt-1 text-right">
             {formLabels.charCount?.replace('{count}', String(charCount))}

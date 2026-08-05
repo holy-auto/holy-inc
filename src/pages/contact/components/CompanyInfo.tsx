@@ -11,7 +11,7 @@ const CompanyInfo: FC = () => {
   const infoRows = t('contact.companyRows', { returnObjects: true }) as CompanyRow[];
 
   return (
-    <div className="bg-white rounded-lg border border-slate-100 overflow-hidden">
+    <div className="neu-card rounded-[20px] overflow-hidden">
       {infoRows.map((row, i) => (
         <div
           key={row.label}
