@@ -262,7 +262,7 @@ export default {
       founded: "November 12, 2024",
       capital: "100,000 JPY",
       representative: "Yusuke Horikoshi, CEO",
-      employees: "2",
+      employees: "1 (representative)",
       address: "3F Arcube Aoyama, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo",
       workplace: "623-1 Maebayashi, Koga, Ibaraki",
       access: "3 min walk from Aoyama-itchome Station, Tokyo Metro Ginza/Hanzomon Line",
@@ -318,11 +318,11 @@ export default {
     },
     team: {
       label: "Team",
-      heading: "Technicians & the Supporting Team",
-      subtitle: "HOLY is comprised of 2 employees. The representative and technician work together on daily operations and business development.",
+      heading: "The Representative & Supporting Structure",
+      subtitle: "HOLY is run by its sole representative. From hands-on construction to business development, everything is handled directly.",
       stats: [
-        { value: "2", label: "Employees" },
-        { value: "100%", label: "Technician Ratio" },
+        { value: "1", label: "Member" },
+        { value: "3", label: "Business Brands" },
         { value: "Startup", label: "Growth Stage" },
         { value: "100%", label: "Customer Satisfaction" },
       ],
@@ -336,7 +336,6 @@ export default {
       leadershipHeading: "Leadership Team",
       members: [
         { name: "Yusuke Horikoshi", role: "CEO", bio: "Under the vision of 'turning skills into assets,' he combines proof and trust mechanisms with the hands-on work of craftsmen to create new value standards for the automotive industry.", initials: "YH" },
-        { name: "HOLY Technician", role: "Senior Technician / CTO", bio: "Leveraging years of field experience, he oversees all HOLY AUTO construction. He passionately mentors junior staff and serves as the core of skill succession.", initials: "CT" },
       ],
     },
   },
@@ -576,7 +575,7 @@ export default {
       { label: "Address", value: "3F Arcube Aoyama, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo" },
       { label: "CEO", value: "Yusuke Horikoshi" },
       { label: "Capital", value: "100,000 JPY" },
-      { label: "Employees", value: "2" },
+      { label: "Employees", value: "1 (representative)" },
       { label: "Business", value: "Automotive custom work, coating, PPF installation, mobile car wash, blockchain certification infrastructure (LEDRA), technical training" },
       { label: "Phone", value: "03-4363-3234" },
       { label: "Email", value: "info@holy-inc.jp" },
@@ -657,7 +656,7 @@ export default {
   careers: {
     seo: {
       title: "Careers | HOLY Inc. - Founding Team Members Wanted",
-      description: "HOLY Inc. is a 2-year-old startup. We're looking for coating technicians, engineers, and sales/operations staff. Join our 2-person team and help build the business.",
+      description: "HOLY Inc. is a 2-year-old startup. We're looking for coating technicians, engineers, and sales/operations staff. Join our one-person team and help build the business.",
       keywords: "HOLY, careers, jobs, startup, coating technician, engineer, sales, automotive, Tokyo, Aoyama",
       structuredDataName: "Careers | HOLY Inc.",
       structuredDataDesc: "HOLY's careers page. Looking for founding team members to build the company together.",
@@ -665,7 +664,7 @@ export default {
     },
     heroSubtitle: "Careers",
     heroTitle: "Careers",
-    heroDesc: "HOLY is a startup founded in November 2024. With the CEO and one technician, we run three businesses: HOLY-AUTO, LEDRA, and MobileWash. We're now looking for teammates to help build these businesses from the ground up.",
+    heroDesc: "HOLY is a startup founded in November 2024. Currently a one-person team, the CEO runs three businesses: HOLY-AUTO, LEDRA, and MobileWash. We're now looking for teammates to help build these businesses from the ground up.",
     cultureLabel: "Culture",
     cultureTitle: "What It Means to Work at HOLY",
     categoriesLabel: "Job Categories",
@@ -696,14 +695,14 @@ export default {
     hero: {
       label: "Careers",
       title: "Careers",
-      subtitle1: "Your strength for our 2-person team",
-      subtitle2: "HOLY is a startup founded in November 2024. With the CEO and one technician, we run three businesses: HOLY-AUTO, LEDRA, and MobileWash. We're now looking for teammates to help build these businesses from the ground up.",
+      subtitle1: "Your strength for our one-person team",
+      subtitle2: "HOLY is a startup founded in November 2024. Currently a one-person team, the CEO runs three businesses: HOLY-AUTO, LEDRA, and MobileWash. We're now looking for teammates to help build these businesses from the ground up.",
       viewJobs: "View Open Positions",
       apply: "Apply Now",
     },
     stats: [
       { value: "Nov 2024", label: "Founded" },
-      { value: "2 people", label: "Current Team" },
+      { value: "1 person", label: "Current Team" },
       { value: "3 brands", label: "Businesses" },
     ],
     culture: {
@@ -744,12 +743,12 @@ export default {
     jobs: {
       label: "Open Positions",
       title: "Open Positions",
-      subtitle: "We need your strength for our 2-person team. Won't you join us as a founding member and build the company together?",
+      subtitle: "We need your strength for our one-person team. Won't you join us as a founding member and build the company together?",
       all: "All",
       categories: [
         { id: "technician", name: "Technicians", description: "Polish your skills alongside the CEO at our automotive coating and film workshop", icon: "ri-brush-line" },
         { id: "digital", name: "Digital & Engineering", description: "Develop Ledra, our website, and systems. Make a big impact on a small team", icon: "ri-code-s-slash-line" },
-        { id: "business", name: "Sales & Operations", description: "Corporate sales, customer service, and brand operations. The indispensable support our 2-person team needs", icon: "ri-customer-service-2-line" },
+        { id: "business", name: "Sales & Operations", description: "Corporate sales, customer service, and brand operations. The indispensable support our one-person team needs", icon: "ri-customer-service-2-line" },
       ],
       openings: [
         {
@@ -778,7 +777,7 @@ export default {
           category: "Sales & Operations",
           type: "Full-time",
           location: "Minato-ku, Tokyo (with business trips)",
-          description: "Handle corporate sales (MobileWash fleet contracts, Ledra introductions) and internal operations (office work, customer service, SNS management). For a 2-person team, this 'unsung hero' role is the most needed position.",
+          description: "Handle corporate sales (MobileWash fleet contracts, Ledra introductions) and internal operations (office work, customer service, SNS management). For a one-person team, this 'unsung hero' role is the most needed position.",
           requirements: ["1+ years experience in B2B sales or customer service/operations in the service industry", "Basic proficiency in Excel, Word, and PowerPoint", "Interest in managing SNS (Instagram, X) welcome", "Standard driver's license"],
           idealCandidate: "Someone who loves talking to people and wants to be the 'glue' of a small team",
         },

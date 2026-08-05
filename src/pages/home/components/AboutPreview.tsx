@@ -25,10 +25,10 @@ const AboutPreview: FC = () => {
   }, []);
 
   return (
-    <section id="about" ref={ref} className="relative w-full py-20 md:py-28 bg-white overflow-hidden">
+    <section id="about" ref={ref} className="relative w-full py-20 md:py-28 overflow-hidden">
       {/* CSS-only background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-amber-400/5 via-transparent to-transparent" />
+      
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-teal-400/5 via-transparent to-transparent" />
       {/* Shimmer overlay */}
       <div className="absolute inset-0 shimmer-gradient animate-shimmer opacity-20" />
 
@@ -55,7 +55,7 @@ const AboutPreview: FC = () => {
               </div>
               <div className="group">
                 <p className="text-accent-teal text-2xl md:text-3xl font-bold tabular-nums transition-transform duration-300 group-hover:scale-110">
-                  2
+                  1
                 </p>
                 <p className="text-slate-400 text-xs mt-1">{t("aboutPreview.stat2Label")}</p>
               </div>
@@ -69,7 +69,7 @@ const AboutPreview: FC = () => {
 
             <a
               href="/about"
-              className="inline-flex items-center gap-2 border border-slate-200 hover:border-accent-teal/50 hover:text-accent-teal text-slate-800 px-6 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(0,212,170,0.15)]"
+              className="neu-btn px-6 py-3 rounded-full text-sm tracking-wide"
             >
               {t("aboutPreview.viewAbout")}
               <span className="w-4 h-4 flex items-center justify-center">
@@ -78,7 +78,7 @@ const AboutPreview: FC = () => {
             </a>
 
             {/* 3-Brand CTA */}
-            <div className="mt-8 p-5 md:p-6 bg-gradient-to-br from-accent-teal/5 to-cyan-50/50 border border-accent-teal/20 rounded-lg">
+            <div className="mt-8 p-5 md:p-6 neu-card rounded-[22px]">
               <p className="text-accent-teal text-xs font-bold tracking-[0.2em] uppercase mb-2">
                 3 BRAND COLLABORATION
               </p>
@@ -90,7 +90,7 @@ const AboutPreview: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-accent-teal hover:bg-accent-teal/90 text-white px-6 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(0,212,170,0.25)]"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(85, 96, 227,0.25)]"
               >
                 {t("aboutPreview.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">
@@ -100,14 +100,14 @@ const AboutPreview: FC = () => {
             </div>
           </div>
 
-          {/* Brand visual */}
-          <div className="w-full lg:w-1/2 border-glow rounded-lg">
+          {/* Brand visual — recessed inset screen */}
+          <div className="w-full lg:w-1/2 neu-well p-2.5 md:p-3 rounded-[28px]">
             <CraftCanvas
               variant="sheen"
               kanji="匠"
               eyebrow="Since 2024"
               title={t("hero.companyName")}
-              className="aspect-[4/3] w-full"
+              className="aspect-[4/3] w-full rounded-[20px] overflow-hidden"
             />
           </div>
         </div>

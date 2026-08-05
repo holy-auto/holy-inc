@@ -18,7 +18,7 @@ const services = [
     icon: "ri-drop-line",
     keywordsKey: "servicesOverview.mobilewashKeywords",
     href: "https://mobilewash.jp",
-    color: "#d97706",
+    color: "#5560e3",
     bgGlow: "from-cyan-50/50 to-white",
     iconBg: "bg-cyan-50",
     taglineKey: "brandData.mobilewash.tagline",
@@ -59,7 +59,7 @@ const ServicesOverview: FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-16 md:py-20 bg-white"
+      className="w-full py-16 md:py-20"
     >
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
@@ -83,7 +83,7 @@ const ServicesOverview: FC = () => {
                 href={svc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative flex flex-col bg-white rounded-xl border border-slate-100 p-6 md:p-8 transition-all duration-500 hover:border-slate-200 hover:shadow-lg cursor-pointer ${
+                className={`group relative flex flex-col neu-card rounded-[22px] p-6 md:p-8 transition-all duration-500 cursor-pointer ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
@@ -163,7 +163,7 @@ const ServicesOverview: FC = () => {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-accent-teal hover:bg-accent-teal/90 text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary text-sm font-medium px-6 py-3 rounded-lg transition-colors duration-200 whitespace-nowrap"
             >
               {t("servicesOverview.collaborationCta")}
               <span className="w-4 h-4 flex items-center justify-center">

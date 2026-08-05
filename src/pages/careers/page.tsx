@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SeoHead from '@/components/base/SeoHead';
-import CraftCanvas from "@/components/base/CraftCanvas";
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
 import { submitContactForm, collectFormFields } from '@/lib/contact';
@@ -119,23 +118,22 @@ export default function CareersPage() {
           ...jobPostingSchemas,
         ]}
       />
-      <Breadcrumb className="bg-white border-b border-slate-100" />
 
       {/* Hero */}
-      <section className="relative h-[480px] md:h-[600px] overflow-hidden pt-16 bg-stone-950">
+      <section className="relative h-[480px] md:h-[600px] overflow-hidden pt-16">
+        <Breadcrumb variant="overlay" />
         <div className="absolute inset-0">
-          <CraftCanvas variant="thread" kanji="志" rounded={false} className="absolute inset-0 h-full w-full" />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
+          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">志</span>
         </div>
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <FadeIn>
-            <p className="text-teal-300 text-xs md:text-sm tracking-[0.25em] uppercase mb-4 font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+            <p className="text-[color:var(--neu-accent)] text-xs md:text-sm tracking-[0.25em] uppercase mb-4 font-medium">
               {t("careers.heroSubtitle", "Careers")}
             </p>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] [text-shadow:_0_1px_12px_rgba(0,0,0,0.3),_0_1px_2px_rgba(0,0,0,0.5)]">
+            <h1 className="text-3xl md:text-5xl font-bold text-[color:var(--neu-ink)] mb-4 tracking-tight leading-tight">
               {t("careers.heroTitle", "技術を、次の誰かに")}
             </h1>
-            <p className="text-white/85 text-sm md:text-base max-w-2xl leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]">
+            <p className="text-[color:var(--neu-muted)] text-sm md:text-base max-w-2xl leading-relaxed">
               {t("careers.heroDesc", "HOLYは「施工技術者」の会社です。あなたの技術を、記録に残し、次の世代に伝える。誇り高き職人として、共に成長しませんか。")}
             </p>
           </FadeIn>
@@ -143,7 +141,7 @@ export default function CareersPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-3 gap-4 md:gap-8">
             {careerStats.map((stat, i) => (
@@ -168,7 +166,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {culturePoints.map((pt, i) => (
               <FadeIn key={pt.title} delay={i * 100}>
-                <div className="bg-white rounded-lg p-5 md:p-6 border border-slate-100 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-lg p-5 md:p-6 transition-shadow">
                   <h3 className="text-sm md:text-base font-bold text-slate-800 mb-2">{pt.title}</h3>
                   <p className="text-xs md:text-sm text-slate-500 leading-relaxed">{pt.description}</p>
                 </div>
@@ -179,7 +177,7 @@ export default function CareersPage() {
       </section>
 
       {/* Job Categories */}
-      <section className="py-14 md:py-20 bg-white">
+      <section className="py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-10">
           <FadeIn>
             <p className="text-teal-600 text-xs tracking-[0.2em] uppercase mb-3 font-medium text-center">{t("careers.categoriesLabel", "Job Categories")}</p>
@@ -189,7 +187,7 @@ export default function CareersPage() {
             {jobCategories.map((cat, i) => (
               <FadeIn key={cat.id} delay={i * 100}>
                 <div
-                  className={`bg-slate-50 rounded-lg p-5 md:p-6 border transition-all cursor-pointer ${
+                  className={`neu-card rounded-[20px] p-5 md:p-6 border transition-all cursor-pointer ${
                     activeCategory === cat.id ? "border-teal-400 ring-1 ring-teal-400" : "border-slate-100 hover:border-teal-200"
                   }`}
                   onClick={() => setActiveCategory(activeCategory === cat.id ? "all" : cat.id)}
@@ -227,7 +225,7 @@ export default function CareersPage() {
           <div className="space-y-3 md:space-y-4">
             {filteredJobs.map((job, i) => (
               <FadeIn key={job.id} delay={i * 80}>
-                <div className="bg-white rounded-lg border border-slate-100 overflow-hidden hover:shadow-sm transition-shadow">
+                <div className="neu-card rounded-[20px] overflow-hidden hover:shadow-sm transition-shadow">
                   <button
                     className="w-full text-left p-4 md:p-5 flex items-start justify-between gap-3"
                     onClick={() => setExpandedJob(expandedJob === job.id ? null : job.id)}
@@ -286,7 +284,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {trainingPrograms.map((prog, i) => (
               <FadeIn key={prog.id} delay={i * 100}>
-                <div className="bg-white rounded-lg p-5 md:p-6 border border-slate-100 h-full hover:shadow-sm transition-shadow">
+                <div className="bg-white rounded-lg p-5 md:p-6 h-full hover:shadow-sm transition-shadow">
                   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 text-teal-600 mb-3">
                     <i className={`${prog.icon} text-lg`} />
                   </div>
@@ -301,7 +299,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-14 md:py-20 bg-white">
+      <section className="py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-10">
           <FadeIn>
             <p className="text-teal-600 text-xs tracking-[0.2em] uppercase mb-3 font-medium text-center">{t("careers.benefitsLabel", "Benefits")}</p>
@@ -310,7 +308,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {benefits.map((b, i) => (
               <FadeIn key={b.id} delay={i * 80}>
-                <div className="flex gap-3 md:gap-4 p-4 md:p-5 rounded-lg border border-slate-100 hover:border-teal-200 transition-colors">
+                <div className="flex gap-3 md:gap-4 p-4 md:p-5 rounded-lg hover:border-teal-200 transition-colors">
                   <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-teal-50 text-teal-600">
                     <i className={`${b.icon} text-lg`} />
                   </div>
@@ -360,7 +358,7 @@ export default function CareersPage() {
                     alert(t("careers.applyError", "送信に失敗しました。時間をおいて再度お試しください。"));
                   }
                 }}
-                className="bg-white rounded-lg p-5 md:p-8 border border-slate-100 space-y-4 md:space-y-5"
+                className="bg-white rounded-lg p-5 md:p-8 space-y-4 md:space-y-5"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -369,7 +367,7 @@ export default function CareersPage() {
                       type="text"
                       name="name"
                       required
-                      className="w-full px-3 py-2.5 rounded-md border border-slate-200 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
                       placeholder={t("careers.formNamePlaceholder", "山田 太郎")}
                     />
                   </div>
@@ -379,7 +377,7 @@ export default function CareersPage() {
                       type="email"
                       name="email"
                       required
-                      className="w-full px-3 py-2.5 rounded-md border border-slate-200 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
                       placeholder="example@email.com"
                     />
                   </div>
@@ -390,7 +388,7 @@ export default function CareersPage() {
                     <input
                       type="tel"
                       name="phone"
-                      className="w-full px-3 py-2.5 rounded-md border border-slate-200 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
                       placeholder="090-1234-5678"
                     />
                   </div>
@@ -399,7 +397,7 @@ export default function CareersPage() {
                     <select
                       name="position"
                       required
-                      className="w-full px-3 py-2.5 rounded-md border border-slate-200 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors bg-white"
+                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors bg-white"
                     >
                       <option value="">{t("careers.formPositionPlaceholder", "選択してください")}</option>
                       {jobOpenings.map((j) => (
@@ -415,7 +413,7 @@ export default function CareersPage() {
                     rows={4}
                     maxLength={500}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-md border border-slate-200 text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors resize-none"
+                    className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors resize-none"
                     placeholder={t("careers.formMessagePlaceholder", "ご自由にご記入ください")}
                   />
                   <p className="text-right text-xs text-slate-500 mt-1">{formData.message.length}/500</p>

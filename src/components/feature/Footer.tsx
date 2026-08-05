@@ -4,7 +4,7 @@ export default function Footer() {
   const { t } = useTranslation("common");
 
   return (
-    <footer className="bg-slate-50 text-slate-600">
+    <footer className="text-slate-600 shadow-[inset_0_12px_24px_-16px_rgba(163,177,198,0.7)]">
       {/* Main Footer */}
       <div className="w-full px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -23,7 +23,7 @@ export default function Footer() {
               <a
                 href="#"
                 rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-accent-teal/10 text-slate-500 hover:text-accent-teal transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
                 aria-label="Instagram"
               >
                 <i className="ri-instagram-line text-lg" />
@@ -31,7 +31,7 @@ export default function Footer() {
               <a
                 href="#"
                 rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-accent-teal/10 text-slate-500 hover:text-accent-teal transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
                 aria-label="X (Twitter)"
               >
                 <i className="ri-twitter-x-line text-lg" />
@@ -39,7 +39,7 @@ export default function Footer() {
               <a
                 href="#"
                 rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-accent-teal/10 text-slate-500 hover:text-accent-teal transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
                 aria-label="YouTube"
               >
                 <i className="ri-youtube-line text-lg" />
@@ -47,7 +47,7 @@ export default function Footer() {
               <a
                 href="#"
                 rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-accent-teal/10 text-slate-500 hover:text-accent-teal transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
                 aria-label="LinkedIn"
               >
                 <i className="ri-linkedin-line text-lg" />
@@ -131,7 +131,7 @@ export default function Footer() {
                   {t("footer.entry")}
                 </a>
               </li>
-              <li className="pt-2 border-t border-slate-200">
+              <li className="pt-2 border-t border-[rgba(163,177,198,0.25)]">
                 <p className="text-slate-400 text-xs mb-1">{t("footer.phoneLabel")}</p>
                 <a href="tel:03-4363-3234" className="text-slate-900 text-sm font-medium hover:text-accent-teal transition-colors whitespace-nowrap">
                   03-4363-3234
@@ -144,7 +144,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-200">
+      <div className="border-t border-[rgba(163,177,198,0.25)]">
         <div className="w-full px-6 md:px-10 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-400">
             {t("footer.copyright")}

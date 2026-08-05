@@ -27,7 +27,7 @@ const BrandSection: FC = () => {
       tagline: t("brandData.mobilewash.tagline"),
       description: t("brandData.mobilewash.description"),
       features: [t("brandData.mobilewash.features.0"), t("brandData.mobilewash.features.1"), t("brandData.mobilewash.features.2")],
-      strokeColor: "#d97706",
+      strokeColor: "#5560e3",
       statValue: "即日",
       statLabel: "最短施工",
       kanji: "洗",
@@ -39,7 +39,7 @@ const BrandSection: FC = () => {
       tagline: t("brandData.holyauto.tagline"),
       description: t("brandData.holyauto.description"),
       features: [t("brandData.holyauto.features.0"), t("brandData.holyauto.features.1"), t("brandData.holyauto.features.2")],
-      strokeColor: "#92400e",
+      strokeColor: "#3b45b3",
       statValue: "3年〜",
       statLabel: "保証期間",
       kanji: "匠",
@@ -53,7 +53,7 @@ const BrandSection: FC = () => {
       title: t("brandsSection.flowStep1"),
       desc: t("brandsSection.flowStep1Desc"),
       icon: "ri-tools-line",
-      color: "#92400e",
+      color: "#3b45b3",
     },
     {
       step: "02",
@@ -67,7 +67,7 @@ const BrandSection: FC = () => {
       title: t("brandsSection.flowStep3"),
       desc: t("brandsSection.flowStep3Desc"),
       icon: "ri-drop-line",
-      color: "#d97706",
+      color: "#5560e3",
     },
   ];
 
@@ -90,7 +90,7 @@ const BrandSection: FC = () => {
   }, []);
 
   return (
-    <section id="brands" ref={sectionRef} className="w-full py-20 md:py-28 bg-white">
+    <section id="brands" ref={sectionRef} className="w-full py-20 md:py-28">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-14">
@@ -116,7 +116,7 @@ const BrandSection: FC = () => {
           </p>
           <div className="col-span-3 grid grid-cols-3 gap-4 md:gap-8">
             {impactStats.map((stat, i) => (
-              <div key={i} className="text-center p-4 md:p-6 bg-slate-50 rounded-lg">
+              <div key={i} className="text-center p-4 md:p-6 neu-card rounded-[20px]">
                 <p className="text-slate-900 text-2xl md:text-3xl font-bold mb-1 tracking-tight">{stat.value}</p>
                 <p className="text-slate-500 text-xs md:text-sm">{stat.label}</p>
               </div>
@@ -152,7 +152,7 @@ const BrandSection: FC = () => {
                       {step.step}
                     </div>
                     {/* Icon badge */}
-                    <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm border border-slate-100">
+                    <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
                       <span className="w-4 h-4 flex items-center justify-center">
                         <i className={`${step.icon} text-sm`} style={{ color: step.color }} />
                       </span>
@@ -183,7 +183,7 @@ const BrandSection: FC = () => {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-accent-teal hover:bg-accent-teal/90 text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary text-sm font-medium px-6 py-3 rounded-lg transition-colors duration-200 whitespace-nowrap"
             >
               {t("brandsSection.flowCta")}
               <span className="w-4 h-4 flex items-center justify-center">
@@ -217,8 +217,8 @@ const BrandSection: FC = () => {
                       className="aspect-[3/2] w-full"
                     />
                     {/* Stat badge overlay */}
-                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-amber-400/20 text-center">
-                      <p className="text-amber-300 font-bold text-lg leading-tight">{brand.statValue}</p>
+                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-teal-400/20 text-center">
+                      <p className="text-teal-300 font-bold text-lg leading-tight">{brand.statValue}</p>
                       <p className="text-white/60 text-[10px] leading-tight">{brand.statLabel}</p>
                     </div>
                   </div>
@@ -310,10 +310,10 @@ const BrandSection: FC = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
               {/* Step 1 — HOLY AUTO */}
-              <div className="flex-1 bg-slate-50 rounded-lg p-6 md:p-8 text-center relative">
+              <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(146, 64, 14, 0.12)" }}>
                   <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-tools-line text-lg" style={{ color: "#92400e" }} />
+                    <i className="ri-tools-line text-lg" style={{ color: "#3b45b3" }} />
                   </span>
                 </div>
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[2].name}</p>
@@ -327,7 +327,7 @@ const BrandSection: FC = () => {
               </div>
 
               {/* Step 2 — Ledra */}
-              <div className="flex-1 bg-slate-50 rounded-lg p-6 md:p-8 text-center relative md:mx-2 my-2 md:my-0">
+              <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative md:mx-2 my-2 md:my-0">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(192, 86, 33, 0.12)" }}>
                   <span className="w-6 h-6 flex items-center justify-center">
                     <i className="ri-shield-check-line text-lg" style={{ color: "#c05621" }} />
@@ -350,10 +350,10 @@ const BrandSection: FC = () => {
               </div>
 
               {/* Step 3 — MobileWash */}
-              <div className="flex-1 bg-slate-50 rounded-lg p-6 md:p-8 text-center relative">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(217, 119, 6, 0.12)" }}>
+              <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(85, 96, 227, 0.12)" }}>
                   <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-drop-line text-lg" style={{ color: "#d97706" }} />
+                    <i className="ri-drop-line text-lg" style={{ color: "#5560e3" }} />
                   </span>
                 </div>
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[1].name}</p>

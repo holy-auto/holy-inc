@@ -61,10 +61,10 @@ const SectionConnector: FC<SectionConnectorProps> = ({
   }, [delay, animate]);
 
   const colorMap: Record<string, { light: string; dark: string }> = {
-    teal: { light: '#fcd34d', dark: '#b45309' },
-    emerald: { light: '#fcd34d', dark: '#b45309' },
+    teal: { light: '#a3abf3', dark: '#4550d3' },
+    emerald: { light: '#a3abf3', dark: '#4550d3' },
     slate: { light: '#d6d3d1', dark: '#78716c' },
-    sky: { light: '#fde68a', dark: '#d97706' },
+    sky: { light: '#c4caf9', dark: '#5560e3' },
     default: { light: '#e7e5e4', dark: '#57534e' },
   };
 

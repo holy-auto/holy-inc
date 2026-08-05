@@ -16,7 +16,7 @@ export const companyInfo: CompanyInfo = {
   founded: '2024年11月12日',
   capital: '10万円',
   representative: '代表取締役 堀越 友輔',
-  employees: '2名',
+  employees: '1名（代表）',
   business: [
     '自動車カスタム・コーティング・フィルム施工・技術講習（HOLY-AUTO）',
     '車両履歴・技術証明インフラ（LEDRA）',

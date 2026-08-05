@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import SeoHead from '@/components/base/SeoHead';
 import FadeIn from '@/components/base/FadeIn';
-import CraftCanvas from '@/components/base/CraftCanvas';
 
 interface TermsSection {
   num: string;
@@ -33,19 +32,13 @@ const TermsPage: FC = () => {
       />
       <main>
         {/* Hero */}
-        <section className="relative bg-stone-950 text-slate-900 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-          <CraftCanvas
-            variant="thread"
-            kanji="信"
-            rounded={false}
-            className="absolute inset-0 h-full w-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
+        <section className="relative text-slate-900 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">信</span>
           <div className="relative w-full px-6 md:px-10 max-w-4xl mx-auto text-center">
-            <p className="text-teal-300 text-sm tracking-[0.3em] uppercase mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+            <p className="text-[color:var(--neu-accent)] text-sm tracking-[0.3em] uppercase mb-4">
               {t('terms.hero.label')}
             </p>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] [text-shadow:_0_1px_12px_rgba(0,0,0,0.3),_0_1px_2px_rgba(0,0,0,0.5)]">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[color:var(--neu-ink)]">
               {t('terms.hero.title')}
             </h1>
           </div>
@@ -89,7 +82,7 @@ const TermsPage: FC = () => {
                     <p className="text-slate-600 leading-relaxed mt-4">{section.outro}</p>
                   )}
                   {(section.contactName || section.phone || section.email) && (
-                    <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 mt-4">
+                    <div className="neu-card rounded-[20px] p-5 mt-4">
                       {section.contactName && (
                         <p className="text-sm text-slate-700"><strong>{section.contactName}</strong></p>
                       )}
@@ -109,7 +102,7 @@ const TermsPage: FC = () => {
               <div className="mt-12 pt-8 border-t border-slate-100 text-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 border border-slate-200 hover:border-teal-400 text-slate-600 hover:text-teal-600 text-sm font-medium rounded-md transition-colors whitespace-nowrap"
+                  className="inline-flex items-center justify-center px-8 py-3 hover:border-teal-400 text-slate-600 hover:text-teal-600 text-sm font-medium rounded-md transition-colors whitespace-nowrap"
                 >
                   {t('terms.contactBtn')}
                 </a>

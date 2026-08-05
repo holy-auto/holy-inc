@@ -8,68 +8,68 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Override teal with warm amber scale for unified warm tone
+        // Soft UI (demo) palette — indigo accent scale (was warm amber)
         teal: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
+          50: '#eef0ff',
+          100: '#e0e3fd',
+          200: '#c4caf9',
+          300: '#a3abf3',
+          400: '#818dea',
+          500: '#5560e3',
+          600: '#4550d3',
+          700: '#3b45b3',
+          800: '#333b8f',
+          900: '#2d3470',
+          950: '#1b2046',
         },
-        // Override slate with warm stone neutrals
+        // Cool blue-grey neutrals to match the #e0e5ec matte
         slate: {
-          50: '#fafaf9',
-          100: '#f5f5f4',
-          200: '#e7e5e4',
-          300: '#d6d3d1',
-          400: '#a8a29e',
-          500: '#78716c',
-          600: '#57534e',
-          700: '#44403c',
-          800: '#292524',
-          900: '#1c1917',
-          950: '#0c0a09',
+          50: '#f5f7fa',
+          100: '#e9edf3',
+          200: '#d5dce8',
+          300: '#b6c0d1',
+          400: '#8b95a8',
+          500: '#5d6678',
+          600: '#49515f',
+          700: '#3a4150',
+          800: '#2a303d',
+          900: '#1a1e28',
+          950: '#0e1117',
         },
-        // Override emerald with warm olive/gold
+        // Indigo scale (mirrors teal)
         emerald: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
+          50: '#eef0ff',
+          100: '#e0e3fd',
+          200: '#c4caf9',
+          300: '#a3abf3',
+          400: '#818dea',
+          500: '#5560e3',
+          600: '#4550d3',
+          700: '#3b45b3',
+          800: '#333b8f',
+          900: '#2d3470',
+          950: '#1b2046',
         },
-        // Override cyan with warm amber
+        // Indigo scale (mirrors teal)
         cyan: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
+          50: '#eef0ff',
+          100: '#e0e3fd',
+          200: '#c4caf9',
+          300: '#a3abf3',
+          400: '#818dea',
+          500: '#5560e3',
+          600: '#4550d3',
+          700: '#3b45b3',
+          800: '#333b8f',
+          900: '#2d3470',
+          950: '#1b2046',
         },
-        // Accent palette — warm unified
+        // Accent palette — indigo unified
         accent: {
-          teal: '#c05621',   // amber-700 — primary warm accent
-          orange: '#ff6b35',
-          cyan: '#f59e0b',   // amber-500
-          gold: '#fbbf24',   // amber-400
+          teal: '#5560e3',   // primary indigo accent
+          orange: '#7c86e8',
+          cyan: '#4550d3',
+          gold: '#818dea',
         },
         mclaren: {
           orange: '#ff7f32',

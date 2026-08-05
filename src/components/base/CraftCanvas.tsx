@@ -27,7 +27,7 @@ interface CraftCanvasProps {
   rounded?: boolean;
 }
 
-const AMBER = "#fbbf24";
+const AMBER = "#818dea";
 
 const Motif: FC<{ variant: CraftVariant }> = ({ variant }) => {
   if (variant === "grid") {
@@ -115,7 +115,7 @@ const CraftCanvas: FC<CraftCanvasProps> = ({
 }) => {
   const emberStyle: CSSProperties = {
     background:
-      "radial-gradient(120% 90% at 50% 120%, rgba(217,119,6,0.28), rgba(217,119,6,0.06) 40%, transparent 66%)",
+      "radial-gradient(120% 90% at 50% 120%, rgba(85,96,227,0.28), rgba(85,96,227,0.06) 40%, transparent 66%)",
   };
   const vignetteStyle: CSSProperties = {
     boxShadow: "inset 0 0 120px 24px rgba(0,0,0,0.55)",
@@ -145,13 +145,13 @@ const CraftCanvas: FC<CraftCanvasProps> = ({
       )}
       <div className="pointer-events-none absolute inset-0" style={vignetteStyle} aria-hidden="true" />
       {rounded && (
-        <div className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-amber-400/15" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-teal-400/15" aria-hidden="true" />
       )}
 
       {(eyebrow || title) && (
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
           {eyebrow && (
-            <span className="mb-1.5 text-[11px] tracking-[0.3em] uppercase text-amber-300/80">{eyebrow}</span>
+            <span className="mb-1.5 text-[11px] tracking-[0.3em] uppercase text-teal-300/80">{eyebrow}</span>
           )}
           {title && (
             <span className="font-serif text-xl md:text-2xl text-white/90 leading-snug">{title}</span>

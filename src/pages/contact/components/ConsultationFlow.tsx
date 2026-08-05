@@ -13,7 +13,7 @@ const ConsultationFlow: FC = () => {
   }>;
 
   return (
-    <section className="w-full py-16 md:py-20 bg-slate-50">
+    <section className="w-full py-16 md:py-20">
       <div className="px-6 md:px-10 max-w-5xl mx-auto">
         <FadeIn>
           <p className="text-teal-600 text-xs tracking-[0.3em] uppercase mb-3">

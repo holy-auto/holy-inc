@@ -15,7 +15,7 @@ const ContactGuidance: FC = () => {
   }>;
 
   return (
-    <section className="w-full py-16 md:py-20 bg-white">
+    <section className="w-full py-16 md:py-20">
       <div className="px-6 md:px-10 max-w-6xl mx-auto">
         <FadeIn>
           <p className="text-teal-600 text-xs tracking-[0.3em] uppercase mb-3">
@@ -33,7 +33,7 @@ const ContactGuidance: FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {channels.map((channel, index) => (
             <FadeIn key={channel.id} delay={100 * (index + 1)}>
-              <div className="bg-slate-50 rounded-lg p-6 border border-slate-100 h-full hover:border-teal-300 transition-colors">
+              <div className="neu-card rounded-[20px] p-6 h-full hover:border-teal-300 transition-colors">
                 <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 mb-4">
                   <i className={`${channel.icon} text-teal-500 text-lg`} />
                 </div>

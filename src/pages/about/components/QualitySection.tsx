@@ -52,14 +52,14 @@ const QualitySection: FC = () => {
   }, [items.length]);
 
   return (
-    <section ref={sectionRef} className="w-full py-16 md:py-24 bg-slate-900">
+    <section ref={sectionRef} className="w-full py-16 md:py-24">
       <div className="px-6 md:px-10 max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16">
           <p className="text-teal-400 text-xs tracking-[0.3em] uppercase mb-3">
             {quality.label as string}
           </p>
-          <h2 className="text-white text-2xl md:text-4xl font-bold tracking-wide mb-4">
+          <h2 className="text-slate-900 text-2xl md:text-4xl font-bold tracking-wide mb-4">
             {quality.heading as string}
           </h2>
           <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl">
@@ -78,7 +78,7 @@ const QualitySection: FC = () => {
               <div
                 key={item.id}
                 data-index={index}
-                className={`quality-card group relative rounded-xl overflow-hidden cursor-pointer transition-all duration-700 ${
+                className={`quality-card group relative rounded-[20px] overflow-hidden cursor-pointer neu-raised transition-all duration-700 ${
                   visible[index]
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
