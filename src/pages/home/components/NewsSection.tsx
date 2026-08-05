@@ -17,7 +17,7 @@ const NewsSection: FC = () => {
   const items = (t("homeNews.items", { returnObjects: true }) as NewsItem[]) || [];
 
   return (
-    <section id="news" className="w-full py-16 md:py-24 bg-stone-50">
+    <section id="news" className="w-full py-16 md:py-24">
       <div className="w-full px-6 md:px-10 max-w-4xl mx-auto">
         <div className="mb-10 md:mb-12">
           <p className="text-accent-teal text-xs tracking-[0.3em] uppercase mb-2">

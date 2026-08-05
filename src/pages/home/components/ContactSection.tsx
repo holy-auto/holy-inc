@@ -23,7 +23,7 @@ const ContactSection: FC = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-20 md:py-28 bg-white relative overflow-hidden">
+    <section id="contact" className="w-full py-20 md:py-28 relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent pointer-events-none" />
 
@@ -56,7 +56,7 @@ const ContactSection: FC = () => {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-3 bg-white border border-slate-200 rounded-md text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-accent-teal/50 focus:shadow-[0_0_15px_rgba(0,212,170,0.1)] transition-all"
+                className="w-full px-4 py-3 neu-input text-sm"
                 placeholder={t("form.namePlaceholder")}
               />
             </div>
@@ -69,7 +69,7 @@ const ContactSection: FC = () => {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 bg-white border border-slate-200 rounded-md text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-accent-teal/50 focus:shadow-[0_0_15px_rgba(0,212,170,0.1)] transition-all"
+                className="w-full px-4 py-3 neu-input text-sm"
                 placeholder={t("form.emailPlaceholder")}
               />
             </div>
@@ -83,7 +83,7 @@ const ContactSection: FC = () => {
               type="text"
               id="company"
               name="company"
-              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-md text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-accent-teal/50 focus:shadow-[0_0_15px_rgba(0,212,170,0.1)] transition-all"
+              className="w-full px-4 py-3 neu-input text-sm"
               placeholder={t("form.companyPlaceholder")}
             />
           </div>
@@ -95,7 +95,7 @@ const ContactSection: FC = () => {
             <select
               id="subject"
               name="subject"
-              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-md text-sm text-slate-900 focus:outline-none focus:border-accent-teal/50 focus:shadow-[0_0_15px_rgba(0,212,170,0.1)] transition-all"
+              className="w-full px-4 py-3 neu-input text-sm"
             >
               <option value="" className="bg-white text-slate-500">{t("form.subjectPlaceholder")}</option>
               <option value="ledra" className="bg-white">{t("form.ledraSubject")}</option>
@@ -117,7 +117,7 @@ const ContactSection: FC = () => {
               required
               rows={5}
               maxLength={500}
-              className="w-full px-4 py-3 bg-white border border-slate-200 rounded-md text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-accent-teal/50 focus:shadow-[0_0_15px_rgba(0,212,170,0.1)] transition-all resize-none"
+              className="w-full px-4 py-3 neu-input text-sm resize-none"
               placeholder={t("form.messagePlaceholder")}
             />
             <p className="text-slate-400 text-xs mt-1 text-right">{t("form.messageLimit")}</p>
@@ -143,7 +143,7 @@ const ContactSection: FC = () => {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="inline-flex items-center gap-2 bg-accent-teal hover:bg-accent-teal/90 disabled:bg-slate-100 text-slate-900 px-10 py-4 rounded-md text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(0,212,170,0.2)] hover:shadow-[0_0_30px_rgba(0,212,170,0.35)]"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 rounded-md text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(0,212,170,0.2)] hover:shadow-[0_0_30px_rgba(0,212,170,0.35)]"
             >
               {status === "submitting" ? (
                 <>

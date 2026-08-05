@@ -114,7 +114,7 @@ const MVVSection: FC = () => {
   });
 
   return (
-    <section id="mvv" className="w-full py-20 md:py-28 bg-white">
+    <section id="mvv" className="w-full py-20 md:py-28">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -127,7 +127,7 @@ const MVVSection: FC = () => {
 
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-slate-50 rounded-lg p-8 md:p-10 border border-slate-100 hover:border-accent-teal/30 transition-all duration-300 group">
+          <div className="neu-card rounded-[20px] p-8 md:p-10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-accent-teal text-xs font-bold tracking-[0.2em] uppercase">{t("section.mission")}</span>
               <div className="flex-1 h-px bg-white/10" />
@@ -143,7 +143,7 @@ const MVVSection: FC = () => {
               <span className="px-2 py-1 bg-accent-teal/10 text-accent-teal text-xs rounded-md font-medium whitespace-nowrap">Ledra</span>
             </div>
           </div>
-          <div className="bg-slate-50 rounded-lg p-8 md:p-10 border border-slate-100 hover:border-accent-teal/30 transition-all duration-300 group">
+          <div className="neu-card rounded-[20px] p-8 md:p-10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-accent-teal text-xs font-bold tracking-[0.2em] uppercase">{t("section.vision")}</span>
               <div className="flex-1 h-px bg-white/10" />
@@ -161,14 +161,14 @@ const MVVSection: FC = () => {
           </div>
         </div>
 
-        {/* Craftsmanship visual */}
-        <div className="mb-20">
+        {/* Craftsmanship visual — recessed into the matte as an inset "screen" */}
+        <div className="mb-20 neu-well p-2.5 md:p-3 rounded-[28px]">
           <CraftCanvas
             variant="thread"
             kanji="技"
             eyebrow="Craftsmanship"
             title={t("mvv.missionText")}
-            className="aspect-[1440/500] w-full"
+            className="aspect-[1440/500] w-full rounded-[20px] overflow-hidden"
           />
         </div>
 
@@ -273,14 +273,14 @@ const MVVSection: FC = () => {
             {values.map((value, idx) => (
               <div
                 key={value.id}
-                className="group bg-slate-50 rounded-lg p-6 border border-slate-100 hover:border-accent-teal/30 transition-all duration-300"
+                className="group neu-card rounded-[20px] p-6 transition-all duration-300"
                 style={{
                   opacity: drawProgress > 0.2 + idx * 0.2 ? 1 : 0.6,
                   transform: drawProgress > 0.2 + idx * 0.2 ? "translateY(0)" : "translateY(8px)",
                   transition: `opacity 0.5s ease-out ${idx * 120}ms, transform 0.5s ease-out ${idx * 120}ms, border-color 0.3s ease`,
                 }}
               >
-                <div className="w-12 h-12 flex items-center justify-center bg-slate-100 rounded-md mb-4 group-hover:bg-accent-teal/10 transition-colors duration-300">
+                <div className="w-12 h-12 flex items-center justify-center neu-well rounded-[14px] mb-4">
                   <i className={`${value.icon} text-slate-600 text-xl group-hover:text-accent-teal transition-colors`} />
                 </div>
                 <h3 className="text-slate-800 text-lg font-bold mb-1">
@@ -294,7 +294,7 @@ const MVVSection: FC = () => {
 
           {/* CTA */}
           <div className="mt-16 text-center">
-            <div className="inline-block w-full max-w-2xl p-8 md:p-10 bg-gradient-to-br from-accent-teal/5 to-cyan-50/50 border border-accent-teal/20 rounded-lg">
+            <div className="inline-block w-full max-w-2xl p-8 md:p-10 neu-card rounded-[28px]">
               <p className="text-accent-teal text-xs font-bold tracking-[0.2em] uppercase mb-3">
                 3 BRAND COLLABORATION
               </p>
@@ -306,7 +306,7 @@ const MVVSection: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-accent-teal hover:bg-accent-teal/90 text-white px-8 py-3.5 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(0,212,170,0.25)]"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(0,212,170,0.25)]"
               >
                 {t("mvv.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">

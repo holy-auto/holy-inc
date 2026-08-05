@@ -129,16 +129,17 @@ export default function Navbar() {
 
   const isBrandPage = ["/holyauto", "/mobilewash", "/ledra"].includes(location.pathname);
 
-  const scrolledOrMobile = scrolled || mobileOpen || isBrandPage;
+  // Soft UI: the bar is always the matte material; text is always ink.
+  const scrolledOrMobile = true;
+  void isBrandPage;
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-          scrolledOrMobile
-            ? "bg-white/95 backdrop-blur-md shadow-[0_1px_12px_rgba(0,0,0,0.06)]"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out backdrop-blur-md ${
+          scrolled ? "shadow-[0_7px_20px_rgba(176,162,140,0.45)]" : "shadow-[0_5px_16px_rgba(176,162,140,0.32)]"
         }`}
+        style={{ background: "var(--neu-bg)" }}
       >
         {/* Scroll Progress Indicator */}
         <div
@@ -276,9 +277,10 @@ export default function Navbar() {
         />
 
         <div
-          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-xl transform transition-transform duration-300 ease-out ${
+          className={`absolute top-0 right-0 w-full max-w-sm h-full shadow-[-12px_0_30px_rgba(176,162,140,0.4)] transform transition-transform duration-300 ease-out ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
+          style={{ background: "var(--neu-bg)" }}
         >
           <div className="flex flex-col h-full pt-20 pb-8 px-8">
             {/* Language Switcher - Mobile */}

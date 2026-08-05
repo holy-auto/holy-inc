@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Soft UI (Neumorphism) design system
+   One uniform warm-matte material; depth is drawn only with
+   paired soft shadows. No borders. Brand amber is the single
+   saturated accent, reserved for primary actions.
+   ============================================================ */
+:root {
+  --neu-bg: #e7e2d9;          /* the one matte material (warm ivory-stone) */
+  --neu-bg-2: #ece7df;        /* a touch lighter, for lifted panels */
+  --neu-ink: #40392f;         /* readable warm near-black */
+  --neu-muted: #837a6b;       /* secondary text (AA on the matte) */
+  --neu-faint: #9c9384;
+
+  --neu-accent: #c26a05;      /* brand amber, primary action */
+  --neu-accent-strong: #9a5304;
+  --neu-on-accent: #fffaf1;
+
+  --neu-shl: rgba(255, 255, 255, 0.9);   /* light — top-left */
+  --neu-shd: rgba(176, 162, 140, 0.55);  /* dark  — bottom-right */
+
+  --neu-raised:    -6px -6px 14px var(--neu-shl),  6px 6px 14px var(--neu-shd);
+  --neu-raised-sm: -4px -4px  9px var(--neu-shl),  4px 4px  9px var(--neu-shd);
+  --neu-raised-lg: -9px -9px 20px var(--neu-shl),  9px 9px 20px var(--neu-shd);
+  --neu-pressed: inset -4px -4px 9px var(--neu-shl), inset 4px 4px 9px var(--neu-shd);
+  --neu-inset:   inset 6px 6px 12px var(--neu-shd), inset -6px -6px 12px var(--neu-shl);
+}
+
 @layer base {
   html {
     font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
@@ -11,10 +38,70 @@
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    color: #292524;
-    background-color: #ffffff;
+    color: var(--neu-ink);
+    background-color: var(--neu-bg);
     overflow-x: hidden;
   }
+}
+
+/* ---- Reusable Soft UI surfaces (used across every page) ---- */
+@layer components {
+  .neu-card {
+    background: var(--neu-bg);
+    border-radius: 28px;
+    box-shadow: var(--neu-raised);
+  }
+  .neu-card-lg { border-radius: 34px; box-shadow: var(--neu-raised-lg); }
+  .neu-raised  { box-shadow: var(--neu-raised); }
+  .neu-raised-sm { box-shadow: var(--neu-raised-sm); }
+  .neu-well {
+    background: var(--neu-bg);
+    border-radius: 22px;
+    box-shadow: var(--neu-inset);
+  }
+
+  /* Buttons — the affordance is shadow; the primary one is also amber. */
+  .neu-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--neu-bg); color: var(--neu-ink);
+    border: 0; border-radius: 999px; cursor: pointer;
+    box-shadow: var(--neu-raised);
+    transition: box-shadow .18s ease, transform .18s ease, color .18s ease;
+  }
+  .neu-btn:hover { color: var(--neu-accent); }
+  .neu-btn:active { box-shadow: var(--neu-pressed); transform: translateY(1px); color: var(--neu-accent); }
+
+  .neu-btn-primary {
+    background: var(--neu-accent); color: var(--neu-on-accent);
+    box-shadow: var(--neu-raised);
+  }
+  .neu-btn-primary:hover { color: var(--neu-on-accent); filter: brightness(1.05); }
+  .neu-btn-primary:active {
+    background: var(--neu-accent-strong); color: var(--neu-on-accent); transform: translateY(1px);
+    box-shadow: inset -3px -3px 8px rgba(255,255,255,.22), inset 3px 3px 8px rgba(0,0,0,.22);
+    filter: none;
+  }
+
+  .neu-input {
+    background: var(--neu-bg); color: var(--neu-ink);
+    border: 0; outline: 0; border-radius: 16px;
+    box-shadow: var(--neu-inset);
+  }
+  .neu-input::placeholder { color: var(--neu-muted); opacity: .85; }
+
+  .neu-chip {
+    background: var(--neu-bg); color: var(--neu-muted);
+    border-radius: 999px; box-shadow: var(--neu-raised-sm);
+  }
+}
+
+/* Focus: a real, non-shadow cue (WCAG non-text contrast fails on shadow alone). */
+.neu-btn:focus-visible,
+.neu-btn-primary:focus-visible,
+.neu-input:focus-visible,
+.neu-focus:focus-visible {
+  outline: 2.5px solid var(--neu-accent);
+  outline-offset: 4px;
 }
 
 @layer utilities {
