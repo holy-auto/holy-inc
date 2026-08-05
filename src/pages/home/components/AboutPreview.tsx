@@ -55,7 +55,7 @@ const AboutPreview: FC = () => {
               </div>
               <div className="group">
                 <p className="text-accent-teal text-2xl md:text-3xl font-bold tabular-nums transition-transform duration-300 group-hover:scale-110">
-                  2
+                  1
                 </p>
                 <p className="text-slate-400 text-xs mt-1">{t("aboutPreview.stat2Label")}</p>
               </div>

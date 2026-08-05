@@ -52,7 +52,7 @@ export const jobCategories: JobCategory[] = [
   {
     id: 'business',
     name: '営業・運営',
-    description: '法人営業・CS・ブランド運営。2名のチームに欠かせない縁の下の力持ち',
+    description: '法人営業・CS・ブランド運営。代表1名のチームに欠かせない縁の下の力持ち',
     icon: 'ri-customer-service-2-line',
   },
 ];
@@ -97,7 +97,7 @@ export const jobOpenings: JobOpening[] = [
     type: '正社員',
     location: '東京都港区（出張あり）',
     description:
-      '法人営業（MobileWash Fleet契約・Ledra導入）と、社内運営業務（事務・CS対応・SNS運用）を担当。2名のチームにとって「縁の下の力持ち」が最も必要なポジションです。',
+      '法人営業（MobileWash Fleet契約・Ledra導入）と、社内運営業務（事務・CS対応・SNS運用）を担当。代表1名のチームにとって「縁の下の力持ち」が最も必要なポジションです。',
     requirements: [
       '法人営業またはサービス業での接客・運営経験 1年以上',
       'Excel・Word・PowerPoint の基本操作',
@@ -203,7 +203,7 @@ export const careerStats: CareerStat[] = [
     label: '設立年月',
   },
   {
-    value: '2名',
+    value: '1名',
     label: '現在のチーム',
   },
   {

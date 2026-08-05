@@ -262,7 +262,7 @@ export default {
       founded: "2024年11月12日",
       capital: "10万円",
       representative: "代表取締役 堀越 友輔",
-      employees: "2名",
+      employees: "1名",
       address: "東京都港区北青山1-3-1 アールキューブ青山3F",
       workplace: "茨城県古河市前林623-1",
       access: "東京メトロ銀座線・半蔵門線「青山一丁目駅」より徒歩3分",
@@ -318,11 +318,11 @@ export default {
     },
     team: {
       label: "Team",
-      heading: "技術者と、支えるチーム",
-      subtitle: "HOLYは2名の従業員で構成されています。代表と技術者が一体となり、日々の施工と事業開発に取り組んでいます。",
+      heading: "代表と、事業を支える体制",
+      subtitle: "HOLYは代表1名で事業を運営しています。施工から事業開発まで、一貫して取り組んでいます。",
       stats: [
-        { value: "2名", label: "従業員" },
-        { value: "100%", label: "技術者比率" },
+        { value: "1名", label: "従業員" },
+        { value: "3", label: "事業ブランド" },
         { value: "創業期", label: "成長ステージ" },
         { value: "100%", label: "お客様満足度" },
       ],
@@ -336,7 +336,6 @@ export default {
       leadershipHeading: "リーダーシップチーム",
       members: [
         { name: "堀越 友輔", role: "代表取締役 CEO", bio: "「技術を資産にする」というVisionのもと、職人の手仕事に「証明」と「信用」の仕組みを組み合わせ、自動車業界に新たな価値基準を創造しています。", initials: "YH" },
-        { name: "HOLY 技術者", role: "熟練技術者 / 最高技術責任者", bio: "長年の現場経験を活かし、HOLY AUTOの全施工を統括。後輩指導にも情熱を注ぎ、技術継承の核を担っています。", initials: "CT" },
       ],
     },
   },
@@ -576,7 +575,7 @@ export default {
       { label: "所在地", value: "東京都港区北青山1-3-1 アールキューブ青山3F" },
       { label: "代表取締役", value: "堀越 友輔" },
       { label: "資本金", value: "10万円" },
-      { label: "従業員数", value: "2名" },
+      { label: "従業員数", value: "1名" },
       { label: "事業内容", value: "自動車カスタム施工、コーティング施工、PPF施工、技術講習、出張洗車サービス、ブロックチェーン証明インフラ（LEDRA）" },
       { label: "電話番号", value: "03-4363-3234" },
       { label: "メールアドレス", value: "info@holy-inc.jp" },
@@ -657,7 +656,7 @@ export default {
   careers: {
     seo: {
       title: "採用情報 | 株式会社HOLY - 創業メンバー募集",
-      description: "株式会社HOLYは創業2年目のスタートアップ。施工技術者・エンジニア・営業運営スタッフを募集中。2名のチームで事業を創る当事者になりませんか？",
+      description: "株式会社HOLYは創業2年目のスタートアップ。施工技術者・エンジニア・営業運営スタッフを募集中。代表1名のチームで事業を創る当事者になりませんか？",
       keywords: "HOLY, 採用, 求人, スタートアップ, コーティング技術者, エンジニア, 営業, 自動車, 東京, 青山",
       structuredDataName: "採用情報 | 株式会社HOLY",
       structuredDataDesc: "HOLYの採用情報ページ。創業メンバーとして一緒に会社を作り上げる仲間を募集中。",
@@ -665,7 +664,7 @@ export default {
     },
     heroSubtitle: "Careers",
     heroTitle: "採用情報",
-    heroDesc: "HOLYは2024年11月に設立したスタートアップです。代表と1名の技術者で、HOLY-AUTO・LEDRA・MobileWashの3事業を展開。今、創業メンバーとして一緒に事業を作り上げる仲間を探しています。",
+    heroDesc: "HOLYは2024年11月に設立したスタートアップです。代表1名で、HOLY-AUTO・LEDRA・MobileWashの3事業を展開。今、創業メンバーとして一緒に事業を作り上げる仲間を探しています。",
     cultureLabel: "Culture",
     cultureTitle: "HOLYで働く意味",
     categoriesLabel: "Job Categories",
@@ -696,14 +695,14 @@ export default {
     hero: {
       label: "Careers",
       title: "採用情報",
-      subtitle1: "2名のチームに、あなたの力を",
-      subtitle2: "HOLYは2024年11月に設立したスタートアップです。代表と1名の技術者で、HOLY-AUTO・LEDRA・MobileWashの3事業を展開。今、創業メンバーとして一緒に事業を作り上げる仲間を探しています。",
+      subtitle1: "代表1名のチームに、あなたの力を",
+      subtitle2: "HOLYは2024年11月に設立したスタートアップです。代表1名で、HOLY-AUTO・LEDRA・MobileWashの3事業を展開。今、創業メンバーとして一緒に事業を作り上げる仲間を探しています。",
       viewJobs: "募集職種を見る",
       apply: "エントリーする",
     },
     stats: [
       { value: "2024.11", label: "設立年月" },
-      { value: "2名", label: "現在のチーム" },
+      { value: "1名", label: "現在のチーム" },
       { value: "3ブランド", label: "事業展開" },
     ],
     culture: {
@@ -744,12 +743,12 @@ export default {
     jobs: {
       label: "Open Positions",
       title: "募集職種",
-      subtitle: "2名のチームに、あなたの力を貸してほしい。創業メンバーとして、一緒に会社を作り上げませんか。",
+      subtitle: "代表1名のチームに、あなたの力を貸してほしい。創業メンバーとして、一緒に会社を作り上げませんか。",
       all: "すべて",
       categories: [
         { id: "technician", name: "施工技術者", description: "自動車コーティング・フィルム施工の現場で、代表とともに技術を磨く", icon: "ri-brush-line" },
         { id: "digital", name: "デジタル・エンジニア", description: "Ledraの開発・Webサイト・システム構築。小さなチームで大きな影響を", icon: "ri-code-s-slash-line" },
-        { id: "business", name: "営業・運営", description: "法人営業・CS・ブランド運営。2名のチームに欠かせない縁の下の力持ち", icon: "ri-customer-service-2-line" },
+        { id: "business", name: "営業・運営", description: "法人営業・CS・ブランド運営。代表1名のチームに欠かせない縁の下の力持ち", icon: "ri-customer-service-2-line" },
       ],
       openings: [
         {
@@ -778,7 +777,7 @@ export default {
           category: "営業・運営",
           type: "正社員",
           location: "東京都港区（出張あり）",
-          description: "法人営業（MobileWash Fleet契約・Ledra導入）と、社内運営業務（事務・CS対応・SNS運用）を担当。2名のチームにとって「縁の下の力持ち」が最も必要なポジションです。",
+          description: "法人営業（MobileWash Fleet契約・Ledra導入）と、社内運営業務（事務・CS対応・SNS運用）を担当。代表1名のチームにとって「縁の下の力持ち」が最も必要なポジションです。",
           requirements: ["法人営業またはサービス業での接客・運営経験 1年以上", "Excel・Word・PowerPoint の基本操作", "SNS（Instagram・X）の運用に興味がある方歓迎", "普通自動車免許"],
           idealCandidate: "「人と話すことが好き」で、小さなチームの「潤滑油」になりたい方",
         },
