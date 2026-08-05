@@ -197,7 +197,6 @@ const HeroSection: FC = () => {
         className="group absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/40 transition-colors duration-500 hover:text-white/80 md:flex"
         aria-label={t("ui.scroll")}
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase">{t("ui.scroll")}</span>
         <span className="h-8 w-px overflow-hidden">
           <span
             className="hero-anim block h-full w-px bg-gradient-to-b from-amber-300 to-transparent"

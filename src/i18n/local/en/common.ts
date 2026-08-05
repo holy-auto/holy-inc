@@ -118,6 +118,18 @@ export default {
     since: "Since 2024 ・ Kita-Aoyama, Tokyo",
   },
 
+  // Home news (top-page summary; distinct from the full "news" page block)
+  homeNews: {
+    sectionLabel: "News",
+    heading: "News",
+    items: [
+      { date: "2025.10", category: "Service", title: "Started preparations for the MobileWash mobile car wash service." },
+      { date: "2025.03", category: "Company", title: "Established our Mission, Vision & Values." },
+      { date: "2025.01", category: "Product", title: "Launched the Ledra vehicle-certification infrastructure project." },
+      { date: "2024.11", category: "Company", title: "Founded HOLY Inc." },
+    ],
+  },
+
   // MVV
   mvv: {
     missionText: "Passing down craftsmanship to the next generation.",

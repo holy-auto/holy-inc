@@ -1,6 +1,7 @@
 import SeoHead from "../../components/base/SeoHead";
 import { buildBreadcrumbJsonLd } from "@/utils/seo";
 import HeroSection from "./components/HeroSection";
+import NewsSection from "./components/NewsSection";
 import ServicesOverview from "./components/ServicesOverview";
 import MVVSection from "./components/MVVSection";
 import BrandSection from "./components/BrandSection";
@@ -67,8 +68,9 @@ export default function Home() {
       />
       <main>
         <HeroSection />
-        <ServicesOverview />
+        <NewsSection />
         <MVVSection />
+        <ServicesOverview />
         <BrandSection />
         <AboutPreview />
         <ContactSection />
