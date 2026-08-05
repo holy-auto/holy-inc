@@ -101,7 +101,7 @@ const LedraPage: FC = () => {
         {/* Hero Section */}
         <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden">
           <Breadcrumb variant="overlay" />
-          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(15rem, 38vw, 38rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">証</span>
+          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(15rem, 38vw, 38rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">証</span>
 
           <div className="relative z-10 text-center px-6 md:px-10 max-w-4xl mx-auto pt-20">
             <p className="text-[color:var(--neu-accent)] text-xs tracking-[0.3em] uppercase mb-4">

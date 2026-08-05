@@ -143,7 +143,7 @@ const ContactSection: FC = () => {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 rounded-md text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(0,212,170,0.2)] hover:shadow-[0_0_30px_rgba(0,212,170,0.35)]"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 rounded-md text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(85, 96, 227,0.2)] hover:shadow-[0_0_30px_rgba(85, 96, 227,0.35)]"
             >
               {status === "submitting" ? (
                 <>

@@ -192,7 +192,7 @@ const MVVSection: FC = () => {
                   y1={renderedSegments[0].y1}
                   x2={renderedSegments[0].x2 + "%"}
                   y2={renderedSegments[0].y2}
-                  stroke="#d97706"
+                  stroke="#5560e3"
                   strokeWidth={strokeWidth}
                   strokeLinecap="round"
                   strokeDasharray={renderedSegments[0].dashArray}
@@ -208,7 +208,7 @@ const MVVSection: FC = () => {
                     y1={seg.y1}
                     x2={seg.x2 + "%"}
                     y2={seg.y2}
-                    stroke="#d97706"
+                    stroke="#5560e3"
                     strokeWidth={strokeWidth}
                     strokeLinecap="round"
                     strokeDasharray={seg.dashArray}
@@ -226,7 +226,7 @@ const MVVSection: FC = () => {
                     cx={seg.x2 + "%"}
                     cy={seg.y2}
                     r={dotRadius}
-                    fill="#d97706"
+                    fill="#5560e3"
                     style={{
                       opacity: Math.min((currentLen - dropEnd) / 80 + 0.3, 1),
                       transition: "opacity 0.3s ease-out",
@@ -249,7 +249,7 @@ const MVVSection: FC = () => {
                 y1="0"
                 x2="20"
                 y2="60"
-                stroke="#d97706"
+                stroke="#5560e3"
                 strokeWidth={1.5}
                 strokeLinecap="round"
                 strokeDasharray="60"
@@ -260,7 +260,7 @@ const MVVSection: FC = () => {
                 cx="20"
                 cy="60"
                 r="3.5"
-                fill="#d97706"
+                fill="#5560e3"
                 style={{
                   opacity: drawProgress > 0.9 ? 1 : 0,
                   transition: "opacity 0.3s ease-out",
@@ -306,7 +306,7 @@ const MVVSection: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(0,212,170,0.25)]"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(85, 96, 227,0.25)]"
               >
                 {t("mvv.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">

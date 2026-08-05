@@ -33,7 +33,7 @@ const TermsPage: FC = () => {
       <main>
         {/* Hero */}
         <section className="relative text-slate-900 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">信</span>
+          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">信</span>
           <div className="relative w-full px-6 md:px-10 max-w-4xl mx-auto text-center">
             <p className="text-[color:var(--neu-accent)] text-sm tracking-[0.3em] uppercase mb-4">
               {t('terms.hero.label')}

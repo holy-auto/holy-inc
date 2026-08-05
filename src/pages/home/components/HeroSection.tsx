@@ -37,7 +37,7 @@ const HeroSection: FC = () => {
         style={{
           fontSize: "clamp(20rem, 46vw, 52rem)",
           color: "var(--neu-bg)",
-          textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)",
+          textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)",
         }}
         aria-hidden="true"
       >
@@ -126,7 +126,7 @@ const HeroSection: FC = () => {
               <span className="flex items-center gap-2">
                 <span
                   className="inline-block h-2 w-2 rounded-full"
-                  style={{ background: "var(--neu-accent)", boxShadow: "0 0 0 4px rgba(194,106,5,.12)" }}
+                  style={{ background: "var(--neu-accent)", boxShadow: "0 0 0 4px rgba(85,96,227,.12)" }}
                   aria-hidden="true"
                 />
                 <span className="font-serif text-lg md:text-2xl transition-colors duration-300 group-hover:text-[var(--neu-accent)]" style={{ color: "var(--neu-ink)" }}>

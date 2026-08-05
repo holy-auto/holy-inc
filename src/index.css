@@ -4,23 +4,23 @@
 
 /* ============================================================
    Soft UI (Neumorphism) design system
-   One uniform warm-matte material; depth is drawn only with
-   paired soft shadows. No borders. Brand amber is the single
+   One uniform matte material (pale grey-blue); depth is drawn only
+   with paired soft shadows. No borders. Indigo is the single
    saturated accent, reserved for primary actions.
    ============================================================ */
 :root {
-  --neu-bg: #e7e2d9;          /* the one matte material (warm ivory-stone) */
-  --neu-bg-2: #ece7df;        /* a touch lighter, for lifted panels */
-  --neu-ink: #40392f;         /* readable warm near-black */
-  --neu-muted: #837a6b;       /* secondary text (AA on the matte) */
-  --neu-faint: #9c9384;
+  --neu-bg: #e0e5ec;          /* the one matte material (pale grey-blue) */
+  --neu-bg-2: #e6eaf1;        /* a touch lighter, for lifted panels */
+  --neu-ink: #33405a;         /* readable slate-blue near-black */
+  --neu-muted: #5b6577;       /* secondary text (AA on the matte) */
+  --neu-faint: #8a93a6;
 
-  --neu-accent: #c26a05;      /* brand amber, primary action */
-  --neu-accent-strong: #9a5304;
-  --neu-on-accent: #fffaf1;
+  --neu-accent: #5560e3;      /* indigo, primary action */
+  --neu-accent-strong: #4550d3;
+  --neu-on-accent: #ffffff;
 
-  --neu-shl: rgba(255, 255, 255, 0.9);   /* light — top-left */
-  --neu-shd: rgba(176, 162, 140, 0.55);  /* dark  — bottom-right */
+  --neu-shl: rgba(255, 255, 255, 0.85);  /* light — top-left */
+  --neu-shd: rgba(163, 177, 198, 0.60);  /* dark  — bottom-right */
 
   --neu-raised:    -6px -6px 14px var(--neu-shl),  6px 6px 14px var(--neu-shd);
   --neu-raised-sm: -4px -4px  9px var(--neu-shl),  4px 4px  9px var(--neu-shd);
@@ -60,7 +60,7 @@
     box-shadow: var(--neu-inset);
   }
 
-  /* Buttons — the affordance is shadow; the primary one is also amber. */
+  /* Buttons — the affordance is shadow; the primary one is also indigo. */
   .neu-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
     background: var(--neu-bg); color: var(--neu-ink);
@@ -173,10 +173,10 @@
   animation: page-enter-zoom 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Warm glow effects */
+/* Glow effects */
 @keyframes glow-amber {
-  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), 0 0 40px rgba(245, 158, 11, 0.05); }
-  50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.25), 0 0 60px rgba(245, 158, 11, 0.1); }
+  0%, 100% { box-shadow: 0 0 20px rgba(85, 96, 227, 0.15), 0 0 40px rgba(85, 96, 227, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(85, 96, 227, 0.25), 0 0 60px rgba(85, 96, 227, 0.1); }
 }
 
 .animate-glow-amber {
@@ -185,7 +185,7 @@
 
 /* Shimmer gradient for premium feel */
 .shimmer-gradient {
-  background: linear-gradient(90deg, transparent, rgba(251,191,36,0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(129,141,234,0.08), transparent);
   background-size: 200% 100%;
 }
 
@@ -198,7 +198,7 @@
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.4));
+  background: linear-gradient(135deg, rgba(85, 96, 227, 0.4), rgba(129, 141, 234, 0.2), rgba(85, 96, 227, 0.4));
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -207,9 +207,9 @@
   opacity: 1;
 }
 
-/* Premium text gradient — warm gold */
+/* Premium text gradient — indigo */
 .text-gradient-accent {
-  background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
+  background: linear-gradient(135deg, #5560e3 0%, #818dea 50%, #4550d3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

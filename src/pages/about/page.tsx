@@ -101,7 +101,7 @@ const AboutPage: FC = () => {
         <section className="relative w-full pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden">
           <Breadcrumb variant="overlay" />
           <div className="absolute inset-0 overflow-hidden">
-            <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">誠</span>
+            <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">誠</span>
           </div>
 
           <div className="relative z-10 px-6 md:px-10 max-w-6xl mx-auto">
@@ -149,7 +149,7 @@ const AboutPage: FC = () => {
               <div className="w-full lg:w-2/5">
                 <FadeIn delay={200} direction="right">
                   <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
-                    <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">誠</span>
+                    <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">誠</span>
                   </div>
                 </FadeIn>
               </div>

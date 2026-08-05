@@ -123,7 +123,7 @@ export default function CareersPage() {
       <section className="relative h-[480px] md:h-[600px] overflow-hidden pt-16">
         <Breadcrumb variant="overlay" />
         <div className="absolute inset-0">
-          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(176,162,140,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">志</span>
+          <span className="pointer-events-none absolute right-[-4vw] top-1/2 -translate-y-1/2 select-none font-serif leading-none" style={{ fontSize: "clamp(13rem, 34vw, 34rem)", color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }} aria-hidden="true">志</span>
         </div>
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <FadeIn>

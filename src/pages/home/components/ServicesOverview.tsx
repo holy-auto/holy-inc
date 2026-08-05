@@ -18,7 +18,7 @@ const services = [
     icon: "ri-drop-line",
     keywordsKey: "servicesOverview.mobilewashKeywords",
     href: "https://mobilewash.jp",
-    color: "#d97706",
+    color: "#5560e3",
     bgGlow: "from-cyan-50/50 to-white",
     iconBg: "bg-cyan-50",
     taglineKey: "brandData.mobilewash.tagline",

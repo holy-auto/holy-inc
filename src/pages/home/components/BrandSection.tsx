@@ -27,7 +27,7 @@ const BrandSection: FC = () => {
       tagline: t("brandData.mobilewash.tagline"),
       description: t("brandData.mobilewash.description"),
       features: [t("brandData.mobilewash.features.0"), t("brandData.mobilewash.features.1"), t("brandData.mobilewash.features.2")],
-      strokeColor: "#d97706",
+      strokeColor: "#5560e3",
       statValue: "即日",
       statLabel: "最短施工",
       kanji: "洗",
@@ -39,7 +39,7 @@ const BrandSection: FC = () => {
       tagline: t("brandData.holyauto.tagline"),
       description: t("brandData.holyauto.description"),
       features: [t("brandData.holyauto.features.0"), t("brandData.holyauto.features.1"), t("brandData.holyauto.features.2")],
-      strokeColor: "#92400e",
+      strokeColor: "#3b45b3",
       statValue: "3年〜",
       statLabel: "保証期間",
       kanji: "匠",
@@ -53,7 +53,7 @@ const BrandSection: FC = () => {
       title: t("brandsSection.flowStep1"),
       desc: t("brandsSection.flowStep1Desc"),
       icon: "ri-tools-line",
-      color: "#92400e",
+      color: "#3b45b3",
     },
     {
       step: "02",
@@ -67,7 +67,7 @@ const BrandSection: FC = () => {
       title: t("brandsSection.flowStep3"),
       desc: t("brandsSection.flowStep3Desc"),
       icon: "ri-drop-line",
-      color: "#d97706",
+      color: "#5560e3",
     },
   ];
 
@@ -217,8 +217,8 @@ const BrandSection: FC = () => {
                       className="aspect-[3/2] w-full"
                     />
                     {/* Stat badge overlay */}
-                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-amber-400/20 text-center">
-                      <p className="text-amber-300 font-bold text-lg leading-tight">{brand.statValue}</p>
+                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-teal-400/20 text-center">
+                      <p className="text-teal-300 font-bold text-lg leading-tight">{brand.statValue}</p>
                       <p className="text-white/60 text-[10px] leading-tight">{brand.statLabel}</p>
                     </div>
                   </div>
@@ -313,7 +313,7 @@ const BrandSection: FC = () => {
               <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(146, 64, 14, 0.12)" }}>
                   <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-tools-line text-lg" style={{ color: "#92400e" }} />
+                    <i className="ri-tools-line text-lg" style={{ color: "#3b45b3" }} />
                   </span>
                 </div>
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[2].name}</p>
@@ -351,9 +351,9 @@ const BrandSection: FC = () => {
 
               {/* Step 3 — MobileWash */}
               <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(217, 119, 6, 0.12)" }}>
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(85, 96, 227, 0.12)" }}>
                   <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-drop-line text-lg" style={{ color: "#d97706" }} />
+                    <i className="ri-drop-line text-lg" style={{ color: "#5560e3" }} />
                   </span>
                 </div>
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[1].name}</p>

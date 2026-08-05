@@ -137,7 +137,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out backdrop-blur-md ${
-          scrolled ? "shadow-[0_7px_20px_rgba(176,162,140,0.45)]" : "shadow-[0_5px_16px_rgba(176,162,140,0.32)]"
+          scrolled ? "shadow-[0_7px_20px_rgba(163,177,198,0.45)]" : "shadow-[0_5px_16px_rgba(163,177,198,0.32)]"
         }`}
         style={{ background: "var(--neu-bg)" }}
       >
@@ -277,7 +277,7 @@ export default function Navbar() {
         />
 
         <div
-          className={`absolute top-0 right-0 w-full max-w-sm h-full shadow-[-12px_0_30px_rgba(176,162,140,0.4)] transform transition-transform duration-300 ease-out ${
+          className={`absolute top-0 right-0 w-full max-w-sm h-full shadow-[-12px_0_30px_rgba(163,177,198,0.4)] transform transition-transform duration-300 ease-out ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ background: "var(--neu-bg)" }}

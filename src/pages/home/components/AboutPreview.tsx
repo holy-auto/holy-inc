@@ -28,7 +28,7 @@ const AboutPreview: FC = () => {
     <section id="about" ref={ref} className="relative w-full py-20 md:py-28 overflow-hidden">
       {/* CSS-only background */}
       
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-amber-400/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-teal-400/5 via-transparent to-transparent" />
       {/* Shimmer overlay */}
       <div className="absolute inset-0 shimmer-gradient animate-shimmer opacity-20" />
 
@@ -90,7 +90,7 @@ const AboutPreview: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(0,212,170,0.25)]"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(85, 96, 227,0.25)]"
               >
                 {t("aboutPreview.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">
