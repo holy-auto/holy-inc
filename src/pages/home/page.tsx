@@ -68,8 +68,8 @@ export default function Home() {
       />
       <main>
         <HeroSection />
-        <NewsSection />
         <MVVSection />
+        <NewsSection />
         <ServicesOverview />
         <BrandSection />
         <AboutPreview />
