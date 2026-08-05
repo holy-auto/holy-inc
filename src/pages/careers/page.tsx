@@ -119,10 +119,10 @@ export default function CareersPage() {
           ...jobPostingSchemas,
         ]}
       />
-      <Breadcrumb className="bg-white border-b border-slate-100" />
 
       {/* Hero */}
       <section className="relative h-[480px] md:h-[600px] overflow-hidden pt-16 bg-stone-950">
+        <Breadcrumb variant="overlay" />
         <div className="absolute inset-0">
           <CraftCanvas variant="thread" kanji="志" rounded={false} className="absolute inset-0 h-full w-full" />
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />

@@ -109,10 +109,10 @@ const HolyAutoPage: FC = () => {
           },
         ]}
       />
-      <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main className="w-full">
         {/* Hero Section */}
         <section className="relative w-full min-h-[520px] md:min-h-[620px] flex items-center justify-center overflow-hidden bg-stone-950">
+          <Breadcrumb variant="overlay" />
           <CraftCanvas variant="sheen" kanji="匠" rounded={false} className="absolute inset-0 h-full w-full" />
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/20 to-stone-950/70" />
 

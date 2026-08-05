@@ -84,10 +84,10 @@ const ContactPage: FC = () => {
           },
         ]}
       />
-      <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main>
         {/* Hero */}
-        <section className="relative bg-stone-950 text-slate-900 pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+        <section className="relative bg-stone-950 text-slate-900 pt-28 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+          <Breadcrumb variant="overlay" />
           <div className="absolute inset-0">
             <CraftCanvas variant="thread" kanji="縁" rounded={false} className="absolute inset-0 h-full w-full" />
           </div>

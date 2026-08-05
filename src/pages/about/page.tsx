@@ -97,10 +97,10 @@ const AboutPage: FC = () => {
         ]}
       />
 
-      <Breadcrumb className="bg-white border-b border-slate-100 pt-20 md:pt-28" />
       <main>
         {/* Page Hero */}
-        <section className="relative w-full pt-12 pb-16 md:pt-16 md:pb-24 bg-stone-950 overflow-hidden">
+        <section className="relative w-full pt-28 pb-16 md:pt-32 md:pb-24 bg-stone-950 overflow-hidden">
+          <Breadcrumb variant="overlay" />
           <div className="absolute inset-0 overflow-hidden">
             <CraftCanvas variant="thread" kanji="誠" rounded={false} className="absolute inset-0 h-full w-full" />
             <div className="absolute inset-0 bg-gradient-to-b from-stone-950/40 via-stone-950/20 to-stone-950/60" />

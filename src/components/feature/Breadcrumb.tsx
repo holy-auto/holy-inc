@@ -15,9 +15,16 @@ const BREADCRUMB_MAP: Record<string, { label: string; parent?: { name: string; p
 interface BreadcrumbProps {
   customCrumbs?: { name: string; path: string }[];
   className?: string;
+  /**
+   * "bar"     – a standalone light strip (default; dark text on light bg).
+   * "overlay" – pinned to the top of a `relative` dark hero, above the page
+   *             title, in light text. This is the clearest placement: the
+   *             current location reads right where the eye lands on the page.
+   */
+  variant?: 'bar' | 'overlay';
 }
 
-export default function Breadcrumb({ customCrumbs, className = '' }: BreadcrumbProps) {
+export default function Breadcrumb({ customCrumbs, className = '', variant = 'bar' }: BreadcrumbProps) {
   const location = useLocation();
   const { t } = useTranslation('common');
 
@@ -29,26 +36,45 @@ export default function Breadcrumb({ customCrumbs, className = '' }: BreadcrumbP
     { name: config!.label, path: location.pathname },
   ];
 
+  const overlay = variant === 'overlay';
+
+  const navClass = overlay
+    ? `absolute top-0 inset-x-0 z-20 px-6 md:px-10 pt-20 md:pt-24 ${className}`
+    : `py-3 px-6 md:px-10 ${className}`;
+
+  const listClass = overlay
+    ? 'flex items-center gap-2 text-xs flex-wrap max-w-6xl mx-auto text-white/70 [text-shadow:_0_1px_3px_rgba(0,0,0,0.6)]'
+    : 'flex items-center gap-2 text-xs flex-wrap text-slate-500';
+
   return (
-    <nav aria-label="Breadcrumb" className={`py-3 px-6 md:px-10 ${className}`}>
-      <ol className="flex items-center gap-2 text-xs text-slate-500 flex-wrap">
+    <nav aria-label="Breadcrumb" className={navClass}>
+      <ol className={listClass}>
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1;
           return (
             <li key={crumb.path} className="flex items-center gap-2">
               {index > 0 && (
-                <span className="w-4 h-4 flex items-center justify-center text-slate-500">
+                <span
+                  className={`w-4 h-4 flex items-center justify-center ${
+                    overlay ? 'text-white/50' : 'text-slate-500'
+                  }`}
+                >
                   <i className="ri-arrow-right-s-line" />
                 </span>
               )}
               {isLast ? (
-                <span className="text-slate-600 font-medium" aria-current="page">
+                <span
+                  className={overlay ? 'text-white font-medium' : 'text-slate-600 font-medium'}
+                  aria-current="page"
+                >
                   {crumb.name}
                 </span>
               ) : (
                 <a
                   href={crumb.path}
-                  className="hover:text-teal-600 transition-colors whitespace-nowrap"
+                  className={`whitespace-nowrap transition-colors ${
+                    overlay ? 'hover:text-white' : 'hover:text-teal-600'
+                  }`}
                 >
                   {crumb.name}
                 </a>
