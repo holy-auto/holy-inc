@@ -123,6 +123,7 @@ export default {
     sectionLabel: "News",
     heading: "お知らせ",
     items: [
+      { date: "2026.08", category: "地域貢献", title: "「つくば子育て＆教育サミット2026」のメインスポンサーに就任しました。" },
       { date: "2025.10", category: "サービス", title: "出張洗車「MobileWash」サービスの準備を開始しました。" },
       { date: "2025.03", category: "会社", title: "企業理念（Mission・Vision・Values）を策定しました。" },
       { date: "2025.01", category: "プロダクト", title: "車両証明インフラ「Ledra」プロジェクトを始動しました。" },

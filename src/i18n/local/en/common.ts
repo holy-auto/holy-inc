@@ -123,6 +123,7 @@ export default {
     sectionLabel: "News",
     heading: "News",
     items: [
+      { date: "2026.08", category: "Community", title: "Became the main sponsor of the \"Tsukuba Child-Rearing & Education Summit 2026.\"" },
       { date: "2025.10", category: "Service", title: "Started preparations for the MobileWash mobile car wash service." },
       { date: "2025.03", category: "Company", title: "Established our Mission, Vision & Values." },
       { date: "2025.01", category: "Product", title: "Launched the Ledra vehicle-certification infrastructure project." },
