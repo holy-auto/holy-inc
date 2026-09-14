@@ -1,5 +1,7 @@
 import SeoHead from "../../components/base/SeoHead";
 import { buildBreadcrumbJsonLd } from "@/utils/seo";
+import { officialSites, socialLinks } from "@/lib/sites";
+import { companyInfo } from "@/mocks/company";
 import HeroSection from "./components/HeroSection";
 import NewsSection from "./components/NewsSection";
 import ServicesOverview from "./components/ServicesOverview";
@@ -36,8 +38,17 @@ export default function Home() {
             logo: `${baseUrl}/favicon-512.png`,
             description: "自動車コーティング・出張洗車・ブロックチェーン証明インフラを展開。職人の技術を次世代へ継承する企業。",
             foundingDate: "2024-11-12",
+            // 各事業ブランドの公式サイトを同一事業者のものとして明示（相互リンクの機械可読版）
             sameAs: [
-              baseUrl,
+              officialSites.ledra,
+              officialSites.mobilewash,
+              officialSites.holyauto,
+              socialLinks.x,
+            ],
+            subOrganization: [
+              { "@type": "Organization", name: "Ledra", url: officialSites.ledra },
+              { "@type": "Organization", name: "MobileWash", url: officialSites.mobilewash },
+              { "@type": "Organization", name: "HOLY AUTO", url: officialSites.holyauto },
             ],
             address: {
               "@type": "PostalAddress",
@@ -59,8 +70,8 @@ export default function Home() {
               name: "東京都港区",
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: "35.6726",
-                longitude: "139.7148",
+                latitude: companyInfo.geo.latitude,
+                longitude: companyInfo.geo.longitude,
               },
             },
           },

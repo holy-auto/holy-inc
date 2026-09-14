@@ -1,13 +1,22 @@
 import type { FC } from "react";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import type { BrandId } from "@/lib/sites";
+import { brandDisplayNames, brandPagePaths, officialSites } from "@/lib/sites";
 
-const services = [
+const services: {
+  id: BrandId;
+  icon: string;
+  keywordsKey: string;
+  color: string;
+  bgGlow: string;
+  iconBg: string;
+  taglineKey: string;
+}[] = [
   {
-    id: "holy-auto",
+    id: "holyauto",
     icon: "ri-car-line",
     keywordsKey: "servicesOverview.holyautoKeywords",
-    href: "https://holy-auto.com",
     color: "#78716c",
     bgGlow: "from-slate-100 to-slate-50",
     iconBg: "bg-slate-100",
@@ -17,7 +26,6 @@ const services = [
     id: "mobilewash",
     icon: "ri-drop-line",
     keywordsKey: "servicesOverview.mobilewashKeywords",
-    href: "https://mobilewash.jp",
     color: "#5560e3",
     bgGlow: "from-cyan-50/50 to-white",
     iconBg: "bg-cyan-50",
@@ -27,7 +35,6 @@ const services = [
     id: "ledra",
     icon: "ri-shield-check-line",
     keywordsKey: "servicesOverview.ledraKeywords",
-    href: "https://ledra.co.jp",
     color: "#c05621",
     bgGlow: "from-accent-teal/5 to-white",
     iconBg: "bg-accent-teal/10",
@@ -78,12 +85,9 @@ const ServicesOverview: FC = () => {
           {services.map((svc, index) => {
             const keywords = t(svc.keywordsKey, { returnObjects: true }) as string[];
             return (
-              <a
+              <div
                 key={svc.id}
-                href={svc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group relative flex flex-col neu-card rounded-[22px] p-6 md:p-8 transition-all duration-500 cursor-pointer ${
+                className={`group relative flex flex-col neu-card rounded-[22px] p-6 md:p-8 transition-all duration-500 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
@@ -97,7 +101,7 @@ const ServicesOverview: FC = () => {
                   className={`absolute inset-0 rounded-xl bg-gradient-to-br ${svc.bgGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                 />
 
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col h-full">
                   {/* Icon */}
                   <div
                     className={`w-14 h-14 flex items-center justify-center ${svc.iconBg} rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300`}
@@ -110,7 +114,7 @@ const ServicesOverview: FC = () => {
 
                   {/* Brand Name */}
                   <h3 className="text-slate-900 text-xl font-bold mb-2 tracking-wide">
-                    {svc.id === "holy-auto" ? "HOLY AUTO" : svc.id === "mobilewash" ? "MobileWash" : "Ledra"}
+                    {brandDisplayNames[svc.id]}
                   </h3>
 
                   {/* Tagline */}
@@ -130,15 +134,33 @@ const ServicesOverview: FC = () => {
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  <div className="mt-auto flex items-center gap-1.5 text-sm font-medium" style={{ color: svc.color }}>
-                    <span>{t("ui.viewDetails")}</span>
-                    <span className="w-4 h-4 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
-                      <i className="ri-external-link-line" />
-                    </span>
+                  {/* CTA: サイト内の紹介ページ ＋ ブランド公式サイト */}
+                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
+                    <a
+                      href={brandPagePaths[svc.id]}
+                      className="inline-flex items-center gap-1.5 hover:underline"
+                      style={{ color: svc.color }}
+                    >
+                      <span>{t("ui.viewDetails")}</span>
+                      <span className="w-4 h-4 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200">
+                        <i className="ri-arrow-right-line" />
+                      </span>
+                    </a>
+                    <a
+                      href={officialSites[svc.id]}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={t("footer.officialSiteAria", { brand: brandDisplayNames[svc.id] })}
+                      className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors"
+                    >
+                      <span>{t("ui.officialSite")}</span>
+                      <span className="w-4 h-4 flex items-center justify-center">
+                        <i className="ri-external-link-line" />
+                      </span>
+                    </a>
                   </div>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>

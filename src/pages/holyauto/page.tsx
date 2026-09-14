@@ -7,6 +7,7 @@ import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
+import { brandDisplayNames, officialSites } from '@/lib/sites';
 
 interface ServiceItem {
   id: string;
@@ -92,6 +93,7 @@ const HolyAutoPage: FC = () => {
             },
             serviceType: "自動車カスタム・コーティング・フィルム施工・技術講習",
             url: `${baseUrl}/holy-auto`,
+            sameAs: [officialSites.holyauto],
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: "HOLY AUTO サービスメニュー",
@@ -142,6 +144,16 @@ const HolyAutoPage: FC = () => {
                 className="neu-btn px-8 py-3 text-sm font-medium whitespace-nowrap"
               >
                 {t('brandHolyauto.hero.consult')}
+              </a>
+              <a
+                href={officialSites.holyauto}
+                target="_blank"
+                rel="noopener"
+                aria-label={t('footer.officialSiteAria', { brand: brandDisplayNames.holyauto })}
+                className="neu-btn px-8 py-3 text-sm font-medium whitespace-nowrap inline-flex items-center gap-2"
+              >
+                {t('ui.officialSite')}
+                <i className="ri-external-link-line" aria-hidden="true" />
               </a>
             </div>
           </div>

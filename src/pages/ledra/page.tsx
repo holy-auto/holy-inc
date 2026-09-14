@@ -7,6 +7,7 @@ import SectionConnector from '../../components/base/SectionConnector';
 import CountUpStats from '../../components/base/CountUpStats';
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
+import { brandDisplayNames, officialSites } from '@/lib/sites';
 
 interface LedraFeature {
   id: string;
@@ -83,6 +84,7 @@ const LedraPage: FC = () => {
             description: seo.structuredDataDesc,
             brand: { "@type": "Brand", name: "Ledra" },
             url: `${baseUrl}/ledra`,
+            sameAs: [officialSites.ledra],
             offers: {
               '@type': 'Offer',
               url: `${baseUrl}/ledra`,
@@ -130,6 +132,16 @@ const LedraPage: FC = () => {
                 className="neu-btn px-8 py-3 text-sm font-medium whitespace-nowrap"
               >
                 {t('brandLedra.hero.inquire')}
+              </a>
+              <a
+                href={officialSites.ledra}
+                target="_blank"
+                rel="noopener"
+                aria-label={t('footer.officialSiteAria', { brand: brandDisplayNames.ledra })}
+                className="neu-btn px-8 py-3 text-sm font-medium whitespace-nowrap inline-flex items-center gap-2"
+              >
+                {t('ui.officialSite')}
+                <i className="ri-external-link-line" aria-hidden="true" />
               </a>
             </div>
           </div>

@@ -1,4 +1,8 @@
 import { useTranslation } from "react-i18next";
+import type { BrandId } from "@/lib/sites";
+import { brandDisplayNames, brandPagePaths, officialSites, socialLinks } from "@/lib/sites";
+
+const brandOrder: BrandId[] = ["ledra", "mobilewash", "holyauto"];
 
 export default function Footer() {
   const { t } = useTranslation("common");
@@ -21,36 +25,13 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="#"
-                rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
-                aria-label="Instagram"
-              >
-                <i className="ri-instagram-line text-lg" />
-              </a>
-              <a
-                href="#"
-                rel="nofollow noreferrer"
+                href={socialLinks.x}
+                target="_blank"
+                rel="noopener"
                 className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
                 aria-label="X (Twitter)"
               >
-                <i className="ri-twitter-x-line text-lg" />
-              </a>
-              <a
-                href="#"
-                rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
-                aria-label="YouTube"
-              >
-                <i className="ri-youtube-line text-lg" />
-              </a>
-              <a
-                href="#"
-                rel="nofollow noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"
-                aria-label="LinkedIn"
-              >
-                <i className="ri-linkedin-line text-lg" />
+                <i className="ri-twitter-x-line text-lg" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -87,28 +68,33 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Brand Links */}
+          {/* Brand Links: サイト内の紹介ページ ＋ ブランド公式サイト（相互リンク） */}
           <div>
             <h4 className="text-slate-900 text-sm font-bold mb-4 tracking-wide">{t("footer.brandsTitle")}</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="/ledra" className="text-sm text-slate-600 hover:text-accent-teal transition-colors whitespace-nowrap">
-                  Ledra
-                </a>
-                <span className="text-slate-500 text-xs ml-2">{t("footer.ledraDesc")}</span>
-              </li>
-              <li>
-                <a href="/mobilewash" className="text-sm text-slate-600 hover:text-accent-teal transition-colors whitespace-nowrap">
-                  MobileWash
-                </a>
-                <span className="text-slate-500 text-xs ml-2">{t("footer.mobilewashDesc")}</span>
-              </li>
-              <li>
-                <a href="/holy-auto" className="text-sm text-slate-600 hover:text-white/90 transition-colors whitespace-nowrap">
-                  HOLY AUTO
-                </a>
-                <span className="text-slate-500 text-xs ml-2">{t("footer.holyautoDesc")}</span>
-              </li>
+              {brandOrder.map((id) => (
+                <li key={id}>
+                  <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <a
+                      href={brandPagePaths[id]}
+                      className="text-sm text-slate-600 hover:text-accent-teal transition-colors whitespace-nowrap"
+                    >
+                      {brandDisplayNames[id]}
+                    </a>
+                    <a
+                      href={officialSites[id]}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={t("footer.officialSiteAria", { brand: brandDisplayNames[id] })}
+                      className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-accent-teal transition-colors whitespace-nowrap"
+                    >
+                      {t("ui.officialSite")}
+                      <i className="ri-external-link-line" aria-hidden="true" />
+                    </a>
+                  </span>
+                  <span className="block text-slate-500 text-xs mt-0.5">{t(`footer.${id}Desc`)}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

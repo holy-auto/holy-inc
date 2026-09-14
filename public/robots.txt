@@ -7,6 +7,5 @@ Allow: /ledra
 Allow: /mobilewash
 Allow: /holy-auto
 Allow: /careers
-Allow: /news
 Allow: /contact
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://holy-inc.jp/sitemap.xml

@@ -30,6 +30,7 @@ export default {
     message: "President's Message",
     access: "Access",
     brandsTitle: "Brands",
+    officialSiteAria: "{{brand}} official site (opens in a new tab)",
     ledraDesc: "Proof & Trust Infra",
     mobilewashDesc: "Mobile Car Wash",
     holyautoDesc: "Custom, Coating & Training",
@@ -54,6 +55,7 @@ export default {
   ui: {
     scroll: "Scroll",
     viewDetails: "View Details",
+    officialSite: "Official Site",
     viewMore: "View More",
     submit: "Submit",
     required: "Required",
