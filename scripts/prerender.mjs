@@ -73,6 +73,14 @@ function leadParagraphs(section) {
 }
 
 /** head の1タグを差し替える。見つからなければ例外（黙って落とさない）。 */
+/**
+ * JSON-LD を <script> に入れる形にする。記事本文に `</script>` があっても
+ * script が早期終了しないよう `<` を Unicode エスケープする（JSON としては同じ値）。
+ */
+function jsonLdScript(value) {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
 function replaceTag(html, pattern, replacement, label) {
   if (!pattern.test(html)) throw new Error(`index.html に ${label} が見つからない（head の構造が変わった可能性）`);
   return html.replace(pattern, replacement);
@@ -125,9 +133,11 @@ for (const route of ROUTES) {
       ],
     },
   };
-  html = html.replace(
-    "</head>",
-    `  <script type="application/ld+json" id="prerender-jsonld">${JSON.stringify(jsonLd)}</script>\n  </head>`,
+  html = replaceTag(
+    html,
+    /<\/head>/,
+    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdScript(jsonLd)}</script>\n  </head>`,
+    "</head>（JSON-LD の差し込み先）",
   );
 
   // 本文。React がマウントするまで表示され、クローラーにはこれが見える。
@@ -194,9 +204,11 @@ for (const post of articles) {
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
-  html = html.replace(
-    "</head>",
-    `  <script type="application/ld+json" id="prerender-jsonld">${JSON.stringify(jsonLd)}</script>\n  </head>`,
+  html = replaceTag(
+    html,
+    /<\/head>/,
+    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdScript(jsonLd)}</script>\n  </head>`,
+    "</head>（JSON-LD の差し込み先）",
   );
 
   const body = [

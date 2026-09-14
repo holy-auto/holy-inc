@@ -42,7 +42,8 @@ export type NewsPost = {
 };
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
-const FIELD = /^(\w+):\s*(?:"([^"]*)"|'([^']*)')\s*$/;
+// 値は引用符で囲む。行末の `# コメント` は無視する（README の例をそのまま写せるように）。
+const FIELD = /^(\w+):\s*(?:"([^"]*)"|'([^']*)')\s*(?:#.*)?$/;
 
 /** 1ファイル分をパースする。必須項目が欠けていれば例外（黙って落とさない）。 */
 export function parseNewsFile(slug: string, raw: string): NewsPost {
