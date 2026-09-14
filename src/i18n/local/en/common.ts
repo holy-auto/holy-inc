@@ -31,7 +31,7 @@ export default {
     access: "Access",
     brandsTitle: "Brands",
     officialSitesTitle: "Brand Official Sites",
-    officialSiteAria: "{{brand}} official site (external)",
+    officialSiteAria: "{{brand}} official site (opens in a new tab)",
     ledraDesc: "Proof & Trust Infra",
     mobilewashDesc: "Mobile Car Wash",
     holyautoDesc: "Custom, Coating & Training",

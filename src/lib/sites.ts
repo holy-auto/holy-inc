@@ -2,9 +2,12 @@
  * 各事業ブランドの公式サイト（相互リンクの単一定義源）。
  * ドメインを差し替えるときはここだけを直す。
  *
- * URL は各サイトが自ら宣言している canonical に合わせている:
- * - Ledra:      src/lib/marketing/config.ts の siteConfig.siteUrl（www 付き）
- * - MobileWash: index.html の <link rel="canonical">（mobilewash.app）
+ * URL の出典:
+ * - Ledra:      Ledra リポジトリ src/lib/marketing/config.ts の siteConfig.siteUrl
+ *               （「canonical は www に統一」とコメント有り）
+ * - MobileWash: MobileWash リポジトリ index.html の <link rel="canonical">
+ * - HOLY AUTO:  従来からこのサイトが掲載しているURL。canonical の宣言は未確認
+ *               （www 付きへ寄せているかは【要確認】）。
  */
 export const officialSites = {
   ledra: 'https://www.ledra.co.jp',

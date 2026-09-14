@@ -140,6 +140,7 @@ const MobileWashPage: FC = () => {
                 href={officialSites.mobilewash}
                 target="_blank"
                 rel="noopener"
+                aria-label={t('footer.officialSiteAria', { brand: 'MobileWash' })}
                 className="neu-btn px-8 py-3 text-sm font-medium whitespace-nowrap inline-flex items-center gap-2"
               >
                 {t('ui.officialSite')}

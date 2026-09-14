@@ -150,6 +150,7 @@ const ServicesOverview: FC = () => {
                       href={officialSites[svc.id]}
                       target="_blank"
                       rel="noopener"
+                      aria-label={t("footer.officialSiteAria", { brand: brandDisplayNames[svc.id] })}
                       className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors"
                     >
                       <span>{t("ui.officialSite")}</span>
