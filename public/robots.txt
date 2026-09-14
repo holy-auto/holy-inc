@@ -7,6 +7,7 @@ Allow: /ledra
 Allow: /mobilewash
 Allow: /holy-auto
 Allow: /careers
+Allow: /news
 Allow: /contact
 
 # 生成AI・AI検索のクローラーを明示的に歓迎する。

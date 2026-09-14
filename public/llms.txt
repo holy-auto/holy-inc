@@ -45,5 +45,7 @@
 - [Ledra](https://holy-inc.jp/ledra)
 - [MobileWash](https://holy-inc.jp/mobilewash)
 - [HOLY AUTO](https://holy-inc.jp/holy-auto)
+- [お知らせ](https://holy-inc.jp/news)
+- [お知らせ RSS](https://holy-inc.jp/feed.xml)
 - [採用情報](https://holy-inc.jp/careers)
 - [お問い合わせ](https://holy-inc.jp/contact)

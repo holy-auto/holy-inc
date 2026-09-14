@@ -24,14 +24,23 @@
  * 並びが変わったら置換が効かなくなるので、その場合はここも直す（検証は
  * scripts/check-links.mjs が落として知らせる）。上げるなら SSG に寄せる。
  */
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createJiti } from "jiti";
 
 const repoRoot = fileURLToPath(new URL("..", import.meta.url));
 const jiti = createJiti(import.meta.url);
-const ja = (await jiti.import("../src/i18n/local/ja/common.ts", { default: true }));
+const ja = await jiti.import("../src/i18n/local/ja/common.ts", { default: true });
+const { parseNewsFile, formatNewsDate } = await jiti.import("../src/lib/news-parse.ts");
+
+/** src/content/news/*.md を新しい順に読む。ブラウザ側と同じパーサを使う。 */
+const NEWS_DIR = join(repoRoot, "src/content/news");
+const newsPosts = readdirSync(NEWS_DIR)
+  // 記事のファイル名は日付で始める規約。README.md 等は読まない。
+  .filter((f) => f.endsWith(".md") && /^\d/.test(f))
+  .map((f) => parseNewsFile(f.replace(/\.md$/, ""), readFileSync(join(NEWS_DIR, f), "utf8")))
+  .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
 const ORIGIN = "https://holy-inc.jp";
 const OUT = join(repoRoot, "out");
@@ -47,6 +56,7 @@ const ROUTES = [
   { path: "/holy-auto", key: "brandHolyauto", h1: "HOLY AUTO", ogImage: "/og/og-holyauto.png", crumb: "HOLY AUTO" },
   { path: "/careers", key: "careers", h1: "採用情報", ogImage: "/og/og-careers.png", crumb: "採用情報" },
   { path: "/contact", key: "contact", h1: "お問い合わせ", ogImage: "/og/og-contact.png", crumb: "お問い合わせ" },
+  { path: "/news", key: "newsIndex", h1: "お知らせ", ogImage: "/og/og-default.png", crumb: "お知らせ" },
   // /privacy と /terms は robots.txt で Disallow。静的HTMLも出さない。
 ];
 
@@ -121,10 +131,17 @@ for (const route of ROUTES) {
   );
 
   // 本文。React がマウントするまで表示され、クローラーにはこれが見える。
+  const lead =
+    route.path === "/news"
+      ? newsPosts.map(
+          (n) =>
+            `${formatNewsDate(n.date)}｜${n.category}｜${n.title}`,
+        )
+      : leadParagraphs(section);
   const body = [
     `<p class="overline"><i></i><span class="subtitle">株式会社HOLY</span></p>`,
     `<h1>${esc(route.h1)}</h1>`,
-    ...leadParagraphs(section).map((t) => `<p class="lead">${esc(t)}</p>`),
+    ...lead.map((t) => `<p class="lead">${esc(t)}</p>`),
     `<div class="cta-row">`,
     `  <a href="/" class="cta-secondary">トップページ</a>`,
     `  <a href="/contact" class="cta-primary">お問い合わせ</a>`,
@@ -144,4 +161,129 @@ for (const route of ROUTES) {
   written += 1;
 }
 
-console.log(`OK: prerendered ${written} routes -> out/<route>/index.html`);
+// --- お知らせの記事ページ（本文があるものだけ。薄いページを作らない） ---
+const articles = newsPosts.filter((n) => n.body.length > 0);
+for (const post of articles) {
+  const url = `${ORIGIN}/news/${post.slug}`;
+  const title = `${post.title} | お知らせ | 株式会社HOLY`;
+  const description = post.body[0].slice(0, 120);
+
+  let html = template;
+  html = replaceTag(html, /<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`, "<title>");
+  html = replaceTag(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(description)}" />`, "description");
+  html = replaceTag(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`, "og:url");
+  html = replaceTag(html, /<meta property="twitter:title" content="[^"]*" \/>/, `<meta property="twitter:title" content="${esc(title)}" />`, "twitter:title");
+  html = replaceTag(html, /<meta property="twitter:description" content="[^"]*" \/>/, `<meta property="twitter:description" content="${esc(description)}" />`, "twitter:description");
+  html = replaceTag(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />`, "canonical");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: post.title,
+    datePublished: post.date,
+    dateModified: post.date,
+    url,
+    inLanguage: "ja",
+    articleSection: post.category,
+    author: { "@type": "Organization", name: "株式会社HOLY", url: ORIGIN },
+    publisher: {
+      "@type": "Organization",
+      name: "株式会社HOLY",
+      url: ORIGIN,
+      logo: { "@type": "ImageObject", url: `${ORIGIN}/favicon-512.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+  html = html.replace(
+    "</head>",
+    `  <script type="application/ld+json" id="prerender-jsonld">${JSON.stringify(jsonLd)}</script>\n  </head>`,
+  );
+
+  const body = [
+    `<p class="overline"><i></i><span class="subtitle">${esc(formatNewsDate(post.date))}｜${esc(post.category)}</span></p>`,
+    `<h1>${esc(post.title)}</h1>`,
+    ...post.body.map((t) => `<p class="lead">${esc(t)}</p>`),
+    `<div class="cta-row">`,
+    `  <a href="/news" class="cta-secondary">お知らせ一覧</a>`,
+    `  <a href="/contact" class="cta-primary">お問い合わせ</a>`,
+    `</div>`,
+  ].join("\n        ");
+  html = html.replace(
+    /(<div id="hero-crit-inner">)[\s\S]*?(<\/div>\s*<\/section>)/,
+    `$1\n        ${body}\n      $2`,
+  );
+  if (!html.includes(`<h1>${esc(post.title)}</h1>`)) {
+    throw new Error(`/news/${post.slug}: 本文の差し込みに失敗した`);
+  }
+
+  const dir = join(OUT, "news", post.slug);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "index.html"), html);
+  written += 1;
+}
+
+// --- sitemap.xml（記事を含む。手書きの public/sitemap.xml は廃止） ---
+const STATIC_SITEMAP = [
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/about", changefreq: "monthly", priority: "0.8" },
+  { path: "/ledra", changefreq: "weekly", priority: "0.9" },
+  { path: "/mobilewash", changefreq: "weekly", priority: "0.9" },
+  { path: "/holy-auto", changefreq: "weekly", priority: "0.9" },
+  { path: "/careers", changefreq: "weekly", priority: "0.8" },
+  { path: "/news", changefreq: "weekly", priority: "0.8" },
+  { path: "/contact", changefreq: "monthly", priority: "0.6" },
+];
+const today = new Date().toISOString().slice(0, 10);
+const urls = [
+  ...STATIC_SITEMAP.map((u) => ({ loc: `${ORIGIN}${u.path}`, lastmod: today, changefreq: u.changefreq, priority: u.priority })),
+  ...articles.map((n) => ({ loc: `${ORIGIN}/news/${n.slug}`, lastmod: n.date, changefreq: "yearly", priority: "0.6" })),
+];
+writeFileSync(
+  join(OUT, "sitemap.xml"),
+  [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...urls.flatMap((u) => [
+      "  <url>",
+      `    <loc>${u.loc}</loc>`,
+      `    <lastmod>${u.lastmod}</lastmod>`,
+      `    <changefreq>${u.changefreq}</changefreq>`,
+      `    <priority>${u.priority}</priority>`,
+      "  </url>",
+    ]),
+    "</urlset>",
+    "",
+  ].join("\n"),
+);
+
+// --- RSS（記事だけ。購読とAIクローラーの巡回の入口） ---
+writeFileSync(
+  join(OUT, "feed.xml"),
+  [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    "  <channel>",
+    "    <title>株式会社HOLY のお知らせ</title>",
+    `    <link>${ORIGIN}/news</link>`,
+    "    <description>株式会社HOLY の会社・サービス・プロダクトに関するお知らせ。</description>",
+    "    <language>ja</language>",
+    `    <atom:link href="${ORIGIN}/feed.xml" rel="self" type="application/rss+xml" />`,
+    ...articles.flatMap((n) => [
+      "    <item>",
+      `      <title>${esc(n.title)}</title>`,
+      `      <link>${ORIGIN}/news/${n.slug}</link>`,
+      `      <guid isPermaLink="true">${ORIGIN}/news/${n.slug}</guid>`,
+      `      <pubDate>${new Date(`${n.date}T00:00:00+09:00`).toUTCString()}</pubDate>`,
+      `      <category>${esc(n.category)}</category>`,
+      `      <description>${esc(n.body[0])}</description>`,
+      "    </item>",
+    ]),
+    "  </channel>",
+    "</rss>",
+    "",
+  ].join("\n"),
+);
+
+console.log(
+  `OK: prerendered ${written} routes (記事 ${articles.length}件) + sitemap.xml (${urls.length} URL) + feed.xml`,
+);

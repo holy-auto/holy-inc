@@ -12,11 +12,13 @@
  * 変わったらここも直す。上げるならビルド済みの router を import して検証する。
  */
 import { readFileSync, readdirSync } from "node:fs";
+import { createJiti } from "jiti";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 
 const repoRoot = fileURLToPath(new URL("..", import.meta.url));
+const jiti = createJiti(import.meta.url);
 const read = (p) => readFileSync(join(repoRoot, p), "utf8");
 
 const SITE_ORIGIN = "https://holy-inc.jp";
@@ -73,20 +75,33 @@ for (const file of tsxFiles) {
 }
 
 // --- 公開ファイル ---------------------------------------------------------
-for (const file of ["public/sitemap.xml", "public/robots.txt"]) {
-  const body = read(file);
-  assert.doesNotMatch(body, /example\.(com|org|net)/, `${file} にプレースホルダのドメインが残っている`);
-  assert.ok(body.includes(SITE_ORIGIN), `${file} が ${SITE_ORIGIN} を指していない`);
+const robots = read("public/robots.txt");
+assert.doesNotMatch(robots, /example\.(com|org|net)/, "robots.txt にプレースホルダのドメインが残っている");
+assert.ok(robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`), "robots.txt が sitemap を宣言していない");
+for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended"]) {
+  assert.ok(robots.includes(`User-agent: ${bot}`), `robots.txt が ${bot} を明示的に許可していない`);
 }
 
-const sitemapLocs = [...read("public/sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-for (const loc of sitemapLocs) {
-  assert.ok(loc.startsWith(SITE_ORIGIN), `sitemap の loc が自サイト外: ${loc}`);
-  const path = loc.slice(SITE_ORIGIN.length) || "/";
-  assert.ok(routes.includes(path), `sitemap の ${loc} に対応するルートが無い`);
+try {
+  read("public/sitemap.xml");
+  throw new Error("public/sitemap.xml が残っている。sitemap は scripts/prerender.mjs が記事も含めて生成する");
+} catch (e) {
+  if (e.code !== "ENOENT") throw e;
 }
-for (const path of brandPaths) {
-  assert.ok(sitemapLocs.includes(`${SITE_ORIGIN}${path}`), `sitemap に ${path} が載っていない`);
+
+// --- お知らせの記事がすべてパースできるか ----------------------------------
+// 1ファイル足すだけで公開される仕組みなので、書式ミスはビルド前に落とす。
+const { parseNewsFile } = await jiti.import("../src/lib/news-parse.ts");
+const newsFiles = readdirSync(join(repoRoot, "src/content/news")).filter(
+  (f) => f.endsWith(".md") && /^\d/.test(f),
+);
+assert.ok(newsFiles.length > 0, "src/content/news に記事が1件も無い");
+const slugs = new Set();
+for (const file of newsFiles) {
+  const slug = file.replace(/\.md$/, "");
+  const post = parseNewsFile(slug, read(join("src/content/news", file)));
+  assert.ok(!slugs.has(post.slug), `slug が重複している: ${post.slug}`);
+  slugs.add(post.slug);
 }
 
 // --- index.html の geo メタタグが companyInfo.geo と一致するか --------------
@@ -102,5 +117,5 @@ assert.equal(
 
 console.log(
   `OK: routes=${routes.length} brandPaths=${brandPaths.length} officialSites=${officialUrls.length} ` +
-    `internalHrefs=${checkedHrefs} sitemapLocs=${sitemapLocs.length}`,
+    `internalHrefs=${checkedHrefs} newsPosts=${newsFiles.length}`,
 );

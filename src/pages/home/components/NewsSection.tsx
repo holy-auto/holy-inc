@@ -1,20 +1,20 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { newsPosts, formatNewsDate } from "@/lib/news";
 
-interface NewsItem {
-  date: string;
-  category: string;
-  title: string;
-}
+/** トップに出す件数。全件は /news で見せる。 */
+const HOME_LIMIT = 5;
 
 /**
  * お知らせ / News — a quiet, editorial list (date · category · title).
- * Content is driven by i18n (`homeNews.items`) so it is easy to edit or later
- * swap for a data source.
+ *
+ * 記事は `src/content/news/<slug>.md` が出典。ファイルを1つ足せばここにも
+ * /news にも sitemap にも RSS にも載る。コードの書き換えは要らない。
  */
 const NewsSection: FC = () => {
-  const { t } = useTranslation("common");
-  const items = (t("homeNews.items", { returnObjects: true }) as NewsItem[]) || [];
+  const { t, i18n } = useTranslation("common");
+  const ja = i18n.language.startsWith("ja");
+  const items = newsPosts.slice(0, HOME_LIMIT);
 
   return (
     <section id="news" className="w-full py-16 md:py-24">
@@ -30,22 +30,37 @@ const NewsSection: FC = () => {
         </div>
 
         <ul className="border-t border-slate-200/70">
-          {items.map((item, i) => (
-            <li key={i} className="border-b border-slate-200/70">
+          {items.map((post) => {
+            const row = (
               <div className="group flex flex-col gap-1.5 py-5 sm:flex-row sm:items-baseline sm:gap-6">
-                <time className="w-24 shrink-0 text-sm tabular-nums tracking-wide text-slate-400">
-                  {item.date}
+                <time dateTime={post.date} className="w-24 shrink-0 text-sm tabular-nums tracking-wide text-slate-400">
+                  {formatNewsDate(post.date)}
                 </time>
                 <span className="inline-flex w-fit shrink-0 items-center rounded-full border border-accent-teal/30 px-2.5 py-0.5 text-[11px] tracking-wide text-accent-teal">
-                  {item.category}
+                  {ja ? post.category : post.categoryEn}
                 </span>
                 <p className="text-sm leading-relaxed text-slate-700 transition-colors duration-200 group-hover:text-slate-900 md:text-base">
-                  {item.title}
+                  {ja ? post.title : post.titleEn}
                 </p>
               </div>
-            </li>
-          ))}
+            );
+            return (
+              <li key={post.slug} className="border-b border-slate-200/70">
+                {post.body.length > 0 ? <a href={`/news/${post.slug}`}>{row}</a> : row}
+              </li>
+            );
+          })}
         </ul>
+
+        <div className="mt-8">
+          <a
+            href="/news"
+            className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-accent-teal transition-colors"
+          >
+            {t("newsIndex.viewAll")}
+            <i className="ri-arrow-right-line" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );
