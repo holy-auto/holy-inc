@@ -30,6 +30,8 @@ export default {
     message: "代表メッセージ",
     access: "アクセス",
     brandsTitle: "事業ブランド",
+    officialSitesTitle: "ブランド公式サイト",
+    officialSiteAria: "{{brand}} の公式サイト（外部サイト）",
     ledraDesc: "証明・信用インフラ",
     mobilewashDesc: "出張洗車",
     holyautoDesc: "カスタム・コーティング・講習",
@@ -54,6 +56,7 @@ export default {
   ui: {
     scroll: "スクロール",
     viewDetails: "詳細を見る",
+    officialSite: "公式サイト",
     viewMore: "もっと見る",
     submit: "送信する",
     required: "必須",
@@ -857,7 +860,7 @@ export default {
       solutions: [
         "施工記録をブロックチェーンに刻み、永遠に残る「証明」を生成",
         "技術者ごとに実績を蓄積し、スキルの「可視化」を実現",
-        "販売店は客観的数据で品質を訴求し、差別化を図る",
+        "販売店は客観的データで品質を訴求し、差別化を図る",
         "デジタル化により紙の煩雑さを排除し、効率と信用を両立",
       ],
     },
@@ -897,7 +900,7 @@ export default {
       cases: [
         { id: "buyer", role: "購入者", title: '"本物"を、事実で選ぶ', description: "営業トークではなく、施工記録・技術者情報・部品履歴を見て判断。隠れた修復歴や手抜き施工を事前に回避し、後悔のない購入を実現。", benefit: "施工記録に基づく安心した購入判断", imageUrl: "https://readdy.ai/api/search-image?query=confident%20young%20professional%20man%20in%20smart%20casual%20attire%20standing%20beside%20a%20brand%20new%20dark%20metallic%20luxury%20sedan%20inside%20a%20bright%20modern%20Japanese%20car%20showroom%20with%20warm%20amber%20and%20neutral%20lighting%2C%20clean%20minimalist%20stone%20and%20concrete%20interior%20design%2C%20premium%20automotive%20promotional%20photography%20with%20bokeh%20background%2C%20high-end%20dealership%20atmosphere%2C%20warm%20color%20palette%2C%20sharp%20focus%20on%20vehicle%20and%20person%2C%20cinematic%20editorial%20style%20photography&width=500&height=350&seq=ledra-buyer-promo-001&orientation=landscape" },
         { id: "seller", role: "販売者・ディーラー", title: '"信用"を、資産に変える', description: "自社での施工・整備記録をLedraに登録し、販売時に差別化要素に。透明性が信用を生み、在庫回転率と販売単価の両方を向上させます。", benefit: "透明な履歴による信用向上と差別化", imageUrl: "https://readdy.ai/api/search-image?query=professional%20Japanese%20car%20dealer%20in%20sharp%20navy%20suit%20warmly%20welcoming%20a%20customer%20next%20to%20a%20polished%20white%20luxury%20vehicle%20in%20a%20premium%20modern%20Tokyo%20showroom%2C%20clean%20minimalist%20stone%20and%20warm%20wood%20interior%20design%20with%20amber%20accent%20lighting%2C%20trust%20and%20transparency%20promotional%20concept%2C%20bokeh%20background%20with%20soft%20warm%20glow%2C%20high-end%20automotive%20dealership%20photography%2C%20warm%20neutral%20color%20palette%2C%20cinematic%20editorial%20quality&width=500&height=350&seq=ledra-seller-promo-001&orientation=landscape" },
-        { id: "technician", role: "技術者", title: '"技術"を、証明する', description: "自分の施工が記録に残り、技術の「可視化」を実現。スキルの証明が評価・報酬に直結。次世代への「継承」にも、具体的数据として活用できます。", benefit: "技術の可視化による評価向上", imageUrl: "https://readdy.ai/api/search-image?query=skilled%20automotive%20technician%20in%20clean%20professional%20uniform%20proudly%20inspecting%20a%20glossy%20black%20sports%20car%20with%20a%20digital%20tablet%20in%20a%20bright%20modern%20Japanese%20auto%20workshop%2C%20warm%20amber%20industrial%20lighting%20highlighting%20the%20reflective%20paint%20finish%2C%20clean%20organized%20stone%20and%20concrete%20workspace%2C%20professional%20pride%20and%20craftsmanship%20promotional%20atmosphere%2C%20warm%20neutral%20color%20palette%2C%20cinematic%20editorial%20photography%20quality&width=500&height=350&seq=ledra-tech-promo-001&orientation=landscape" },
+        { id: "technician", role: "技術者", title: '"技術"を、証明する', description: "自分の施工が記録に残り、技術の「可視化」を実現。スキルの証明が評価・報酬に直結。次世代への「継承」にも、具体的データとして活用できます。", benefit: "技術の可視化による評価向上", imageUrl: "https://readdy.ai/api/search-image?query=skilled%20automotive%20technician%20in%20clean%20professional%20uniform%20proudly%20inspecting%20a%20glossy%20black%20sports%20car%20with%20a%20digital%20tablet%20in%20a%20bright%20modern%20Japanese%20auto%20workshop%2C%20warm%20amber%20industrial%20lighting%20highlighting%20the%20reflective%20paint%20finish%2C%20clean%20organized%20stone%20and%20concrete%20workspace%2C%20professional%20pride%20and%20craftsmanship%20promotional%20atmosphere%2C%20warm%20neutral%20color%20palette%2C%20cinematic%20editorial%20photography%20quality&width=500&height=350&seq=ledra-tech-promo-001&orientation=landscape" },
       ],
     },
     howItWorks: {

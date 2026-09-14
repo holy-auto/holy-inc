@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { companyInfo } from '@/mocks/company';
 
 const BASE_URL = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
 const DEFAULT_OG_IMAGE = '/og/og-default.png';
@@ -92,7 +93,7 @@ export default function SeoHead({
       metaGeoPosition.setAttribute('name', 'geo.position');
       document.head.appendChild(metaGeoPosition);
     }
-    metaGeoPosition.setAttribute('content', '35.6712;139.7640');
+    metaGeoPosition.setAttribute('content', `${companyInfo.geo.latitude};${companyInfo.geo.longitude}`);
 
     let metaGeoRegion = document.querySelector('meta[name="geo.region"]');
     if (!metaGeoRegion) {
@@ -108,7 +109,7 @@ export default function SeoHead({
       metaGeoPlacename.setAttribute('name', 'geo.placename');
       document.head.appendChild(metaGeoPlacename);
     }
-    metaGeoPlacename.setAttribute('content', '東京都中央区銀座, Japan');
+    metaGeoPlacename.setAttribute('content', '東京都港区北青山, Japan');
   }, [
     title,
     description,

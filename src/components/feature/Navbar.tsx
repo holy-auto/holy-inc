@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { brandPagePaths } from "@/lib/sites";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation("common");
@@ -54,8 +55,8 @@ export default function Navbar() {
 
   const getProgressColor = () => {
     const p = location.pathname;
-    if (p === "/mobilewash") return "from-emerald-600 to-emerald-400";
-    if (p === "/holyauto") return "from-slate-500 to-slate-300";
+    if (p === brandPagePaths.mobilewash) return "from-emerald-600 to-emerald-400";
+    if (p === brandPagePaths.holyauto) return "from-slate-500 to-slate-300";
     return "from-teal-700 to-teal-400";
   };
 
@@ -71,9 +72,9 @@ export default function Navbar() {
   );
 
   const brandLinks = [
-    { label: t("brandNav.ledra"), href: "/ledra", color: "hover:text-teal-600" },
-    { label: t("brandNav.mobilewash"), href: "/mobilewash", color: "hover:text-emerald-600" },
-    { label: t("brandNav.holyauto"), href: "/holyauto", color: "hover:text-slate-600" },
+    { label: t("brandNav.ledra"), href: brandPagePaths.ledra, color: "hover:text-teal-600" },
+    { label: t("brandNav.mobilewash"), href: brandPagePaths.mobilewash, color: "hover:text-emerald-600" },
+    { label: t("brandNav.holyauto"), href: brandPagePaths.holyauto, color: "hover:text-slate-600" },
   ];
 
   const closeMenu = useCallback(() => setMobileOpen(false), []);
@@ -127,7 +128,7 @@ export default function Navbar() {
     [location.pathname, closeMenu]
   );
 
-  const isBrandPage = ["/holyauto", "/mobilewash", "/ledra"].includes(location.pathname);
+  const isBrandPage = Object.values(brandPagePaths).includes(location.pathname);
 
   // Soft UI: the bar is always the matte material; text is always ink.
   const scrolledOrMobile = true;

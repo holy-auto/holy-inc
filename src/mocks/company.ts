@@ -9,6 +9,8 @@ export interface CompanyInfo {
   access: string;
   tel: string;
   email: string;
+  /** 本社所在地の座標。geo メタタグ・LocalBusiness/Organization JSON-LD の唯一の出典。 */
+  geo: { latitude: string; longitude: string };
 }
 
 export const companyInfo: CompanyInfo = {
@@ -26,6 +28,7 @@ export const companyInfo: CompanyInfo = {
   access: '東京メトロ銀座線・半蔵門線「青山一丁目駅」より徒歩3分',
   tel: '03-4363-3234',
   email: 'info@holy-inc.jp',
+  geo: { latitude: '35.67277', longitude: '139.72319' },
 };
 
 export interface TimelineEvent {

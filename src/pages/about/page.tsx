@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import SeoHead from '@/components/base/SeoHead';
 import FadeIn from '@/components/base/FadeIn';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
+import { officialSites } from '@/lib/sites';
+import { companyInfo } from '@/mocks/company';
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import QualitySection from './components/QualitySection';
 import TeamSection from './components/TeamSection';
@@ -74,13 +76,13 @@ const AboutPage: FC = () => {
             openingHours: 'Mo-Sa 09:00-18:00',
             geo: {
               '@type': 'GeoCoordinates',
-              latitude: '35.67277',
-              longitude: '139.72319',
+              latitude: companyInfo.geo.latitude,
+              longitude: companyInfo.geo.longitude,
             },
-            sameAs: [baseUrl],
+            sameAs: [officialSites.ledra, officialSites.mobilewash, officialSites.holyauto],
             areaServed: {
               '@type': 'Place',
-              name: '東京都中央区銀座',
+              name: '東京都港区',
             },
             hasOfferCatalog: {
               '@type': 'OfferCatalog',

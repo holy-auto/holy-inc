@@ -97,7 +97,7 @@ export const ledraUseCases: LedraUseCase[] = [
     role: '技術者',
     title: '"技術"を、証明する',
     description:
-      '自分の施工が記録に残り、技術の「可視化」を実現。スキルの証明が評価・報酬に直結。次世代への「継承」にも、具体的数据として活用できます。',
+      '自分の施工が記録に残り、技術の「可視化」を実現。スキルの証明が評価・報酬に直結。次世代への「継承」にも、具体的データとして活用できます。',
     benefit: '技術の可視化による評価向上',
     imageUrl:
       'https://readdy.ai/api/search-image?query=Expert%20automotive%20technician%20using%20a%20precision%20digital%20scanning%20device%20on%20a%20luxury%20car%20panel%20with%20holographic%20quality%20verification%20data%20and%20blockchain%20certification%20records%20glowing%20in%20translucent%20teal%20overlay%2C%20advanced%20measurement%20tools%20and%20LED%20inspection%20systems%20surrounding%20the%20work%20area%2C%20high-tech%20Japanese%20automotive%20workshop%20with%20pristine%20equipment%2C%20professional%20commercial%20photography%2C%208K%20ultra%20detailed%2C%20macro%20detail%20emphasis%2C%20cinematic%20lighting%20with%20cool%20cyan%20and%20warm%20amber%20contrast%2C%20dark%20moody%20atmosphere%2C%20no%20text&width=500&height=350&seq=ledra-tech-pro-005&orientation=landscape',
@@ -155,6 +155,6 @@ export const ledraProblemPoints = [
 export const ledraSolutions = [
   '施工記録をブロックチェーンに刻み、永遠に残る「証明」を生成',
   '技術者ごとに実績を蓄積し、スキルの「可視化」を実現',
-  '販売店は客観的数据で品質を訴求し、差別化を図る',
+  '販売店は客観的データで品質を訴求し、差別化を図る',
   'デジタル化により紙の煩雑さを排除し、効率と信用を両立',
 ];
