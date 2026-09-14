@@ -30,7 +30,6 @@ export default {
     message: "代表メッセージ",
     access: "アクセス",
     brandsTitle: "事業ブランド",
-    officialSitesTitle: "ブランド公式サイト",
     officialSiteAria: "{{brand}} の公式サイト（新しいタブで開く）",
     ledraDesc: "証明・信用インフラ",
     mobilewashDesc: "出張洗車",

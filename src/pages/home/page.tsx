@@ -1,6 +1,6 @@
 import SeoHead from "../../components/base/SeoHead";
 import { buildBreadcrumbJsonLd } from "@/utils/seo";
-import { officialSites } from "@/lib/sites";
+import { officialSites, socialLinks } from "@/lib/sites";
 import { companyInfo } from "@/mocks/company";
 import HeroSection from "./components/HeroSection";
 import NewsSection from "./components/NewsSection";
@@ -43,7 +43,7 @@ export default function Home() {
               officialSites.ledra,
               officialSites.mobilewash,
               officialSites.holyauto,
-              "https://x.com/detailing_holy",
+              socialLinks.x,
             ],
             subOrganization: [
               { "@type": "Organization", name: "Ledra", url: officialSites.ledra },

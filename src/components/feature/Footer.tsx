@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { BrandId } from "@/lib/sites";
-import { brandDisplayNames, brandPagePaths, officialSites } from "@/lib/sites";
+import { brandDisplayNames, brandPagePaths, officialSites, socialLinks } from "@/lib/sites";
 
 const brandOrder: BrandId[] = ["ledra", "mobilewash", "holyauto"];
 
@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://x.com/detailing_holy"
+                href={socialLinks.x}
                 target="_blank"
                 rel="noopener"
                 className="w-10 h-10 flex items-center justify-center rounded-full neu-raised-sm text-slate-500 hover:text-accent-teal transition-colors"

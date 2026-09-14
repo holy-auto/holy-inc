@@ -30,7 +30,6 @@ export default {
     message: "President's Message",
     access: "Access",
     brandsTitle: "Brands",
-    officialSitesTitle: "Brand Official Sites",
     officialSiteAria: "{{brand}} official site (opens in a new tab)",
     ledraDesc: "Proof & Trust Infra",
     mobilewashDesc: "Mobile Car Wash",

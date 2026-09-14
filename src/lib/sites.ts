@@ -17,6 +17,14 @@ export const officialSites = {
 
 export type BrandId = keyof typeof officialSites;
 
+/**
+ * 公式SNS。フッターのアイコンと Organization JSON-LD の sameAs から参照する。
+ * 出典: Ledra リポジトリ src/lib/marketing/config.ts の twitterHandle（@detailing_holy）。
+ */
+export const socialLinks = {
+  x: 'https://x.com/detailing_holy',
+} as const;
+
 /** サイト内のブランド紹介ページ。Footer / Navbar / ブランド間ナビで共有する。 */
 export const brandPagePaths: Record<BrandId, string> = {
   ledra: '/ledra',
