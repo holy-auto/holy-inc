@@ -173,6 +173,9 @@
         function check() {
           attempts++;
           if (root.children.length > 0 && root.textContent.length > 300) {
+            // プリレンダした JSON-LD は React が同等のものを描画するので取り除く
+            var pre = document.getElementById('prerender-jsonld');
+            if (pre) pre.remove();
             crit.style.opacity = '0';
             crit.style.transition = 'opacity 0.3s ease';
             setTimeout(function() { crit.style.display = 'none'; }, 300);
