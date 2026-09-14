@@ -28,11 +28,13 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createJiti } from "jiti";
+import { esc, insertBefore, replaceTag } from "./lib/html.mjs";
 
 const repoRoot = fileURLToPath(new URL("..", import.meta.url));
 const jiti = createJiti(import.meta.url);
 const ja = await jiti.import("../src/i18n/local/ja/common.ts", { default: true });
 const { parseNewsFile, formatNewsDate } = await jiti.import("../src/lib/news-parse.ts");
+const { jsonLdHtml } = await jiti.import("../src/lib/jsonld.ts");
 
 /** src/content/news/*.md を新しい順に読む。ブラウザ側と同じパーサを使う。 */
 const NEWS_DIR = join(repoRoot, "src/content/news");
@@ -60,8 +62,6 @@ const ROUTES = [
   // /privacy と /terms は robots.txt で Disallow。静的HTMLも出さない。
 ];
 
-const esc = (s) =>
-  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 /** そのページで人が読める導入文。hero があれば使い、無ければ seo.description。 */
 function leadParagraphs(section) {
@@ -72,19 +72,6 @@ function leadParagraphs(section) {
   return lines.length > 0 ? lines : [section.seo.description];
 }
 
-/** head の1タグを差し替える。見つからなければ例外（黙って落とさない）。 */
-/**
- * JSON-LD を <script> に入れる形にする。記事本文に `</script>` があっても
- * script が早期終了しないよう `<` を Unicode エスケープする（JSON としては同じ値）。
- */
-function jsonLdScript(value) {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
-}
-
-function replaceTag(html, pattern, replacement, label) {
-  if (!pattern.test(html)) throw new Error(`index.html に ${label} が見つからない（head の構造が変わった可能性）`);
-  return html.replace(pattern, replacement);
-}
 
 const template = readFileSync(join(OUT, "index.html"), "utf8");
 if (!template.includes('id="hero-crit-inner"')) {
@@ -110,9 +97,11 @@ for (const route of ROUTES) {
   html = replaceTag(html, /<meta property="twitter:image" content="[^"]*" \/>/, `<meta property="twitter:image" content="${ogImage}" />`, "twitter:image");
   html = replaceTag(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />`, "canonical");
   // og:title は index.html に無い（React が付ける）ので、静的側にも足しておく
-  html = html.replace(
+  html = insertBefore(
+    html,
     `<meta property="og:url" content="${url}" />`,
-    `<meta property="og:title" content="${esc(title)}" />\n    <meta property="og:url" content="${url}" />`,
+    `<meta property="og:title" content="${esc(title)}" />\n    `,
+    "og:url（og:title の差し込み先）",
   );
 
   // JS を実行しないクローラー向けの構造化データ。React がマウントしたら
@@ -136,7 +125,7 @@ for (const route of ROUTES) {
   html = replaceTag(
     html,
     /<\/head>/,
-    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdScript(jsonLd)}</script>\n  </head>`,
+    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdHtml(jsonLd)}</script>\n  </head>`,
     "</head>（JSON-LD の差し込み先）",
   );
 
@@ -159,7 +148,7 @@ for (const route of ROUTES) {
   ].join("\n        ");
   html = html.replace(
     /(<div id="hero-crit-inner">)[\s\S]*?(<\/div>\s*<\/section>)/,
-    `$1\n        ${body}\n      $2`,
+    (_, open, close) => `${open}\n        ${body}\n      ${close}`,
   );
   if (!html.includes(`<h1>${esc(route.h1)}</h1>`)) {
     throw new Error(`${route.path}: 本文の差し込みに失敗した`);
@@ -207,7 +196,7 @@ for (const post of articles) {
   html = replaceTag(
     html,
     /<\/head>/,
-    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdScript(jsonLd)}</script>\n  </head>`,
+    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdHtml(jsonLd)}</script>\n  </head>`,
     "</head>（JSON-LD の差し込み先）",
   );
 
@@ -222,7 +211,7 @@ for (const post of articles) {
   ].join("\n        ");
   html = html.replace(
     /(<div id="hero-crit-inner">)[\s\S]*?(<\/div>\s*<\/section>)/,
-    `$1\n        ${body}\n      $2`,
+    (_, open, close) => `${open}\n        ${body}\n      ${close}`,
   );
   if (!html.includes(`<h1>${esc(post.title)}</h1>`)) {
     throw new Error(`/news/${post.slug}: 本文の差し込みに失敗した`);

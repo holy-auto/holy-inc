@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { companyInfo } from '@/mocks/company';
+import { jsonLdHtml } from '@/lib/jsonld';
 
 const BASE_URL = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
 const DEFAULT_OG_IMAGE = '/og/og-default.png';
@@ -134,7 +135,7 @@ export default function SeoHead({
         <script
           key={i}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(data) }}
         />
       ))}
     </>

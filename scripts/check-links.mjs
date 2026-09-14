@@ -115,6 +115,51 @@ assert.equal(
   `index.html の geo.position が companyInfo.geo と食い違っている（index.html は静的なので手で揃える）`,
 );
 
+// --- 記事の内容が HTML を壊さないか（プリレンダの差し込み） ---
+// 記事は代表が md で書く。見出しや本文に `</script>` や `$'` が入っても
+// 出力が壊れないことを、実際に通して確かめる。
+{
+  const { jsonLdHtml } = await jiti.import("../src/lib/jsonld.ts");
+  const { replaceTag, insertBefore } = await import("./lib/html.mjs");
+
+  const evil = "終了</script><img src=x>";
+  const out = jsonLdHtml({ headline: evil });
+  assert.ok(!out.includes("</script>"), "jsonLdHtml が </script> を素通しした");
+  assert.equal(JSON.parse(out).headline, evil, "jsonLdHtml が値を変えてしまっている");
+
+  // `$'` 等は String.replace の置換文字列で特殊解釈される（文書の一部が混入する）
+  const dollar = "価格は$'お得 $& ${x}";
+  const replaced = replaceTag("<title>x</title>", /<title>[^<]*<\/title>/, `<title>${dollar}</title>`, "<title>");
+  assert.equal(replaced, `<title>${dollar}</title>`, "replaceTag が $ を特殊解釈している");
+  const inserted = insertBefore("<a><b>", "<b>", dollar, "<b>");
+  assert.equal(inserted, `<a>${dollar}<b>`, "insertBefore が $ を特殊解釈している");
+
+  assert.throws(
+    () => replaceTag("<p></p>", /<title>/, "x", "<title>"),
+    /見つからない/,
+    "replaceTag が差し込み先の不在を黙って通した",
+  );
+}
+
+// --- frontmatter の書式（README の例がそのまま通るか） ---
+{
+  const sample = [
+    "---",
+    'date: "2026-09-14"          # 必須。YYYY-MM-DD',
+    'category: "サービス"          # 必須',
+    'categoryEn: "Service"       # 必須',
+    'title: "見出し"              # 必須',
+    'titleEn: "Headline"         # 必須',
+    "---",
+    "",
+    "本文。",
+  ].join("\n");
+  const post = parseNewsFile("2026-09-sample", sample);
+  assert.equal(post.title, "見出し", "frontmatter の行末コメントが読めていない（README の例が通らない）");
+  assert.deepEqual(post.body, ["本文。"]);
+  assert.throws(() => parseNewsFile("x", "---\ndate: 2026-09-14\n---\n"), /読めない|が無い/);
+}
+
 console.log(
   `OK: routes=${routes.length} brandPaths=${brandPaths.length} officialSites=${officialUrls.length} ` +
     `internalHrefs=${checkedHrefs} newsPosts=${newsFiles.length}`,
