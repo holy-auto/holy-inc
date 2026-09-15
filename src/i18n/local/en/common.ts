@@ -121,16 +121,20 @@ export default {
   },
 
   // Home news (top-page summary; distinct from the full "news" page block)
+  newsIndex: {
+    heading: "News",
+    viewAll: "View all news",
+    backToList: "Back to news",
+    seo: {
+      title: "News | HOLY Inc. - Company, service and product updates",
+      description: "News from HOLY Inc. Company updates, service information for Ledra, MobileWash and HOLY AUTO, and community activities.",
+      keywords: "HOLY, news, press, Ledra, MobileWash, HOLY AUTO",
+    },
+  },
+
   homeNews: {
     sectionLabel: "News",
     heading: "News",
-    items: [
-      { date: "2026.08", category: "Community", title: "Became the main sponsor of the \"Tsukuba Child-Rearing & Education Summit 2026.\"" },
-      { date: "2025.10", category: "Service", title: "Started preparations for the MobileWash mobile car wash service." },
-      { date: "2025.03", category: "Company", title: "Established our Mission, Vision & Values." },
-      { date: "2025.01", category: "Product", title: "Launched the Ledra vehicle-certification infrastructure project." },
-      { date: "2024.11", category: "Company", title: "Founded HOLY Inc." },
-    ],
   },
 
   // MVV

@@ -1,0 +1,51 @@
+# 株式会社HOLY
+
+> 職人の技術を、次へつなぐ。自動車の施工・記録・カーケアを手がける会社です。
+
+株式会社HOLY は、自動車の現場技術を「証明できる資産」に変えることを目指す会社です。
+コーティング・フィルム施工の現場（HOLY AUTO）、施工履歴のプラットフォーム（Ledra）、
+出張洗車（MobileWash）の3つの事業を運営しています。
+
+## 会社概要
+
+- 商号: 株式会社HOLY（HOLY Inc.）
+- 設立: 2024年11月12日
+- 資本金: 10万円
+- 代表者: 代表取締役 堀越 友輔
+- 従業員: 1名（代表）
+- 所在地: 〒107-0061 東京都港区北青山1-3-1 アールキューブ青山3F
+- アクセス: 東京メトロ銀座線・半蔵門線「青山一丁目駅」より徒歩3分
+- 電話: 03-4363-3234
+- メール: info@holy-inc.jp
+
+## 企業理念
+
+- Mission: 職人の技術を、次へつなぐ。
+- Vision: 技術が、資産になる。
+- Values: 誇り（Pride）／継承（Succession）／誠実（Integrity）／証明（Proof）
+
+## 事業ブランド
+
+- HOLY AUTO — 自動車カスタム・コーティング・フィルム施工・技術講習。公式サイト: https://holy-auto.com
+- Ledra — 自動車整備・コーティング店向けの施工履歴プラットフォーム。公式サイト: https://www.ledra.co.jp
+- MobileWash — 出張洗車・出張コーティング（2026年Q3 正式ローンチ予定）。公式サイト: https://mobilewash.app
+
+## 沿革
+
+- 2024年11月 株式会社HOLYを設立
+- 2025年1月 車両証明インフラ「Ledra」プロジェクトを始動
+- 2025年3月 企業理念（Mission・Vision・Values）を策定
+- 2025年10月 出張洗車「MobileWash」サービスの準備を開始
+- 2026年8月 「つくば子育て＆教育サミット2026」のメインスポンサーに就任
+
+## Links
+
+- [トップページ](https://holy-inc.jp/)
+- [会社概要](https://holy-inc.jp/about)
+- [Ledra](https://holy-inc.jp/ledra)
+- [MobileWash](https://holy-inc.jp/mobilewash)
+- [HOLY AUTO](https://holy-inc.jp/holy-auto)
+- [お知らせ](https://holy-inc.jp/news)
+- [お知らせ RSS](https://holy-inc.jp/feed.xml)
+- [採用情報](https://holy-inc.jp/careers)
+- [お問い合わせ](https://holy-inc.jp/contact)

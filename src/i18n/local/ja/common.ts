@@ -121,16 +121,20 @@ export default {
   },
 
   // Home お知らせ (top-page summary; distinct from the full "news" page block)
+  newsIndex: {
+    heading: "お知らせ",
+    viewAll: "お知らせ一覧を見る",
+    backToList: "お知らせ一覧へ戻る",
+    seo: {
+      title: "お知らせ | 株式会社HOLY - 会社・サービス・プロダクトの最新情報",
+      description: "株式会社HOLYのお知らせ一覧。会社の動き、Ledra・MobileWash・HOLY AUTOのサービス情報、地域貢献活動などを掲載しています。",
+      keywords: "HOLY, お知らせ, ニュース, プレスリリース, Ledra, MobileWash, HOLY AUTO",
+    },
+  },
+
   homeNews: {
     sectionLabel: "News",
     heading: "お知らせ",
-    items: [
-      { date: "2026.08", category: "地域貢献", title: "「つくば子育て＆教育サミット2026」のメインスポンサーに就任しました。" },
-      { date: "2025.10", category: "サービス", title: "出張洗車「MobileWash」サービスの準備を開始しました。" },
-      { date: "2025.03", category: "会社", title: "企業理念（Mission・Vision・Values）を策定しました。" },
-      { date: "2025.01", category: "プロダクト", title: "車両証明インフラ「Ledra」プロジェクトを始動しました。" },
-      { date: "2024.11", category: "会社", title: "株式会社HOLYを設立しました。" },
-    ],
   },
 
   // MVV

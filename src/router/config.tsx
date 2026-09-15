@@ -8,6 +8,8 @@ const Ledra = lazy(() => import("../pages/ledra/page"));
 const MobileWash = lazy(() => import("../pages/mobilewash/page"));
 const HolyAuto = lazy(() => import("../pages/holyauto/page"));
 const Careers = lazy(() => import("../pages/careers/page"));
+const NewsIndex = lazy(() => import("../pages/news/page"));
+const NewsPost = lazy(() => import("../pages/news/post"));
 const Contact = lazy(() => import("../pages/contact/page"));
 const Privacy = lazy(() => import("../pages/privacy/page"));
 const Terms = lazy(() => import("../pages/terms/page"));
@@ -25,6 +27,8 @@ const routes: RouteObject[] = [
   { path: "/mobilewash", element: <Suspense fallback={fallback}><MobileWash /></Suspense> },
   { path: "/holy-auto", element: <Suspense fallback={fallback}><HolyAuto /></Suspense> },
   { path: "/careers", element: <Suspense fallback={fallback}><Careers /></Suspense> },
+  { path: "/news", element: <Suspense fallback={fallback}><NewsIndex /></Suspense> },
+  { path: "/news/:slug", element: <Suspense fallback={fallback}><NewsPost /></Suspense> },
   { path: "/contact", element: <Suspense fallback={fallback}><Contact /></Suspense> },
   { path: "/privacy", element: <Suspense fallback={fallback}><Privacy /></Suspense> },
   { path: "/terms", element: <Suspense fallback={fallback}><Terms /></Suspense> },
