@@ -6,7 +6,7 @@ export default function NotFound() {
   const location = useLocation();
   const { t } = useTranslation('common');
 
-  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
   return (
     <>

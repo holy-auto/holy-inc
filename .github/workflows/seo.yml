@@ -1,0 +1,63 @@
+# SEO / AIO（AI検索）向けの品質チェック。
+#
+# 止めたい事故: title・description の欠落や重複、canonical の取り違え、
+# noindex の混入、JSON-LD の破損、sitemap / llms.txt と実ページのずれ、
+# robots.txt が公開ページを塞ぐこと。どれも公開後は気づきにくい。
+#
+# 中身は scripts/check-links.mjs（ソース）と scripts/check-seo.mjs（ビルド成果物）、
+# lighthouserc.json（Lighthouse の SEO スコア 90 未満で失敗）。
+name: SEO / AIO checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Source checks (links / news / llms.txt)
+        run: npm run check:links
+
+      - name: Build (prerender + sitemap + RSS + llms.txt)
+        run: npm run build
+
+      - name: Build output checks (title / description / canonical / JSON-LD / sitemap / robots)
+        run: npm run check:seo
+
+      - name: Lighthouse
+        run: npx --yes @lhci/cli@0.15.x collect && npx --yes @lhci/cli@0.15.x assert
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          if-no-files-found: ignore
+          retention-days: 14

@@ -29,12 +29,16 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createJiti } from "jiti";
 import { esc, insertBefore, replaceTag } from "./lib/html.mjs";
+import { buildLlmsTxt } from "./lib/llms.mjs";
 
 const repoRoot = fileURLToPath(new URL("..", import.meta.url));
 const jiti = createJiti(import.meta.url);
 const ja = await jiti.import("../src/i18n/local/ja/common.ts", { default: true });
 const { parseNewsFile, formatNewsDate } = await jiti.import("../src/lib/news-parse.ts");
 const { jsonLdHtml } = await jiti.import("../src/lib/jsonld.ts");
+const { buildOrganizationJsonLd, buildWebSiteJsonLd } = await jiti.import("../src/lib/organization.ts");
+const { companyInfo } = await jiti.import("../src/mocks/company.ts");
+const { officialSites, brandDisplayNames } = await jiti.import("../src/lib/sites.ts");
 
 /** src/content/news/*.md を新しい順に読む。ブラウザ側と同じパーサを使う。 */
 const NEWS_DIR = join(repoRoot, "src/content/news");
@@ -44,7 +48,7 @@ const newsPosts = readdirSync(NEWS_DIR)
   .map((f) => parseNewsFile(f.replace(/\.md$/, ""), readFileSync(join(NEWS_DIR, f), "utf8")))
   .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
-const ORIGIN = "https://holy-inc.jp";
+const ORIGIN = "https://www.holy-inc.jp";
 const OUT = join(repoRoot, "out");
 
 /**
@@ -223,6 +227,36 @@ for (const post of articles) {
   written += 1;
 }
 
+// --- トップページ（/）: 会社情報の JSON-LD を静的にも載せる ---
+// React 側（src/pages/home/page.tsx）と同じ定義を使う。マウント後は
+// index.html のスクリプトが #prerender-jsonld を取り除くので重複しない。
+{
+  const home = replaceTag(
+    template,
+    /<\/head>/,
+    `  <script type="application/ld+json" id="prerender-jsonld">${jsonLdHtml([
+      buildWebSiteJsonLd(ORIGIN),
+      buildOrganizationJsonLd(ORIGIN),
+    ])}</script>\n  </head>`,
+    "</head>（JSON-LD の差し込み先）",
+  );
+  writeFileSync(join(OUT, "index.html"), home);
+}
+
+// --- llms.txt / llms-full.txt（手書きの public/llms.txt は廃止） ---
+{
+  const { llms, llmsFull } = buildLlmsTxt({
+    origin: ORIGIN,
+    companyInfo,
+    officialSites,
+    brandDisplayNames,
+    ja,
+    news: newsPosts,
+  });
+  writeFileSync(join(OUT, "llms.txt"), llms);
+  writeFileSync(join(OUT, "llms-full.txt"), llmsFull);
+}
+
 // --- sitemap.xml（記事を含む。手書きの public/sitemap.xml は廃止） ---
 const STATIC_SITEMAP = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
@@ -286,5 +320,5 @@ writeFileSync(
 );
 
 console.log(
-  `OK: prerendered ${written} routes (記事 ${articles.length}件) + sitemap.xml (${urls.length} URL) + feed.xml`,
+  `OK: prerendered ${written} routes (記事 ${articles.length}件) + sitemap.xml (${urls.length} URL) + feed.xml + llms.txt`,
 );

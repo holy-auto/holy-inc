@@ -41,6 +41,7 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit --project tsconfig.app.json",
     "check:links": "node scripts/check-links.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "prerender": "node scripts/prerender.mjs"
   },
   "type": "module",

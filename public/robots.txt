@@ -52,4 +52,4 @@ Disallow: /privacy
 Disallow: /terms
 Allow: /
 
-Sitemap: https://holy-inc.jp/sitemap.xml
+Sitemap: https://www.holy-inc.jp/sitemap.xml

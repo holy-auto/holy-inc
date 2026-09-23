@@ -11,7 +11,7 @@ import TeamSection from './components/TeamSection';
 import TimelineSection from './components/TimelineSection';
 import MapCard from '@/components/feature/MapCard';
 
-const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
 const AboutPage: FC = () => {
   const { t } = useTranslation('common');

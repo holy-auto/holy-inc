@@ -66,7 +66,7 @@ export default function CareersPage() {
     setFormData({ name: "", email: "", phone: "", position: "", message: "" });
   };
 
-  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+  const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
   const jobPostingSchemas = jobOpenings.map((job) => ({
     "@context": "https://schema.org",
