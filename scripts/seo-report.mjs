@@ -156,7 +156,7 @@ async function liveSection() {
   for (const [i, f] of files.entries()) {
     const r = fileResults[i];
     const issues = [];
-    if (r.status !== 200) issues.push(`HTTP ${r.status || r.error}`);
+    if (r.status !== 200) issues.push(`HTTP ${r.status || r.error}${r.location ? ` → ${r.location}` : ""}`);
     if (f === "/robots.txt" && /^Disallow:\s*\/\s*$/m.test(r.text)) issues.push("Disallow: / が入っている");
     rows.push({ path: f, status: r.status, issues });
   }
