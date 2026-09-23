@@ -8,7 +8,7 @@ import { buildBreadcrumbJsonLd } from '@/utils/seo';
 import { getNewsPost, formatNewsDate } from '@/lib/news';
 import NotFound from '@/pages/NotFound';
 
-const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
 /** お知らせの記事ページ。本文のある記事だけが到達できる（薄いページを作らない）。 */
 const NewsPostPage: FC = () => {

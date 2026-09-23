@@ -44,7 +44,7 @@ interface Step {
   icon: string;
 }
 
-const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
 const LedraPage: FC = () => {
   const { t } = useTranslation('common');

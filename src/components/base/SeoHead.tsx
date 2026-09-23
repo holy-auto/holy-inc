@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { companyInfo } from '@/mocks/company';
 import { jsonLdHtml } from '@/lib/jsonld';
 
-const BASE_URL = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+const BASE_URL = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 const DEFAULT_OG_IMAGE = '/og/og-default.png';
 
 // og:image must be an absolute URL for social crawlers; allow pages to pass a

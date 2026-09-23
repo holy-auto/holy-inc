@@ -48,7 +48,7 @@ const newsPosts = readdirSync(NEWS_DIR)
   .map((f) => parseNewsFile(f.replace(/\.md$/, ""), readFileSync(join(NEWS_DIR, f), "utf8")))
   .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
-const ORIGIN = "https://holy-inc.jp";
+const ORIGIN = "https://www.holy-inc.jp";
 const OUT = join(repoRoot, "out");
 
 /**

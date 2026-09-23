@@ -9,7 +9,7 @@ import BrandSection from "./components/BrandSection";
 import AboutPreview from "./components/AboutPreview";
 import ContactSection from "./components/ContactSection";
 
-const baseUrl = import.meta.env.VITE_SITE_URL || "https://holy-inc.jp";
+const baseUrl = import.meta.env.VITE_SITE_URL || "https://www.holy-inc.jp";
 
 export default function Home() {
   return (

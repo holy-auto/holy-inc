@@ -12,7 +12,7 @@
  *
  * 環境変数:
  * - GSC_ACCESS_TOKEN  Search Console API のアクセストークン（webmasters.readonly）
- * - SITE_ORIGIN       巡回先（既定 https://holy-inc.jp。ローカル検証用に差し替えられる）
+ * - SITE_ORIGIN       巡回先（既定 https://www.holy-inc.jp。ローカル検証用に差し替えられる）
  * - REPORT_ONLY=1     問題があっても終了コード 0（PR での試走用。PR は本番の状態を変えないので）
  *
  * 認証は鍵ファイルを使わない（組織ポリシーで SA キーの作成が禁止されている）。
@@ -21,7 +21,7 @@
  */
 import { writeFileSync } from "node:fs";
 
-const ORIGIN = (process.env.SITE_ORIGIN || "https://holy-inc.jp").replace(/\/$/, "");
+const ORIGIN = (process.env.SITE_ORIGIN || "https://www.holy-inc.jp").replace(/\/$/, "");
 const TOKEN = process.env.GSC_ACCESS_TOKEN;
 const outArg = process.argv.indexOf("--out");
 const OUT_FILE = outArg > 0 ? process.argv[outArg + 1] : "seo-report.md";

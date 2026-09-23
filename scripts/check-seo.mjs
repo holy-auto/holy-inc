@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = fileURLToPath(new URL("..", import.meta.url));
 const OUT = join(repoRoot, "out");
-const ORIGIN = "https://holy-inc.jp";
+const ORIGIN = "https://www.holy-inc.jp";
 
 /** Google の検索結果で切れずに出る目安（全角換算の文字数）。 */
 const TITLE_MAX = 60;
@@ -156,7 +156,7 @@ for (const file of ["llms.txt", "llms-full.txt"]) {
   }
   const text = readFileSync(p, "utf8");
   if (!text.startsWith("# ")) error(file, "先頭が `# サイト名` になっていない（llms.txt の書式）");
-  for (const [, href] of text.matchAll(/\]\((https:\/\/holy-inc\.jp[^)]*)\)/g)) {
+  for (const [, href] of text.matchAll(/\]\((https:\/\/www\.holy-inc\.jp[^)]*)\)/g)) {
     const path = href.slice(ORIGIN.length) || "/";
     const ok = pages.some((pg) => pg.path === path.replace(/\/$/, "") || (path === "/" && pg.path === "/"))
       || existsSync(join(OUT, path));

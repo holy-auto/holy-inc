@@ -11,7 +11,7 @@ import ConsultationFlow from './components/ConsultationFlow';
 import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
 
-const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
 interface Store {
   name: string;

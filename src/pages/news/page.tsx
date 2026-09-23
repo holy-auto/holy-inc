@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/feature/Breadcrumb';
 import { buildBreadcrumbJsonLd } from '@/utils/seo';
 import { newsPosts, formatNewsDate } from '@/lib/news';
 
-const baseUrl = import.meta.env.VITE_SITE_URL || 'https://holy-inc.jp';
+const baseUrl = import.meta.env.VITE_SITE_URL || 'https://www.holy-inc.jp';
 
 /** お知らせ一覧。記事は src/content/news/*.md を足すだけで増える。 */
 const NewsIndexPage: FC = () => {

@@ -21,7 +21,7 @@ const repoRoot = fileURLToPath(new URL("..", import.meta.url));
 const jiti = createJiti(import.meta.url);
 const read = (p) => readFileSync(join(repoRoot, p), "utf8");
 
-const SITE_ORIGIN = "https://holy-inc.jp";
+const SITE_ORIGIN = "https://www.holy-inc.jp";
 /** ルートではないが実在する配信物。href="/..." の許可リスト。 */
 const STATIC_PATHS = new Set(["/sitemap.xml", "/robots.txt"]);
 
@@ -72,6 +72,17 @@ for (const file of tsxFiles) {
     checkedHrefs += 1;
     assert.ok(routes.includes(path), `${relative(".", file)} の href="${href}" に対応するルートが無い`);
   }
+}
+
+// --- 正規URLは www 付き ------------------------------------------------------
+// 本番は holy-inc.jp → www.holy-inc.jp に 308 で転送される。canonical や sitemap が
+// 転送元を指すと検索エンジンに矛盾した信号を送るので、www なしの URL を書かせない。
+for (const file of [...tsxFiles, "index.html", "public/robots.txt", "scripts/prerender.mjs"]) {
+  assert.doesNotMatch(
+    read(file),
+    /https:\/\/holy-inc\.jp/,
+    `${relative(".", file)} に www なしの https://holy-inc.jp が残っている（https://www.holy-inc.jp に揃える）`,
+  );
 }
 
 // --- 公開ファイル ---------------------------------------------------------
