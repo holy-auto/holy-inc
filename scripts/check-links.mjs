@@ -89,6 +89,13 @@ try {
   if (e.code !== "ENOENT") throw e;
 }
 
+try {
+  read("public/llms.txt");
+  throw new Error("public/llms.txt が残っている。llms.txt は scripts/prerender.mjs が会社情報とお知らせから生成する");
+} catch (e) {
+  if (e.code !== "ENOENT") throw e;
+}
+
 // --- お知らせの記事がすべてパースできるか ----------------------------------
 // 1ファイル足すだけで公開される仕組みなので、書式ミスはビルド前に落とす。
 const { parseNewsFile } = await jiti.import("../src/lib/news-parse.ts");
@@ -139,6 +146,26 @@ assert.equal(
     /見つからない/,
     "replaceTag が差し込み先の不在を黙って通した",
   );
+}
+
+// --- llms.txt: お知らせを足せば沿革とリンクに載るか / リンク先が実在ルートか ---
+{
+  const { buildLlmsTxt, LLMS_PAGES } = await import("./lib/llms.mjs");
+  const ja = await jiti.import("../src/i18n/local/ja/common.ts", { default: true });
+  const { companyInfo } = await jiti.import("../src/mocks/company.ts");
+  const { officialSites, brandDisplayNames } = await jiti.import("../src/lib/sites.ts");
+  const news = [
+    { slug: "2026-09-with-body", date: "2026-09-01", category: "会社", title: "本文ありを発表しました。", body: ["本文。"] },
+    { slug: "2026-08-no-body", date: "2026-08-01", category: "会社", title: "見出しだけ", body: [] },
+  ];
+  const { llms, llmsFull } = buildLlmsTxt({ origin: SITE_ORIGIN, companyInfo, officialSites, brandDisplayNames, ja, news });
+  assert.ok(llms.includes("- 2026年9月 本文ありを発表\n"), "llms.txt の沿革にお知らせが載っていない");
+  assert.ok(llms.includes("- 2026年8月 見出しだけ\n"), "llms.txt の沿革に見出しだけの記事が載っていない");
+  assert.ok(llms.includes(`(${SITE_ORIGIN}/news/2026-09-with-body)`), "llms.txt に記事ページへのリンクが無い");
+  assert.ok(!llms.includes("/news/2026-08-no-body"), "llms.txt が本文の無い（ページの無い）記事にリンクしている");
+  assert.ok(llmsFull.includes("本文。"), "llms-full.txt に記事の本文が無い");
+  for (const url of Object.values(officialSites)) assert.ok(llms.includes(url), `llms.txt に公式サイト ${url} が無い`);
+  for (const { path } of LLMS_PAGES) assert.ok(routes.includes(path), `llms.mjs の LLMS_PAGES の ${path} に対応するルートが無い`);
 }
 
 // --- frontmatter の書式（README の例がそのまま通るか） ---

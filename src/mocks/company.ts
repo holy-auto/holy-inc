@@ -5,6 +5,8 @@ export interface CompanyInfo {
   representative: string;
   employees: string;
   business: string[];
+  /** 郵便番号。PostalAddress JSON-LD と llms.txt の出典。 */
+  postalCode: string;
   address: string;
   access: string;
   tel: string;
@@ -24,6 +26,7 @@ export const companyInfo: CompanyInfo = {
     '車両履歴・技術証明インフラ（LEDRA）',
     '出張洗車サービス（MobileWash）※準備中',
   ],
+  postalCode: '107-0061',
   address: '東京都港区北青山1-3-1 アールキューブ青山3F',
   access: '東京メトロ銀座線・半蔵門線「青山一丁目駅」より徒歩3分',
   tel: '03-4363-3234',

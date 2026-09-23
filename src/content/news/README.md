@@ -8,6 +8,7 @@
 - 記事ページ `/news/<ファイル名>`（本文を書いた記事のみ）
 - `sitemap.xml`
 - RSS `/feed.xml`
+- AI 向けの `/llms.txt`（沿革・記事リンク）と `/llms-full.txt`（記事の全文）
 
 ## 手順
 

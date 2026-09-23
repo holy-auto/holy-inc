@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+/** Network Information API。TS の DOM 型定義に無い（Chromium 系のみ実装）ので使う分だけ書く。 */
+type NetworkInformation = EventTarget & { effectiveType?: string; downlink?: number };
+
 export interface NetworkState {
   online: boolean;
   effectiveType: string | null;
