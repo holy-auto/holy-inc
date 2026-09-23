@@ -1,0 +1,83 @@
+# 週次 SEO レポート。毎週月曜 9:00（JST）に Search Console の数字と
+# 本番サイトの巡回結果を集め、Issue「週次 SEO レポート」にコメントする。
+#
+# 認証は鍵ファイルを使わない（組織ポリシーでサービスアカウントキーの作成が禁止）。
+# GitHub の OIDC トークンを Workload Identity 連携で seo-monitor サービスアカウントに
+# 交換する。GCP 側の設定（プロジェクト original-seeker-502814-n6）:
+# - Workload Identity プール `github` / プロバイダ `holy-inc`
+#   （assertion.repository == holy-auto/holy-inc のときだけ通す）
+# - seo-monitor SA に、上記リポジトリの principalSet へ roles/iam.workloadIdentityUser
+# - Search Console の「ユーザーと権限」に seo-monitor SA を「制限付き」で追加
+#
+# PR でスクリプトかこのファイルを変えたときは、Issue に書かずにジョブの Summary にだけ出す。
+name: Weekly SEO report
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 月曜 00:00 UTC = 9:00 JST
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/seo-report.mjs
+      - .github/workflows/seo-weekly.yml
+
+permissions:
+  contents: read
+  id-token: write # Workload Identity 連携
+  issues: write # レポートの投稿
+
+concurrency:
+  group: seo-weekly-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Authenticate to Google Cloud
+        id: gcp
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/392638353355/locations/global/workloadIdentityPools/github/providers/holy-inc
+          service_account: seo-monitor@original-seeker-502814-n6.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters.readonly
+
+      - name: Build report
+        id: report
+        env:
+          GSC_ACCESS_TOKEN: ${{ steps.gcp.outputs.access_token }}
+          REPORT_ONLY: ${{ github.event_name == 'pull_request' && '1' || '' }}
+        # 巡回で問題があれば終了コード 1。レポートは出したうえでジョブを赤くする。
+        run: node scripts/seo-report.mjs --out seo-report.md
+
+      - name: Job summary
+        if: always() && hashFiles('seo-report.md') != ''
+        run: cat seo-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Post to issue
+        if: always() && github.event_name != 'pull_request' && hashFiles('seo-report.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="週次 SEO レポート"
+          NUM=$(gh issue list --state open --search "\"$TITLE\" in:title" --json number,title \
+            --jq ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          if [ -z "$NUM" ]; then
+            NUM=$(gh issue create --title "$TITLE" \
+              --body "毎週月曜 9:00（JST）に、Search Console の数字と本番サイトの巡回結果をこの Issue にコメントします（.github/workflows/seo-weekly.yml）。" \
+              | grep -o '[0-9]*$')
+          fi
+          {
+            cat seo-report.md
+            echo
+            echo "[実行ログ](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+          } > comment.md
+          gh issue comment "$NUM" --body-file comment.md
