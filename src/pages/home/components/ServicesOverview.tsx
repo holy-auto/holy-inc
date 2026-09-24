@@ -1,5 +1,4 @@
 import type { FC } from "react";
-import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import type { BrandId } from "@/lib/sites";
 import { brandDisplayNames, brandPagePaths, officialSites } from "@/lib/sites";
@@ -9,8 +8,6 @@ const services: {
   icon: string;
   keywordsKey: string;
   color: string;
-  bgGlow: string;
-  iconBg: string;
   taglineKey: string;
 }[] = [
   {
@@ -18,8 +15,6 @@ const services: {
     icon: "ri-car-line",
     keywordsKey: "servicesOverview.holyautoKeywords",
     color: "#78716c",
-    bgGlow: "from-slate-100 to-slate-50",
-    iconBg: "bg-slate-100",
     taglineKey: "brandData.holyauto.tagline",
   },
   {
@@ -27,8 +22,6 @@ const services: {
     icon: "ri-drop-line",
     keywordsKey: "servicesOverview.mobilewashKeywords",
     color: "#5560e3",
-    bgGlow: "from-cyan-50/50 to-white",
-    iconBg: "bg-cyan-50",
     taglineKey: "brandData.mobilewash.tagline",
   },
   {
@@ -36,38 +29,15 @@ const services: {
     icon: "ri-shield-check-line",
     keywordsKey: "servicesOverview.ledraKeywords",
     color: "#c05621",
-    bgGlow: "from-accent-teal/5 to-white",
-    iconBg: "bg-accent-teal/10",
     taglineKey: "brandData.ledra.tagline",
   },
 ];
 
 const ServicesOverview: FC = () => {
   const { t } = useTranslation("common");
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full py-16 md:py-20"
-    >
+    <section className="w-full py-16 md:py-20">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -82,32 +52,18 @@ const ServicesOverview: FC = () => {
 
         {/* 3 Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-          {services.map((svc, index) => {
+          {services.map((svc) => {
             const keywords = t(svc.keywordsKey, { returnObjects: true }) as string[];
             return (
               <div
                 key={svc.id}
-                className={`group relative flex flex-col neu-card rounded-[22px] p-6 md:p-8 transition-all duration-500 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }`}
-                style={{
-                  transitionDelay: `${200 + index * 150}ms`,
-                }}
+                className="group flex flex-col neu-card rounded-[22px] p-6 md:p-8"
               >
-                {/* Background glow on hover */}
-                <div
-                  className={`absolute inset-0 rounded-xl bg-gradient-to-br ${svc.bgGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                />
-
-                <div className="relative z-10 flex flex-col h-full">
+                <div className="flex flex-col h-full">
                   {/* Icon */}
-                  <div
-                    className={`w-14 h-14 flex items-center justify-center ${svc.iconBg} rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300`}
-                  >
+                  <div className="mb-5">
                     <i
-                      className={`${svc.icon} text-2xl`}
+                      className={`${svc.icon} text-3xl`}
                       style={{ color: svc.color }}
                     />
                   </div>
@@ -123,16 +79,9 @@ const ServicesOverview: FC = () => {
                   </p>
 
                   {/* Keywords */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {keywords.map((kw) => (
-                      <span
-                        key={kw}
-                        className="px-3 py-1 bg-slate-50 text-slate-600 text-xs rounded-full whitespace-nowrap"
-                      >
-                        {kw}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-slate-500 text-xs mb-6">
+                    {keywords.join(" ・ ")}
+                  </p>
 
                   {/* CTA: サイト内の紹介ページ ＋ ブランド公式サイト */}
                   <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
@@ -166,12 +115,7 @@ const ServicesOverview: FC = () => {
         </div>
 
         {/* Bottom connector + CTA */}
-        <div
-          className={`mt-12 text-center transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-          style={{ transitionDelay: "700ms" }}
-        >
+        <div className="mt-12 text-center">
           <p className="text-slate-400 text-sm inline-flex items-center gap-2 mb-6">
             <span className="w-8 h-px bg-slate-200" />
             {t("brandsSection.subtitle")}

@@ -135,13 +135,9 @@ const MVVSection: FC = () => {
             <p className="text-slate-800 text-xl md:text-2xl font-light leading-relaxed group-hover:text-teal-700 transition-colors">
               {t("mvv.missionText")}
             </p>
-            {/* 3 brands badge */}
-            <div className="mt-6 flex items-center gap-2.5 flex-wrap">
-              <span className="text-slate-400 text-xs tracking-wider">{t("servicesOverview.sectionLabel")}</span>
-              <span className="px-2 py-1 bg-slate-200/60 text-slate-600 text-xs rounded-md font-medium whitespace-nowrap">HOLY AUTO</span>
-              <span className="px-2 py-1 bg-cyan-50 text-cyan-700 text-xs rounded-md font-medium whitespace-nowrap">MobileWash</span>
-              <span className="px-2 py-1 bg-accent-teal/10 text-accent-teal text-xs rounded-md font-medium whitespace-nowrap">Ledra</span>
-            </div>
+            <p className="mt-6 text-slate-400 text-xs tracking-wider">
+              {t("servicesOverview.sectionLabel")}：HOLY AUTO ・ MobileWash ・ Ledra
+            </p>
           </div>
           <div className="neu-card rounded-[20px] p-8 md:p-10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-4">
@@ -151,13 +147,9 @@ const MVVSection: FC = () => {
             <p className="text-slate-800 text-xl md:text-2xl font-light leading-relaxed group-hover:text-teal-700 transition-colors">
               {t("mvv.visionText")}
             </p>
-            {/* 3 brands badge */}
-            <div className="mt-6 flex items-center gap-2.5 flex-wrap">
-              <span className="text-slate-400 text-xs tracking-wider">{t("servicesOverview.sectionLabel")}</span>
-              <span className="px-2 py-1 bg-slate-200/60 text-slate-600 text-xs rounded-md font-medium whitespace-nowrap">HOLY AUTO</span>
-              <span className="px-2 py-1 bg-cyan-50 text-cyan-700 text-xs rounded-md font-medium whitespace-nowrap">MobileWash</span>
-              <span className="px-2 py-1 bg-accent-teal/10 text-accent-teal text-xs rounded-md font-medium whitespace-nowrap">Ledra</span>
-            </div>
+            <p className="mt-6 text-slate-400 text-xs tracking-wider">
+              {t("servicesOverview.sectionLabel")}：HOLY AUTO ・ MobileWash ・ Ledra
+            </p>
           </div>
         </div>
 
@@ -270,15 +262,10 @@ const MVVSection: FC = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {values.map((value, idx) => (
+            {values.map((value) => (
               <div
                 key={value.id}
                 className="group neu-card rounded-[20px] p-6 transition-all duration-300"
-                style={{
-                  opacity: drawProgress > 0.2 + idx * 0.2 ? 1 : 0.6,
-                  transform: drawProgress > 0.2 + idx * 0.2 ? "translateY(0)" : "translateY(8px)",
-                  transition: `opacity 0.5s ease-out ${idx * 120}ms, transform 0.5s ease-out ${idx * 120}ms, border-color 0.3s ease`,
-                }}
               >
                 <div className="w-12 h-12 flex items-center justify-center neu-well rounded-[14px] mb-4">
                   <i className={`${value.icon} text-slate-600 text-xl group-hover:text-accent-teal transition-colors`} />
@@ -306,7 +293,7 @@ const MVVSection: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(85, 96, 227,0.25)]"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 rounded-md text-sm tracking-wide whitespace-nowrap"
               >
                 {t("mvv.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">

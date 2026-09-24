@@ -1,12 +1,9 @@
 import type { FC } from "react";
-import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import CraftCanvas, { type CraftVariant } from "../../../components/base/CraftCanvas";
 
 const BrandSection: FC = () => {
   const { t } = useTranslation("common");
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   const brands = [
     {
@@ -73,24 +70,8 @@ const BrandSection: FC = () => {
 
   const impactStats = t("brandsSection.impact", { returnObjects: true }) as Array<{ value: string; label: string }>;
 
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="brands" ref={sectionRef} className="w-full py-20 md:py-28">
+    <section id="brands" className="w-full py-20 md:py-28">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-14">
@@ -105,12 +86,7 @@ const BrandSection: FC = () => {
         </div>
 
         {/* Impact Metrics Row */}
-        <div
-          className={`grid grid-cols-3 gap-4 md:gap-8 mb-14 md:mb-20 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"
-          }`}
-          style={{ transitionDelay: "100ms" }}
-        >
+        <div className="grid grid-cols-3 gap-4 md:gap-8 mb-14 md:mb-20">
           <p className="text-center text-accent-teal text-xs tracking-[0.3em] uppercase mb-0 col-span-3">
             {t("brandsSection.impactTitle")}
           </p>
@@ -124,39 +100,23 @@ const BrandSection: FC = () => {
           </div>
         </div>
 
-        {/* Collaboration Flow — Redesigned */}
-        <div
-          className={`mb-16 md:mb-24 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"
-          }`}
-          style={{ transitionDelay: "250ms" }}
-        >
+        {/* Collaboration Flow */}
+        <div className="mb-16 md:mb-24">
           <p className="text-center text-accent-teal text-xs tracking-[0.3em] uppercase mb-10">
             {t("brandsSection.flowLabel")}
           </p>
 
           {/* Flow Pipeline */}
           <div className="relative max-w-4xl mx-auto">
-            {/* Connecting line — desktop */}
-            <div className="hidden lg:block absolute top-[44px] left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-px bg-slate-200" />
-
             <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-0">
               {flowSteps.map((step, i) => (
                 <div key={i} className="flex-1 flex flex-col lg:flex-col items-center text-center relative">
-                  {/* Step circle */}
-                  <div className="relative z-10 mb-4">
-                    <div
-                      className="w-[88px] h-[88px] rounded-full flex items-center justify-center text-white font-bold text-2xl tracking-wider"
-                      style={{ backgroundColor: step.color }}
-                    >
+                  {/* Step number */}
+                  <div className="relative z-10 mb-4 flex items-center gap-2">
+                    <i className={`${step.icon} text-2xl`} style={{ color: step.color }} />
+                    <span className="font-serif font-medium text-3xl tracking-wider" style={{ color: step.color }}>
                       {step.step}
-                    </div>
-                    {/* Icon badge */}
-                    <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                      <span className="w-4 h-4 flex items-center justify-center">
-                        <i className={`${step.icon} text-sm`} style={{ color: step.color }} />
-                      </span>
-                    </div>
+                    </span>
                   </div>
 
                   {/* Content */}
@@ -197,18 +157,14 @@ const BrandSection: FC = () => {
         <div className="space-y-0">
           {brands.map((brand, index) => {
             const isLast = index === brands.length - 1;
-            const cardDelay = 300 + index * 200;
 
             return (
               <div key={brand.id}>
                 <div
-                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center transition-all duration-700 ease-out ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"
-                  }`}
-                  style={{ transitionDelay: `${cardDelay}ms` }}
+                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center`}
                 >
                   {/* Brand visual */}
-                  <div className="w-full lg:w-1/2 border-glow rounded-lg relative group overflow-hidden">
+                  <div className="w-full lg:w-1/2 rounded-lg overflow-hidden">
                     <CraftCanvas
                       variant={brand.variant}
                       kanji={brand.kanji}
@@ -216,20 +172,19 @@ const BrandSection: FC = () => {
                       title={brand.tagline}
                       className="aspect-[3/2] w-full"
                     />
-                    {/* Stat badge overlay */}
-                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-teal-400/20 text-center">
-                      <p className="text-teal-300 font-bold text-lg leading-tight">{brand.statValue}</p>
-                      <p className="text-white/60 text-[10px] leading-tight">{brand.statLabel}</p>
-                    </div>
                   </div>
 
                   {/* Content */}
                   <div className="w-full lg:w-1/2">
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex items-baseline gap-3 mb-3">
                       <h3 className="text-slate-900 text-2xl md:text-3xl font-bold">{brand.name}</h3>
                       {brand.id === "ledra" && (
-                        <span className="px-2 py-0.5 bg-accent-teal/10 text-accent-teal text-xs rounded-full font-medium whitespace-nowrap">{t("brandsSection.newBadge")}</span>
+                        <span className="text-accent-teal text-xs font-medium tracking-wide">{t("brandsSection.newBadge")}</span>
                       )}
+                      <span className="ml-auto text-right shrink-0">
+                        <span className="block text-accent-teal font-bold text-lg leading-tight">{brand.statValue}</span>
+                        <span className="block text-slate-400 text-[10px] leading-tight">{brand.statLabel}</span>
+                      </span>
                     </div>
                     <p className="text-accent-teal text-sm font-medium mb-4 tracking-wide">{brand.tagline}</p>
                     <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">{brand.description}</p>
@@ -261,12 +216,7 @@ const BrandSection: FC = () => {
 
                 {/* Connector between cards */}
                 {!isLast && (
-                  <div
-                    className={`flex justify-center my-6 md:my-8 transition-opacity duration-500 ${
-                      isVisible ? "opacity-100" : "opacity-0"
-                    }`}
-                    style={{ transitionDelay: `${cardDelay + 150}ms` }}
-                  >
+                  <div className="flex justify-center my-6 md:my-8">
                     <svg width="2" height="48" viewBox="0 0 2 48" fill="none" className="hidden lg:block">
                       <line
                         x1="1" y1="0" x2="1" y2="48"
@@ -289,12 +239,7 @@ const BrandSection: FC = () => {
         </div>
 
         {/* Ecosystem Synergy Section */}
-        <div
-          className={`mt-20 md:mt-28 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"
-          }`}
-          style={{ transitionDelay: "800ms" }}
-        >
+        <div className="mt-20 md:mt-28">
           <div className="text-center mb-10">
             <p className="text-accent-teal text-xs tracking-[0.3em] uppercase mb-3">Ecosystem</p>
             <h3 className="text-slate-900 text-2xl md:text-3xl font-bold mb-4">
@@ -308,68 +253,38 @@ const BrandSection: FC = () => {
 
           {/* Ecosystem visual */}
           <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col md:flex-row items-stretch justify-center gap-0">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2">
               {/* Step 1 — HOLY AUTO */}
-              <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(146, 64, 14, 0.12)" }}>
-                  <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-tools-line text-lg" style={{ color: "#3b45b3" }} />
-                  </span>
-                </div>
+              <div className="flex-1 w-full neu-card rounded-[20px] p-6 md:p-8 text-center">
+                <i className="ri-tools-line text-2xl mb-3" style={{ color: "#3b45b3" }} />
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[2].name}</p>
                 <p className="text-slate-500 text-xs">{t("brandsSection.ecosystemStep1")}</p>
-                {/* Arrow — desktop right */}
-                <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-accent-teal rounded-full items-center justify-center">
-                  <span className="w-3 h-3 flex items-center justify-center">
-                    <i className="ri-arrow-right-s-line text-white text-xs" />
-                  </span>
-                </div>
               </div>
+
+              <i className="ri-arrow-right-s-line md:block hidden text-accent-teal/50 text-3xl" />
+              <i className="ri-arrow-down-s-line md:hidden text-accent-teal/50 text-3xl" />
 
               {/* Step 2 — Ledra */}
-              <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative md:mx-2 my-2 md:my-0">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(192, 86, 33, 0.12)" }}>
-                  <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-shield-check-line text-lg" style={{ color: "#c05621" }} />
-                  </span>
-                </div>
+              <div className="flex-1 w-full neu-card rounded-[20px] p-6 md:p-8 text-center">
+                <i className="ri-shield-check-line text-2xl mb-3" style={{ color: "#c05621" }} />
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[0].name}</p>
                 <p className="text-slate-500 text-xs">{t("brandsSection.ecosystemStep2")}</p>
-                {/* Arrow — desktop right */}
-                <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-accent-teal rounded-full items-center justify-center">
-                  <span className="w-3 h-3 flex items-center justify-center">
-                    <i className="ri-arrow-right-s-line text-white text-xs" />
-                  </span>
-                </div>
-                {/* Arrow — mobile down */}
-                <div className="flex md:hidden justify-center absolute -bottom-3 left-1/2 -translate-x-1/2 z-10">
-                  <span className="w-6 h-6 bg-accent-teal rounded-full flex items-center justify-center">
-                    <i className="ri-arrow-down-s-line text-white text-xs" />
-                  </span>
-                </div>
               </div>
 
+              <i className="ri-arrow-right-s-line md:block hidden text-accent-teal/50 text-3xl" />
+              <i className="ri-arrow-down-s-line md:hidden text-accent-teal/50 text-3xl" />
+
               {/* Step 3 — MobileWash */}
-              <div className="flex-1 neu-card rounded-[20px] p-6 md:p-8 text-center relative">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(85, 96, 227, 0.12)" }}>
-                  <span className="w-6 h-6 flex items-center justify-center">
-                    <i className="ri-drop-line text-lg" style={{ color: "#5560e3" }} />
-                  </span>
-                </div>
+              <div className="flex-1 w-full neu-card rounded-[20px] p-6 md:p-8 text-center">
+                <i className="ri-drop-line text-2xl mb-3" style={{ color: "#5560e3" }} />
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[1].name}</p>
                 <p className="text-slate-500 text-xs">{t("brandsSection.ecosystemStep3")}</p>
               </div>
             </div>
 
-            {/* Circular loop indicator */}
-            <div className="flex justify-center mt-10">
-              <div className="flex items-center gap-3 text-slate-400 text-xs">
-                <span className="w-6 h-6 flex items-center justify-center">
-                  <i className="ri-refresh-line" />
-                </span>
-                <span className="tracking-wider">施工 → 記録 → メンテナンス → 施工 ...</span>
-              </div>
-            </div>
+            <p className="text-center mt-10 text-slate-400 text-xs tracking-wider">
+              施工 → 記録 → メンテナンス → 施工 ...
+            </p>
           </div>
         </div>
       </div>

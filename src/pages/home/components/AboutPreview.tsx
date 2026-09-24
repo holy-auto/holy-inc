@@ -1,39 +1,14 @@
 import type { FC } from "react";
-import { useRef, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import CraftCanvas from "../../../components/base/CraftCanvas";
 
 const AboutPreview: FC = () => {
   const { t } = useTranslation("common");
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <section id="about" ref={ref} className="relative w-full py-20 md:py-28 overflow-hidden">
-      {/* CSS-only background */}
-      
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-teal-400/5 via-transparent to-transparent" />
-      {/* Shimmer overlay */}
-      <div className="absolute inset-0 shimmer-gradient animate-shimmer opacity-20" />
-
+    <section id="about" className="relative w-full py-20 md:py-28 overflow-hidden">
       <div className="relative z-10 w-full px-6 md:px-10 max-w-6xl mx-auto">
-        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-16 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Content */}
           <div className="w-full lg:w-1/2">
             <p className="text-accent-teal text-xs tracking-[0.3em] uppercase mb-3">{t("section.about")}</p>
@@ -90,7 +65,7 @@ const AboutPreview: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap hover:shadow-[0_0_15px_rgba(85, 96, 227,0.25)]"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 rounded-md text-sm tracking-wide whitespace-nowrap"
               >
                 {t("aboutPreview.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">
