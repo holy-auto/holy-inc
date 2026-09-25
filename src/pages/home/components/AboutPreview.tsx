@@ -7,6 +7,9 @@ const AboutPreview: FC = () => {
 
   return (
     <section id="about" className="relative w-full py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-teal-400/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 shimmer-gradient animate-shimmer opacity-20" />
+
       <div className="relative z-10 w-full px-6 md:px-10 max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Content */}

@@ -187,6 +187,30 @@
   color: var(--neu-accent);
 }
 
+/* Shimmer gradient for premium feel */
+.shimmer-gradient {
+  background: linear-gradient(90deg, transparent, rgba(129,141,234,0.08), transparent);
+  background-size: 200% 100%;
+}
+
+/* Border glow on hover */
+.border-glow {
+  position: relative;
+}
+.border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(85, 96, 227, 0.4), rgba(129, 141, 234, 0.2), rgba(85, 96, 227, 0.4));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.border-glow:hover::before {
+  opacity: 1;
+}
+
 /* Section entrance animations */
 @keyframes slideInFromBottom {
   from {

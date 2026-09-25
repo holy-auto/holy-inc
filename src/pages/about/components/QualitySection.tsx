@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import CraftCanvas from '@/components/base/CraftCanvas';
 
@@ -24,35 +23,8 @@ const QualitySection: FC = () => {
   const quality = t('about.quality', { returnObjects: true }) as Record<string, unknown>;
   const items = quality.items as QualityItem[];
 
-  const [visible, setVisible] = useState<boolean[]>(new Array(items.length).fill(false));
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number(entry.target.getAttribute('data-index'));
-            setVisible((prev) => {
-              const next = [...prev];
-              next[idx] = true;
-              return next;
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    const cards = sectionRef.current?.querySelectorAll('.quality-card');
-    cards?.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, [items.length]);
-
   return (
-    <section ref={sectionRef} className="w-full py-16 md:py-24">
+    <section className="w-full py-16 md:py-24">
       <div className="px-6 md:px-10 max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16">
@@ -77,13 +49,7 @@ const QualitySection: FC = () => {
             return (
               <div
                 key={item.id}
-                data-index={index}
-                className={`quality-card group relative rounded-[20px] overflow-hidden cursor-pointer neu-raised transition-all duration-700 ${
-                  visible[index]
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 120}ms` }}
+                className="group relative rounded-[20px] overflow-hidden cursor-pointer neu-raised"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">

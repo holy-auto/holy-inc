@@ -23,8 +23,10 @@ const ContactSection: FC = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-20 md:py-28">
-      <div className="w-full px-6 md:px-10 max-w-4xl mx-auto">
+    <section id="contact" className="w-full py-20 md:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent pointer-events-none" />
+
+      <div className="relative z-10 w-full px-6 md:px-10 max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-accent-teal text-xs tracking-[0.3em] uppercase mb-3">{t("section.contact")}</p>

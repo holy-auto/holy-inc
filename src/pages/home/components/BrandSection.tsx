@@ -164,7 +164,7 @@ const BrandSection: FC = () => {
                   className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center`}
                 >
                   {/* Brand visual */}
-                  <div className="w-full lg:w-1/2 rounded-lg overflow-hidden">
+                  <div className="w-full lg:w-1/2 border-glow rounded-lg relative group overflow-hidden">
                     <CraftCanvas
                       variant={brand.variant}
                       kanji={brand.kanji}
@@ -172,19 +172,20 @@ const BrandSection: FC = () => {
                       title={brand.tagline}
                       className="aspect-[3/2] w-full"
                     />
+                    {/* Stat badge overlay */}
+                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-teal-400/20 text-center">
+                      <p className="text-teal-300 font-bold text-lg leading-tight">{brand.statValue}</p>
+                      <p className="text-white/60 text-[10px] leading-tight">{brand.statLabel}</p>
+                    </div>
                   </div>
 
                   {/* Content */}
                   <div className="w-full lg:w-1/2">
-                    <div className="flex items-baseline gap-3 mb-3">
+                    <div className="flex items-center gap-3 mb-3">
                       <h3 className="text-slate-900 text-2xl md:text-3xl font-bold">{brand.name}</h3>
                       {brand.id === "ledra" && (
                         <span className="text-accent-teal text-xs font-medium tracking-wide">{t("brandsSection.newBadge")}</span>
                       )}
-                      <span className="ml-auto text-right shrink-0">
-                        <span className="block text-accent-teal font-bold text-lg leading-tight">{brand.statValue}</span>
-                        <span className="block text-slate-400 text-[10px] leading-tight">{brand.statLabel}</span>
-                      </span>
                     </div>
                     <p className="text-accent-teal text-sm font-medium mb-4 tracking-wide">{brand.tagline}</p>
                     <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">{brand.description}</p>
