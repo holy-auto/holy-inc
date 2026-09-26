@@ -24,7 +24,6 @@ const ContactSection: FC = () => {
 
   return (
     <section id="contact" className="w-full py-20 md:py-28 relative overflow-hidden">
-      {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full px-6 md:px-10 max-w-4xl mx-auto">
@@ -143,7 +142,7 @@ const ContactSection: FC = () => {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 rounded-md text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(85, 96, 227,0.2)] hover:shadow-[0_0_30px_rgba(85, 96, 227,0.35)]"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 rounded-md text-sm font-semibold tracking-wide whitespace-nowrap"
             >
               {status === "submitting" ? (
                 <>

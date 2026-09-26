@@ -1,4 +1,4 @@
-import { useEffect, useRef, type FC } from 'react';
+import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import CraftCanvas from '@/components/base/CraftCanvas';
 
@@ -14,36 +14,8 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
   index,
   isLeft,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            el.classList.remove('opacity-0', 'translate-y-8');
-            el.classList.add('opacity-100', 'translate-y-0');
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const delayClass = `transition-delay-${Math.min(index * 100, 500)}`;
-
   return (
-    <div
-      ref={ref}
-      className={`relative flex items-center gap-0 md:gap-0 opacity-0 translate-y-8 transition-all duration-700 ease-out ${delayClass}`}
-    >
+    <div className="relative flex items-center gap-0 md:gap-0">
       {/* Mobile: single column layout */}
       <div className="flex md:hidden w-full">
         {/* Line side */}

@@ -145,7 +145,7 @@ export default {
     heading: "Mission・Vision・Values",
     ctaTitle: "Start the Journey of Turning Skills into Assets",
     ctaDesc: "HOLY's three brands weave a single story of proof, trust, and succession. Feel free to reach out for a consultation.",
-    ctaButton: "Consult 3-Brand Collaboration",
+    ctaButton: "Talk to us",
   },
 
   // Brand Section
@@ -170,8 +170,8 @@ export default {
     flowStep2Desc: "Immutable blockchain record & skill certification",
     flowStep3: "MobileWash Maintenance",
     flowStep3Desc: "Regular mobile wash, coating touch-up & condition check",
-    flowCta: "Consult 3-Brand Collaboration",
-    flowCtaDesc: "Maximize your car's value through seamless construction → record → maintenance.",
+    flowCta: "Ask about the full flow",
+    flowCtaDesc: "These three steps can be handled through a single point of contact.",
   },
 
   // Services Overview
@@ -181,8 +181,8 @@ export default {
     holyautoKeywords: ["Custom Work", "Coating", "Training"],
     mobilewashKeywords: ["Mobile Wash", "On-site Coating", "Corporate"],
     ledraKeywords: ["Blockchain", "Construction Records", "Skill Proof"],
-    collaborationCta: "Consult 3-Brand Collaboration",
-    collaborationCtaDesc: "Construction → record → maintenance. Three brands working together to maximize your vehicle's asset value.",
+    collaborationCta: "Ask about working with us across brands",
+    collaborationCtaDesc: "Need construction, recording, and maintenance handled together rather than by a single brand? Get in touch here.",
   },
 
   // About Preview
@@ -193,7 +193,7 @@ export default {
     stat3Label: "Founded",
     ctaTitle: "Maximize Your Car's Value with 3 Brands",
     ctaDesc: "HOLY AUTO, Ledra, and MobileWash. A seamless flow of construction, recording, and maintenance turns your car into a verifiable asset.",
-    ctaButton: "Consult 3-Brand Collaboration",
+    ctaButton: "Get in touch",
     viewAbout: "View Company Profile",
   },
 

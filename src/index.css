@@ -183,6 +183,10 @@
   animation: glow-amber 3s ease-in-out infinite;
 }
 
+.text-gradient-accent {
+  color: var(--neu-accent);
+}
+
 /* Shimmer gradient for premium feel */
 .shimmer-gradient {
   background: linear-gradient(90deg, transparent, rgba(129,141,234,0.08), transparent);
@@ -205,14 +209,6 @@
 }
 .border-glow:hover::before {
   opacity: 1;
-}
-
-/* Premium text gradient — indigo */
-.text-gradient-accent {
-  background: linear-gradient(135deg, #5560e3 0%, #818dea 50%, #4550d3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Section entrance animations */

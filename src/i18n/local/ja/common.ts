@@ -145,7 +145,7 @@ export default {
     heading: "Mission・Vision・Values",
     ctaTitle: "技術を資産にする旅を始めましょう",
     ctaDesc: "HOLYの3ブランドは、一つの「証明・信用・継承」の物語です。まずはお気軽にご相談ください。",
-    ctaButton: "3ブランドの連携を相談する",
+    ctaButton: "話を聞いてみる",
   },
 
   // Brand Section
@@ -170,8 +170,8 @@ export default {
     flowStep2Desc: "施工履歴をブロックチェーンに不変記録・技術証明",
     flowStep3: "MobileWash メンテナンス",
     flowStep3Desc: "出張で定期洗車・コーティング補修・状態管理",
-    flowCta: "3ブランドの連携を相談する",
-    flowCtaDesc: "施工→記録→メンテナンスの一気通貫で、愛車の価値を最大化します。",
+    flowCta: "まとめて相談する",
+    flowCtaDesc: "この3ステップは、一つの窓口でまとめてご依頼いただけます。",
   },
 
   // Services Overview
@@ -181,8 +181,8 @@ export default {
     holyautoKeywords: ["カスタム施工", "コーティング", "技術講習"],
     mobilewashKeywords: ["出張洗車", "現場コーティング", "法人契約"],
     ledraKeywords: ["ブロックチェーン", "施工記録", "技術証明"],
-    collaborationCta: "3ブランドの連携を相談する",
-    collaborationCtaDesc: "施工→記録→メンテナンス。3ブランドが連携して、愛車の資産価値を最大化します。",
+    collaborationCta: "連携について相談する",
+    collaborationCtaDesc: "1ブランドだけでなく、施工・記録・メンテナンスを通しで頼みたい方は、こちらからご相談ください。",
   },
 
   // About Preview
@@ -193,7 +193,7 @@ export default {
     stat3Label: "設立年",
     ctaTitle: "3ブランドで、愛車の価値を最大化",
     ctaDesc: "HOLY AUTO・Ledra・MobileWash。施工・記録・メンテナンスの一気通貫で、愛車を「証明可能な資産」へ。",
-    ctaButton: "3ブランドの連携を相談する",
+    ctaButton: "詳しく相談する",
     viewAbout: "会社概要を見る",
   },
 
