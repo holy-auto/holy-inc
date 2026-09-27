@@ -290,6 +290,7 @@ export default {
         { year: "2025", month: "01", title: "LEDRA プロジェクト始動", description: "自動車業界向け証明・信用インフラ「LEDRA」の開発を開始。ブロックチェーン技術を活用。" },
         { year: "2025", month: "03", title: "MVVの策定", description: "Mission・Vision・Valuesを策定。「職人の技術を、次へつなぐ」を企業理念として掲げる。" },
         { year: "2025", month: "10", title: "MobileWash サービス準備", description: "出張洗車サービス「MobileWash」の立ち上げ準備を開始。" },
+        { year: "2026", month: "07", title: "C2PA に加入", description: "コンテンツの来歴と真正性の国際標準化団体「C2PA」に Contributor メンバーとして加入。" },
       ],
     },
     access: {
