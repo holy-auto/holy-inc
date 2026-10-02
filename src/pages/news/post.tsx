@@ -46,6 +46,7 @@ const NewsPostPage: FC = () => {
             url,
             inLanguage: ja ? 'ja' : 'en',
             articleSection: category,
+            ...(post.image ? { image: `${baseUrl}${post.image}` } : {}),
             author: { '@type': 'Organization', name: '株式会社HOLY', url: baseUrl },
             publisher: {
               '@type': 'Organization',
@@ -78,9 +79,14 @@ const NewsPostPage: FC = () => {
         <section className="w-full pb-20 md:pb-28">
           <div className="w-full px-6 md:px-10 max-w-3xl mx-auto">
             <FadeIn>
+              {post.image && (
+                <figure className="mb-10 rounded-2xl bg-white px-6 py-8 md:px-10 md:py-12 shadow-sm">
+                  <img src={post.image} alt={post.imageAlt} className="w-full h-auto" decoding="async" />
+                </figure>
+              )}
               <div className="space-y-5">
                 {post.body.map((paragraph, i) => (
-                  <p key={i} className="text-slate-700 text-sm md:text-base leading-relaxed">
+                  <p key={i} className="text-slate-700 text-sm md:text-base leading-relaxed whitespace-pre-line">
                     {paragraph}
                   </p>
                 ))}

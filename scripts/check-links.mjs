@@ -11,7 +11,7 @@
  * ponytail: 正規表現でソースを読む素朴な実装。ルート定義や sites.ts の書式が
  * 変わったらここも直す。上げるならビルド済みの router を import して検証する。
  */
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { createJiti } from "jiti";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -119,6 +119,9 @@ for (const file of newsFiles) {
   const slug = file.replace(/\.md$/, "");
   const post = parseNewsFile(slug, read(join("src/content/news", file)));
   assert.ok(!slugs.has(post.slug), `slug が重複している: ${post.slug}`);
+  if (post.image) {
+    assert.ok(existsSync(join(repoRoot, "public", post.image)), `news/${file}: image のファイルが public/ に無い: ${post.image}`);
+  }
   slugs.add(post.slug);
 }
 
@@ -196,6 +199,11 @@ assert.equal(
   assert.equal(post.title, "見出し", "frontmatter の行末コメントが読めていない（README の例が通らない）");
   assert.deepEqual(post.body, ["本文。"]);
   assert.throws(() => parseNewsFile("x", "---\ndate: 2026-09-14\n---\n"), /読めない|が無い/);
+
+  const withImage = sample.replace("---\n\n", 'image: "/news/x.webp"\nimageAlt: "ロゴ"\n---\n\n');
+  assert.equal(parseNewsFile("2026-09-sample", withImage).image, "/news/x.webp", "image が読めていない");
+  assert.throws(() => parseNewsFile("x", withImage.replace('imageAlt: "ロゴ"\n', "")), /imageAlt/, "imageAlt の欠落を通した");
+  assert.equal(post.image, undefined, "image を書いていない記事に image が付いた");
 }
 
 console.log(

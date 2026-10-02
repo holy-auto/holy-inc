@@ -188,6 +188,7 @@ for (const post of articles) {
     url,
     inLanguage: "ja",
     articleSection: post.category,
+    ...(post.image ? { image: `${ORIGIN}${post.image}` } : {}),
     author: { "@type": "Organization", name: "株式会社HOLY", url: ORIGIN },
     publisher: {
       "@type": "Organization",
