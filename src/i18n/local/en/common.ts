@@ -290,6 +290,7 @@ export default {
         { year: "2025", month: "01", title: "LEDRA Project Started", description: "Began developing proof & trust infrastructure 'LEDRA' for the automotive industry using blockchain technology." },
         { year: "2025", month: "03", title: "MVV Defined", description: "Established Mission, Vision, and Values. Adopted 'Passing craftsman skills to the next generation' as corporate philosophy." },
         { year: "2025", month: "10", title: "MobileWash Preparation", description: "Began preparing for the launch of mobile car wash service 'MobileWash'." },
+        { year: "2026", month: "07", title: "Joined C2PA", description: "Joined the Coalition for Content Provenance and Authenticity (C2PA) as a Contributor Member." },
       ],
     },
     access: {
