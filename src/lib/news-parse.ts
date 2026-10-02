@@ -18,6 +18,8 @@
  * categoryEn: "Community"   # 必須。英語の分類
  * title: "〜しました。"      # 必須。日本語の見出し
  * titleEn: "..."            # 必須。英語の見出し
+ * image: "/news/xxx.webp"   # 任意。public/ に置いた画像。記事ページの見出しの下に出す
+ * imageAlt: "..."           # image を書いたら必須。画像の代替テキスト
  * ---
  *
  * 本文（任意）。書くと /news/<slug> の記事ページができる。
@@ -37,6 +39,9 @@ export type NewsPost = {
   categoryEn: string;
   title: string;
   titleEn: string;
+  /** 記事ページに載せる画像（`/` から始まる public/ 配下のパス）。 */
+  image?: string;
+  imageAlt?: string;
   /** 本文の段落。空配列なら記事ページを作らない。 */
   body: string[];
 };
@@ -64,6 +69,12 @@ export function parseNewsFile(slug: string, raw: string): NewsPost {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(fields.date)) {
     throw new Error(`news/${slug}.md: date は YYYY-MM-DD で書く: ${fields.date}`);
   }
+  if (fields.image && !fields.image.startsWith("/")) {
+    throw new Error(`news/${slug}.md: image は / から始まる public/ 配下のパスで書く: ${fields.image}`);
+  }
+  if (fields.image && !fields.imageAlt) {
+    throw new Error(`news/${slug}.md: image を書いたら imageAlt も書く`);
+  }
 
   return {
     slug,
@@ -72,6 +83,7 @@ export function parseNewsFile(slug: string, raw: string): NewsPost {
     categoryEn: fields.categoryEn,
     title: fields.title,
     titleEn: fields.titleEn,
+    ...(fields.image ? { image: fields.image, imageAlt: fields.imageAlt } : {}),
     body: m[2].trim().split(/\r?\n\s*\r?\n/).filter(Boolean),
   };
 }
