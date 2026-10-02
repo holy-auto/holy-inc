@@ -28,7 +28,7 @@ const QualitySection: FC = () => {
       <div className="px-6 md:px-10 max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16">
-          <p className="text-teal-400 text-xs tracking-[0.3em] uppercase mb-3">
+          <p className="text-teal-500 text-xs tracking-[0.3em] uppercase mb-3">
             {quality.label as string}
           </p>
           <h2 className="text-slate-900 text-2xl md:text-4xl font-bold tracking-wide mb-4">
@@ -53,36 +53,39 @@ const QualitySection: FC = () => {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <CraftCanvas variant={motif.variant} kanji={motif.kanji} rounded={false} className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-110" />
-                  {/* Overlay - darker default, lighter on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40 group-hover:from-slate-900/95 group-hover:via-slate-900/85 transition-all duration-500" />
+                  <CraftCanvas variant={motif.variant} kanji={motif.kanji} rounded={false} inset={false} className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-110" />
+                  {/* Matte veil so the copy sits on the same material as the card */}
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to top, rgba(224,229,236,0.97) 0%, rgba(224,229,236,0.85) 45%, rgba(224,229,236,0) 100%)' }}
+                  />
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10 p-6 md:p-8 min-h-[280px] md:min-h-[320px] flex flex-col justify-end">
                   {/* Number */}
                   <span
-                    className={`absolute top-4 ${isEven ? 'right-4' : 'left-4'} text-6xl md:text-7xl font-bold text-white/10 group-hover:text-teal-500/20 transition-colors duration-500 select-none`}
+                    className={`absolute top-4 ${isEven ? 'right-4' : 'left-4'} text-6xl md:text-7xl font-bold text-slate-400/25 group-hover:text-teal-500/25 transition-colors duration-500 select-none`}
                   >
                     {qualityNumbers[index]}
                   </span>
 
                   {/* Icon */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-teal-500/20 backdrop-blur-sm border border-teal-500/30 group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-500">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-full neu-raised-sm bg-[var(--neu-bg)] group-hover:bg-teal-500 transition-all duration-500">
                       <i
-                        className={`${item.icon} text-teal-400 text-xl group-hover:text-white transition-colors duration-500`}
+                        className={`${item.icon} text-teal-500 text-xl group-hover:text-white transition-colors duration-500`}
                       />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-white text-lg md:text-xl font-bold mb-2 group-hover:text-teal-300 transition-colors duration-300">
+                  <h3 className="text-slate-800 text-lg md:text-xl font-bold mb-2 group-hover:text-teal-600 transition-colors duration-300">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                  <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
                     {item.description}
                   </p>
 

@@ -14,7 +14,7 @@ const services: {
     id: "holyauto",
     icon: "ri-car-line",
     keywordsKey: "servicesOverview.holyautoKeywords",
-    color: "#78716c",
+    color: "#3b45b3",
     taglineKey: "brandData.holyauto.tagline",
   },
   {
@@ -28,7 +28,7 @@ const services: {
     id: "ledra",
     icon: "ri-shield-check-line",
     keywordsKey: "servicesOverview.ledraKeywords",
-    color: "#c05621",
+    color: "#4550d3",
     taglineKey: "brandData.ledra.tagline",
   },
 ];

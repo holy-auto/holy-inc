@@ -78,16 +78,14 @@ const AboutPreview: FC = () => {
             </div>
           </div>
 
-          {/* Brand visual — recessed inset screen */}
-          <div className="w-full lg:w-1/2 neu-well p-2.5 md:p-3 rounded-[28px]">
-            <CraftCanvas
-              variant="sheen"
-              kanji="匠"
-              eyebrow="Since 2024"
-              title={t("hero.companyName")}
-              className="aspect-[4/3] w-full rounded-[20px] overflow-hidden"
-            />
-          </div>
+          {/* Brand visual — a plate pressed into the matte */}
+          <CraftCanvas
+            variant="sheen"
+            kanji="匠"
+            eyebrow="Since 2024"
+            title={t("hero.companyName")}
+            className="w-full lg:w-1/2 aspect-[4/3]"
+          />
         </div>
       </div>
     </section>

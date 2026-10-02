@@ -153,16 +153,14 @@ const MVVSection: FC = () => {
           </div>
         </div>
 
-        {/* Craftsmanship visual — recessed into the matte as an inset "screen" */}
-        <div className="mb-20 neu-well p-2.5 md:p-3 rounded-[28px]">
-          <CraftCanvas
-            variant="thread"
-            kanji="技"
-            eyebrow="Craftsmanship"
-            title={t("mvv.missionText")}
-            className="aspect-[1440/500] w-full rounded-[20px] overflow-hidden"
-          />
-        </div>
+        {/* Craftsmanship visual — a plate pressed into the matte */}
+        <CraftCanvas
+          variant="thread"
+          kanji="技"
+          eyebrow="Craftsmanship"
+          title={t("mvv.missionText")}
+          className="mb-20 aspect-[1440/500] min-h-[220px] w-full"
+        />
 
         {/* Values with SVG Line Animation */}
         <div>
