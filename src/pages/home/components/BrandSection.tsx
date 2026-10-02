@@ -12,7 +12,7 @@ const BrandSection: FC = () => {
       tagline: t("brandData.ledra.tagline"),
       description: t("brandData.ledra.description"),
       features: [t("brandData.ledra.features.0"), t("brandData.ledra.features.1"), t("brandData.ledra.features.2")],
-      strokeColor: "#c05621",
+      strokeColor: "#4550d3",
       statValue: "∞",
       statLabel: "保存期間",
       kanji: "証",
@@ -57,7 +57,7 @@ const BrandSection: FC = () => {
       title: t("brandsSection.flowStep2"),
       desc: t("brandsSection.flowStep2Desc"),
       icon: "ri-shield-check-line",
-      color: "#c05621",
+      color: "#4550d3",
     },
     {
       step: "03",
@@ -164,7 +164,7 @@ const BrandSection: FC = () => {
                   className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center`}
                 >
                   {/* Brand visual */}
-                  <div className="w-full lg:w-1/2 border-glow rounded-lg relative group overflow-hidden">
+                  <div className="w-full lg:w-1/2 relative">
                     <CraftCanvas
                       variant={brand.variant}
                       kanji={brand.kanji}
@@ -172,10 +172,10 @@ const BrandSection: FC = () => {
                       title={brand.tagline}
                       className="aspect-[3/2] w-full"
                     />
-                    {/* Stat badge overlay */}
-                    <div className="absolute top-4 right-4 bg-stone-950/70 backdrop-blur-sm rounded-lg px-3 py-2 border border-teal-400/20 text-center">
-                      <p className="text-teal-300 font-bold text-lg leading-tight">{brand.statValue}</p>
-                      <p className="text-white/60 text-[10px] leading-tight">{brand.statLabel}</p>
+                    {/* Stat badge — a raised chip on the plate */}
+                    <div className="absolute top-4 right-4 neu-raised-sm rounded-[14px] px-3.5 py-2 text-center" style={{ background: "var(--neu-bg)" }}>
+                      <p className="font-bold text-lg leading-tight" style={{ color: "var(--neu-accent)" }}>{brand.statValue}</p>
+                      <p className="text-[10px] leading-tight" style={{ color: "var(--neu-muted)" }}>{brand.statLabel}</p>
                     </div>
                   </div>
 
@@ -267,7 +267,7 @@ const BrandSection: FC = () => {
 
               {/* Step 2 — Ledra */}
               <div className="flex-1 w-full neu-card rounded-[20px] p-6 md:p-8 text-center">
-                <i className="ri-shield-check-line text-2xl mb-3" style={{ color: "#c05621" }} />
+                <i className="ri-shield-check-line text-2xl mb-3" style={{ color: "#4550d3" }} />
                 <p className="text-slate-900 font-bold text-sm mb-1">{brands[0].name}</p>
                 <p className="text-slate-500 text-xs">{t("brandsSection.ecosystemStep2")}</p>
               </div>
