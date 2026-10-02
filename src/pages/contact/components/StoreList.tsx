@@ -18,7 +18,7 @@ const StoreList: FC = () => {
       {stores.map((store) => (
         <div
           key={store.name}
-          className="neu-card rounded-[20px] p-5 hover:border-teal-300 transition-colors"
+          className="neu-card rounded-[20px] p-5"
         >
           <h3 className="font-bold text-slate-800 mb-3">{store.name}</h3>
           <div className="space-y-2 text-sm">
@@ -46,11 +46,11 @@ const StoreList: FC = () => {
               <span className="text-slate-600">{store.hours}</span>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-50">
+          <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-300/40">
             {store.services.map((s) => (
               <span
                 key={s}
-                className="px-2.5 py-1 bg-slate-50 text-slate-500 text-xs rounded-full"
+                className="neu-chip px-2.5 py-1 text-slate-500 text-xs rounded-full"
               >
                 {s}
               </span>

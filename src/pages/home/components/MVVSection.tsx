@@ -130,7 +130,7 @@ const MVVSection: FC = () => {
           <div className="neu-card rounded-[20px] p-8 md:p-10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-accent-teal text-xs font-bold tracking-[0.2em] uppercase">{t("section.mission")}</span>
-              <div className="flex-1 h-px bg-white/10" />
+              <div className="flex-1 h-px bg-slate-300/60" />
             </div>
             <p className="text-slate-800 text-xl md:text-2xl font-light leading-relaxed group-hover:text-teal-700 transition-colors">
               {t("mvv.missionText")}
@@ -142,7 +142,7 @@ const MVVSection: FC = () => {
           <div className="neu-card rounded-[20px] p-8 md:p-10 transition-all duration-300 group">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-accent-teal text-xs font-bold tracking-[0.2em] uppercase">{t("section.vision")}</span>
-              <div className="flex-1 h-px bg-white/10" />
+              <div className="flex-1 h-px bg-slate-300/60" />
             </div>
             <p className="text-slate-800 text-xl md:text-2xl font-light leading-relaxed group-hover:text-teal-700 transition-colors">
               {t("mvv.visionText")}
@@ -291,7 +291,7 @@ const MVVSection: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 rounded-md text-sm tracking-wide whitespace-nowrap"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-8 py-3.5 text-sm tracking-wide whitespace-nowrap"
               >
                 {t("mvv.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">

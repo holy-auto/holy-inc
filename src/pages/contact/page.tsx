@@ -120,7 +120,7 @@ const ContactPage: FC = () => {
             <div className="lg:col-span-2 space-y-8">
               <FadeIn delay={150} direction="right">
                 {/* Phone */}
-                <div className="bg-teal-50 rounded-lg p-6 border border-teal-100">
+                <div className="neu-well rounded-[20px] p-6">
                   <p className="text-xs tracking-[0.2em] uppercase mb-2 text-teal-600/80">
                     {t('contact.phone.label')}
                   </p>
@@ -153,7 +153,7 @@ const ContactPage: FC = () => {
         <ContactGuidance />
 
         {/* FAQ */}
-        <section className="bg-slate-50 py-16 md:py-20">
+        <section className="py-16 md:py-20">
           <div className="w-full px-6 md:px-10 max-w-3xl mx-auto">
             <FadeIn>
               <div className="text-center mb-10">

@@ -15,24 +15,28 @@ interface CountUpStatsProps {
 const themes = {
   teal: {
     bg: "bg-teal-500",
+    item: "",
     number: "text-white",
     label: "text-white/90",
     desc: "text-white/60",
   },
   emerald: {
     bg: "bg-emerald-500",
+    item: "",
     number: "text-white",
     label: "text-white/90",
     desc: "text-white/60",
   },
   dark: {
-    bg: "bg-slate-50 border-y border-slate-100",
+    bg: "",
+    item: "neu-card rounded-[16px] px-6 py-8",
     number: "text-teal-600",
     label: "text-slate-800",
     desc: "text-slate-500",
   },
   light: {
-    bg: "bg-slate-50 border-y border-slate-100",
+    bg: "",
+    item: "neu-card rounded-[16px] px-6 py-8",
     number: "text-teal-600",
     label: "text-slate-800",
     desc: "text-slate-500",
@@ -46,7 +50,7 @@ const StatItem: FC<{
   theme: (typeof themes)["teal"];
 }> = ({ stat, index, inView, theme }) => {
   return (
-    <div className="text-center group">
+    <div className={`text-center group ${theme.item}`}>
       <p
         className={`${theme.number} text-4xl md:text-5xl font-bold mb-2 tabular-nums transition-all duration-1000 ease-out ${
           inView

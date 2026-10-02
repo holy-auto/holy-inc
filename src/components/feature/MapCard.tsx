@@ -28,17 +28,17 @@ const MapCard: FC<MapCardProps> = ({
 }) => {
   return (
     <FadeIn delay={delay}>
-      <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
+      <div className="neu-card rounded-[20px] overflow-hidden">
         {/* Header badge */}
-        <div className="px-5 py-4 border-b border-slate-100 flex items-center gap-3">
-          <span className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-50 flex-shrink-0">
-            <i className="ri-map-pin-2-fill text-teal-600" />
+        <div className="px-5 py-4 border-b border-slate-300/40 flex items-center gap-3">
+          <span className="w-8 h-8 flex items-center justify-center neu-well rounded-full flex-shrink-0">
+            <i className="ri-map-pin-2-fill text-teal-500" />
           </span>
           <h3 className="text-slate-800 font-bold text-base">{title}</h3>
         </div>
 
         {/* Map */}
-        <div className="relative aspect-[16/9] bg-slate-100">
+        <div className="relative aspect-[16/9]">
           <iframe
             src={mapUrl}
             width="100%"
@@ -68,7 +68,7 @@ const MapCard: FC<MapCardProps> = ({
         <div className="p-5 md:p-6 space-y-5">
           {/* Address */}
           <div className="flex items-start gap-3">
-            <span className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 flex-shrink-0 mt-0.5">
+            <span className="w-8 h-8 flex items-center justify-center neu-well rounded-full flex-shrink-0 mt-0.5">
               <i className="ri-map-pin-line text-slate-500" />
             </span>
             <div>
@@ -81,7 +81,7 @@ const MapCard: FC<MapCardProps> = ({
 
           {/* Access */}
           <div className="flex items-start gap-3">
-            <span className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 flex-shrink-0 mt-0.5">
+            <span className="w-8 h-8 flex items-center justify-center neu-well rounded-full flex-shrink-0 mt-0.5">
               <i className="ri-train-line text-slate-500" />
             </span>
             <div>
@@ -95,7 +95,7 @@ const MapCard: FC<MapCardProps> = ({
           {/* Phone */}
           {phone && (
             <div className="flex items-start gap-3">
-              <span className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 flex-shrink-0 mt-0.5">
+              <span className="w-8 h-8 flex items-center justify-center neu-well rounded-full flex-shrink-0 mt-0.5">
                 <i className="ri-phone-line text-slate-500" />
               </span>
               <div>
@@ -115,7 +115,7 @@ const MapCard: FC<MapCardProps> = ({
           {/* Hours */}
           {hours && (
             <div className="flex items-start gap-3">
-              <span className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 flex-shrink-0 mt-0.5">
+              <span className="w-8 h-8 flex items-center justify-center neu-well rounded-full flex-shrink-0 mt-0.5">
                 <i className="ri-time-line text-slate-500" />
               </span>
               <div>
@@ -133,7 +133,7 @@ const MapCard: FC<MapCardProps> = ({
               {services.map((s) => (
                 <span
                   key={s}
-                  className="px-2.5 py-1 bg-slate-50 text-slate-500 text-xs rounded-full"
+                  className="neu-chip px-2.5 py-1 text-slate-500 text-xs rounded-full"
                 >
                   {s}
                 </span>
@@ -147,7 +147,7 @@ const MapCard: FC<MapCardProps> = ({
               href={routeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full bg-teal-600 hover:bg-teal-700 text-white px-5 py-3 rounded-md text-sm font-medium transition-colors duration-200 whitespace-nowrap"
+              className="neu-btn neu-btn-primary inline-flex items-center justify-center gap-2 w-full px-5 py-3 text-sm font-medium whitespace-nowrap"
             >
               <span className="w-4 h-4 flex items-center justify-center">
                 <i className="ri-direction-line" />

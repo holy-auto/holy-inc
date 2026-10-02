@@ -30,14 +30,14 @@ const ConsultationFlow: FC = () => {
 
         <div className="relative">
           {/* Horizontal connecting line for desktop */}
-          <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-slate-200" />
+          <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-slate-300/60" />
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4">
             {steps.map((step, index) => (
               <FadeIn key={step.step} delay={100 * (index + 1)}>
                 <div className="text-center relative">
                   {/* Step number circle */}
-                  <div className="w-16 h-16 mx-auto rounded-full bg-teal-50 border-2 border-teal-400 flex items-center justify-center mb-4 relative z-10">
+                  <div className="w-16 h-16 mx-auto neu-well rounded-full flex items-center justify-center mb-4 relative z-10">
                     <i className={`${step.icon} text-teal-500 text-xl`} />
                   </div>
                   <p className="text-teal-600 text-[10px] font-bold tracking-wider uppercase mb-1">

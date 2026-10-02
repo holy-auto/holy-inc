@@ -96,13 +96,13 @@ const ContactSection: FC = () => {
               name="subject"
               className="w-full px-4 py-3 neu-input text-sm"
             >
-              <option value="" className="bg-white text-slate-500">{t("form.subjectPlaceholder")}</option>
-              <option value="ledra" className="bg-white">{t("form.ledraSubject")}</option>
-              <option value="mobilewash" className="bg-white">{t("form.mobilewashSubject")}</option>
-              <option value="holy-auto" className="bg-white">{t("form.holyautoSubject")}</option>
-              <option value="partnership" className="bg-white">{t("form.partnership")}</option>
-              <option value="recruit" className="bg-white">{t("form.recruit")}</option>
-              <option value="other" className="bg-white">{t("form.other")}</option>
+              <option value="" className="text-slate-500">{t("form.subjectPlaceholder")}</option>
+              <option value="ledra">{t("form.ledraSubject")}</option>
+              <option value="mobilewash">{t("form.mobilewashSubject")}</option>
+              <option value="holy-auto">{t("form.holyautoSubject")}</option>
+              <option value="partnership">{t("form.partnership")}</option>
+              <option value="recruit">{t("form.recruit")}</option>
+              <option value="other">{t("form.other")}</option>
             </select>
           </div>
 
@@ -124,7 +124,7 @@ const ContactSection: FC = () => {
 
           <div className="text-center">
             {status === "success" && (
-              <div className="mb-4 p-4 bg-accent-teal/10 border border-accent-teal/20 rounded-lg text-accent-teal text-sm">
+              <div className="mb-4 p-4 neu-well rounded-[14px] text-accent-teal text-sm">
                 <span className="w-4 h-4 inline-flex items-center justify-center mr-1">
                   <i className="ri-check-line" />
                 </span>
@@ -132,7 +132,7 @@ const ContactSection: FC = () => {
               </div>
             )}
             {status === "error" && (
-              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+              <div className="mb-4 p-4 neu-well rounded-[14px] text-red-600 text-sm">
                 <span className="w-4 h-4 inline-flex items-center justify-center mr-1">
                   <i className="ri-error-warning-line" />
                 </span>
@@ -142,7 +142,7 @@ const ContactSection: FC = () => {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 rounded-md text-sm font-semibold tracking-wide whitespace-nowrap"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary disabled:opacity-60 px-10 py-4 text-sm font-semibold tracking-wide whitespace-nowrap"
             >
               {status === "submitting" ? (
                 <>

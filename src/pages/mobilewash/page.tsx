@@ -183,7 +183,7 @@ const MobileWashPage: FC = () => {
                 {/* Problem */}
                 <div className="neu-card rounded-[20px] p-8 md:p-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-red-100 flex-shrink-0">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-full neu-well flex-shrink-0">
                       <i className="ri-alert-line text-red-600" />
                     </span>
                     <h3 className="text-slate-800 text-lg font-bold">
@@ -205,10 +205,10 @@ const MobileWashPage: FC = () => {
                 </div>
 
                 {/* Solution */}
-                <div className="bg-white rounded-lg p-8 md:p-10">
+                <div className="neu-card rounded-[20px] p-8 md:p-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-emerald-50 flex-shrink-0">
-                      <i className="ri-lightbulb-line text-emerald-600" />
+                    <span className="w-10 h-10 flex items-center justify-center rounded-full neu-well flex-shrink-0">
+                      <i className="ri-lightbulb-line text-teal-500" />
                     </span>
                     <h3 className="text-slate-800 text-lg font-bold">
                       {problemSolution.solutionTitle}
@@ -235,7 +235,7 @@ const MobileWashPage: FC = () => {
         <SectionConnector color="emerald" />
 
         {/* Features Section */}
-        <section className="w-full py-20 md:py-28 bg-slate-50">
+        <section className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <div className="text-center mb-16">
@@ -257,10 +257,10 @@ const MobileWashPage: FC = () => {
                 {features.map((feature) => (
                   <div
                     key={feature.id}
-                    className="bg-white rounded-lg p-6 md:p-8 hover:border-emerald-200 hover:shadow-sm transition-all duration-300"
+                    className="neu-card rounded-[20px] p-6 md:p-8 transition-all duration-300"
                   >
-                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-50 mb-5">
-                      <i className={`${feature.icon} text-emerald-600 text-xl`} />
+                    <div className="w-12 h-12 flex items-center justify-center rounded-[14px] neu-well mb-5">
+                      <i className={`${feature.icon} text-teal-500 text-xl`} />
                     </div>
                     <h3 className="text-slate-800 text-base font-bold mb-3">
                       {feature.title}
@@ -278,7 +278,7 @@ const MobileWashPage: FC = () => {
         <SectionConnector color="emerald" />
 
         {/* Steps / Flow Section */}
-        <section className="w-full py-20 md:py-28 bg-slate-50">
+        <section className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <div className="text-center mb-16">
@@ -299,12 +299,12 @@ const MobileWashPage: FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4">
                 {steps.map((item, i) => (
                   <div key={i} className="relative">
-                    <div className="bg-white rounded-lg p-6 text-center h-full">
+                    <div className="neu-card rounded-[20px] p-6 text-center h-full">
                       <span className="text-emerald-400/30 text-3xl font-bold block mb-4">
                         {item.step}
                       </span>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-emerald-50 mx-auto mb-4">
-                        <i className={`${item.icon} text-emerald-500`} />
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
+                        <i className={`${item.icon} text-teal-500`} />
                       </div>
                       <h3 className="text-slate-800 text-base font-bold mb-3">
                         {item.title}
@@ -355,18 +355,16 @@ const MobileWashPage: FC = () => {
                 {plans.map((plan) => (
                   <div
                     key={plan.id}
-                    className={`relative rounded-lg p-6 md:p-8 border transition-all duration-300 h-full flex flex-col ${
-                      plan.recommended
-                        ? 'border-emerald-400 bg-emerald-50/30 shadow-sm'
-                        : 'border-slate-200 bg-white hover:border-emerald-200'
+                    className={`relative neu-card rounded-[20px] p-6 md:p-8 transition-all duration-300 h-full flex flex-col ${
+                      plan.recommended ? 'neu-card-lg' : ''
                     }`}
                   >
                     {plan.badge ? (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-sky-500 text-white text-xs font-medium rounded-full whitespace-nowrap">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-teal-500 text-white shadow-[var(--neu-raised-sm)] text-xs font-medium rounded-full whitespace-nowrap">
                         {plan.badge}
                       </span>
                     ) : plan.recommended ? (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-medium rounded-full whitespace-nowrap">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-teal-500 text-white shadow-[var(--neu-raised-sm)] text-xs font-medium rounded-full whitespace-nowrap">
                         {t('brandMobilewash.plans.recommended')}
                       </span>
                     ) : null}
@@ -396,10 +394,8 @@ const MobileWashPage: FC = () => {
                     </ul>
                     <a
                       href="#contact"
-                      className={`block text-center px-6 py-3 rounded-md text-sm font-medium transition-colors duration-200 whitespace-nowrap mt-auto ${
-                        plan.recommended
-                          ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
-                          : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                      className={`neu-btn flex text-center px-6 py-3 text-sm font-medium whitespace-nowrap mt-auto ${
+                        plan.recommended ? 'neu-btn-primary' : ''
                       }`}
                     >
                       {t('brandMobilewash.plans.bookPlan')}
@@ -418,7 +414,7 @@ const MobileWashPage: FC = () => {
         <SectionConnector color="emerald" />
 
         {/* Service Area & Corporate */}
-        <section className="w-full py-20 md:py-28 bg-slate-50">
+        <section className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Service Area */}
@@ -440,7 +436,7 @@ const MobileWashPage: FC = () => {
                           {area.cities.map((city) => (
                             <span
                               key={city}
-                              className="px-3 py-1 bg-white text-slate-600 text-xs rounded-md whitespace-nowrap"
+                              className="neu-chip px-3 py-1 text-slate-600 text-xs rounded-full whitespace-nowrap"
                             >
                               {city}
                             </span>
@@ -479,7 +475,7 @@ const MobileWashPage: FC = () => {
                   </ul>
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap"
+                    className="neu-btn neu-btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-medium whitespace-nowrap"
                   >
                     {t('brandMobilewash.corporate.cta')}
                     <span className="w-4 h-4 flex items-center justify-center">
@@ -495,7 +491,7 @@ const MobileWashPage: FC = () => {
         <SectionConnector color="emerald" />
 
         {/* CTA Section */}
-        <section id="contact" className="w-full py-20 md:py-28 bg-slate-50">
+        <section id="contact" className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-4xl mx-auto text-center">
             <FadeIn>
               <h2 className="text-slate-900 text-3xl md:text-4xl font-bold tracking-wide mb-4">
@@ -507,13 +503,13 @@ const MobileWashPage: FC = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/contact"
-                  className="px-10 py-3.5 bg-emerald-500 text-white text-sm font-medium rounded-md hover:bg-emerald-600 transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn neu-btn-primary px-10 py-3.5 text-sm font-medium whitespace-nowrap"
                 >
                   {t('brandMobilewash.cta.bookWeb')}
                 </a>
                 <a
                   href="/contact"
-                  className="px-10 py-3.5 border border-slate-300 text-slate-700 text-sm font-medium rounded-md hover:border-emerald-400 hover:text-emerald-600 transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn px-10 py-3.5 text-sm font-medium whitespace-nowrap"
                 >
                   {t('brandMobilewash.cta.contact')}
                 </a>
@@ -525,7 +521,7 @@ const MobileWashPage: FC = () => {
         <SectionConnector color="emerald" />
 
         {/* Combo Section */}
-        <section className="w-full py-16 md:py-20 bg-slate-50">
+        <section className="w-full py-16 md:py-20">
           <div className="w-full px-6 md:px-10 max-w-5xl mx-auto">
             <FadeIn>
               <div className="text-center mb-12">
@@ -545,9 +541,9 @@ const MobileWashPage: FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 mb-10">
                 {/* Step 1 */}
                 <div className="relative">
-                  <div className="bg-white rounded-lg p-6 text-center h-full">
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-emerald-50 mx-auto mb-4">
-                      <i className="ri-drop-line text-emerald-500" />
+                  <div className="neu-card rounded-[20px] p-6 text-center h-full">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
+                      <i className="ri-drop-line text-teal-500" />
                     </div>
                     <h3 className="text-slate-800 text-sm font-bold mb-2">
                       {t('brandMobilewash.comboSection.step1Brand')}
@@ -562,9 +558,9 @@ const MobileWashPage: FC = () => {
                 </div>
                 {/* Step 2 */}
                 <div className="relative">
-                  <div className="bg-white rounded-lg p-6 text-center h-full">
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-emerald-50 mx-auto mb-4">
-                      <i className="ri-tools-line text-emerald-500" />
+                  <div className="neu-card rounded-[20px] p-6 text-center h-full">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
+                      <i className="ri-tools-line text-teal-500" />
                     </div>
                     <h3 className="text-slate-800 text-sm font-bold mb-2">
                       {t('brandMobilewash.comboSection.step2Brand')}
@@ -578,9 +574,9 @@ const MobileWashPage: FC = () => {
                   </div>
                 </div>
                 {/* Step 3 */}
-                <div className="bg-white rounded-lg p-6 text-center h-full">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-emerald-50 mx-auto mb-4">
-                    <i className="ri-shield-check-line text-emerald-500" />
+                <div className="neu-card rounded-[20px] p-6 text-center h-full">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
+                    <i className="ri-shield-check-line text-teal-500" />
                   </div>
                   <h3 className="text-slate-800 text-sm font-bold mb-2">
                     {t('brandMobilewash.comboSection.step3Brand')}
@@ -596,7 +592,7 @@ const MobileWashPage: FC = () => {
               <div className="text-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn neu-btn-primary inline-flex items-center gap-2 px-8 py-3 text-sm font-medium whitespace-nowrap"
                 >
                   {t('brandMobilewash.comboSection.cta')}
                   <span className="w-4 h-4 flex items-center justify-center">
@@ -611,7 +607,7 @@ const MobileWashPage: FC = () => {
         <SectionConnector color="emerald" />
 
         {/* Next Brand Navigation */}
-        <section className="w-full py-16 md:py-20 bg-slate-50 border-t border-slate-200">
+        <section className="w-full py-16 md:py-20">
           <div className="w-full px-6 md:px-10 max-w-5xl mx-auto">
             <FadeIn>
               <div className="text-center mb-10">
@@ -620,8 +616,8 @@ const MobileWashPage: FC = () => {
                 </p>
                 <div className="flex items-center justify-center gap-3 mb-3">
                   <div className="w-8 h-px bg-emerald-400" />
-                  <span className="w-8 h-8 flex items-center justify-center rounded-full bg-emerald-50">
-                    <i className="ri-arrow-right-line text-emerald-500 text-sm" />
+                  <span className="w-8 h-8 flex items-center justify-center rounded-full neu-well">
+                    <i className="ri-arrow-right-line text-teal-500 text-sm" />
                   </span>
                   <div className="w-8 h-px bg-emerald-400" />
                 </div>
@@ -634,7 +630,7 @@ const MobileWashPage: FC = () => {
             <FadeIn delay={150}>
               <a
                 href="/holy-auto"
-                className="group block bg-white rounded-lg overflow-hidden hover:border-teal-300 transition-all duration-300"
+                className="group block neu-card rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
@@ -647,7 +643,7 @@ const MobileWashPage: FC = () => {
                   {/* Content */}
                   <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2.5 py-0.5 bg-teal-50 text-teal-700 text-xs rounded-full font-medium whitespace-nowrap">
+                      <span className="neu-chip px-2.5 py-0.5 text-teal-600 text-xs rounded-full font-medium whitespace-nowrap">
                         {t('brandMobilewash.nextBrand.next')}
                       </span>
                     </div>
@@ -673,7 +669,7 @@ const MobileWashPage: FC = () => {
                 <span className="text-slate-400 text-xs">{t('brandMobilewash.nextBrand.otherBrands')}</span>
                 <a
                   href="/ledra"
-                  className="px-4 py-1.5 bg-white text-slate-600 text-xs rounded-md hover:border-teal-300 hover:text-teal-600 transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn px-4 py-1.5 text-slate-600 text-xs whitespace-nowrap"
                 >
                   Ledra
                 </a>

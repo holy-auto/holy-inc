@@ -139,7 +139,7 @@ const AboutPage: FC = () => {
                     <p>{t('about.greeting.p4')}</p>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-slate-100">
+                  <div className="mt-8 pt-6 border-t border-slate-300/40">
                     <p className="text-slate-800 font-medium">
                       {t('about.greeting.representative')}
                     </p>
@@ -162,7 +162,7 @@ const AboutPage: FC = () => {
         <QualitySection />
 
         {/* Company Info */}
-        <section className="w-full py-16 md:py-24 bg-slate-50">
+        <section className="w-full py-16 md:py-24">
           <div className="px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <p className="text-teal-600 text-xs tracking-[0.3em] uppercase mb-3">
@@ -178,7 +178,7 @@ const AboutPage: FC = () => {
               <div className="neu-card rounded-[20px] overflow-hidden">
                 <table className="w-full text-sm">
                   <tbody>
-                    {companyRows.map((item, index) => {
+                    {companyRows.map((item) => {
                       const label = t(`about.companyInfo.${item.labelKey}`);
                       const value = t(`about.companyInfo.${item.valueKey}`);
                       const isEmail = item.labelKey === 'tableEmail';
@@ -186,7 +186,7 @@ const AboutPage: FC = () => {
                       return (
                         <tr
                           key={item.labelKey}
-                          className={`border-b border-slate-100 ${index % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'}`}
+                          className="border-b border-slate-300/40"
                         >
                           <td className="w-32 md:w-40 px-6 py-4 text-slate-600 font-medium">
                             {label}
@@ -207,7 +207,7 @@ const AboutPage: FC = () => {
                         </tr>
                       );
                     })}
-                    <tr className="bg-slate-50/50">
+                    <tr>
                       <td className="w-32 md:w-40 px-6 py-4 text-slate-600 font-medium align-top">
                         {t('about.companyInfo.tableBusiness')}
                       </td>
@@ -236,7 +236,7 @@ const AboutPage: FC = () => {
         <TeamSection />
 
         {/* Access / Map */}
-        <section id="access" className="w-full py-16 md:py-24 bg-slate-50">
+        <section id="access" className="w-full py-16 md:py-24">
           <div className="px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <p className="text-teal-600 text-xs tracking-[0.3em] uppercase mb-3">
@@ -272,7 +272,7 @@ const AboutPage: FC = () => {
         </section>
 
         {/* MVV Recap */}
-        <section className="w-full py-16 md:py-24 bg-slate-50">
+        <section className="w-full py-16 md:py-24">
           <div className="px-6 md:px-10 max-w-6xl mx-auto text-center">
             <FadeIn>
               <p className="text-teal-600 text-xs tracking-[0.3em] uppercase mb-4">
@@ -284,7 +284,7 @@ const AboutPage: FC = () => {
               <div className="w-12 h-px bg-teal-400 mx-auto mb-10" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div className="bg-white rounded-lg p-8">
+                <div className="neu-card rounded-[20px] p-8">
                   <p className="text-teal-600 text-xs font-bold tracking-[0.2em] uppercase mb-3">
                     {t('section.mission')}
                   </p>
@@ -292,7 +292,7 @@ const AboutPage: FC = () => {
                     {t('about.mvvRecap.mission')}
                   </h3>
                 </div>
-                <div className="bg-white rounded-lg p-8">
+                <div className="neu-card rounded-[20px] p-8">
                   <p className="text-teal-600 text-xs font-bold tracking-[0.2em] uppercase mb-3">
                     {t('section.vision')}
                   </p>
@@ -304,7 +304,7 @@ const AboutPage: FC = () => {
 
               <a
                 href="/"
-                className="inline-flex items-center gap-2 hover:border-teal-400 hover:text-teal-600 text-slate-800 px-8 py-3 rounded-md text-sm tracking-wide transition-all duration-200 whitespace-nowrap"
+                className="neu-btn inline-flex items-center gap-2 text-slate-800 px-8 py-3 text-sm tracking-wide whitespace-nowrap"
               >
                 {t('about.mvvRecap.backToTop')}
                 <span className="w-4 h-4 flex items-center justify-center">

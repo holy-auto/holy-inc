@@ -68,7 +68,7 @@ const AboutPreview: FC = () => {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 rounded-md text-sm tracking-wide whitespace-nowrap"
+                className="inline-flex items-center gap-2 neu-btn neu-btn-primary px-6 py-3 text-sm tracking-wide whitespace-nowrap"
               >
                 {t("aboutPreview.ctaButton")}
                 <span className="w-4 h-4 flex items-center justify-center">
