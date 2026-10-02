@@ -15,7 +15,7 @@ const Privacy = lazy(() => import("../pages/privacy/page"));
 const Terms = lazy(() => import("../pages/terms/page"));
 
 const fallback = (
-  <div className="min-h-[60vh] bg-slate-50 flex flex-col items-center justify-center animate-pulse">
+  <div className="min-h-[60vh] flex flex-col items-center justify-center animate-pulse">
     <div className="w-8 h-8 border-2 border-teal-400 border-t-transparent rounded-full animate-spin" />
   </div>
 );
