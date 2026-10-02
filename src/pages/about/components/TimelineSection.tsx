@@ -20,12 +20,12 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
       <div className="flex md:hidden w-full">
         {/* Line side */}
         <div className="flex flex-col items-center mr-4 flex-shrink-0">
-          <div className="w-3 h-3 rounded-full bg-teal-600 ring-4 ring-teal-100" />
-          {index < 6 && <div className="w-px flex-1 bg-gradient-to-b from-teal-200 to-stone-200 min-h-[80px]" />}
+          <div className="w-3 h-3 rounded-full bg-teal-500 shadow-[0_0_0_4px_rgba(85,96,227,.12)]" />
+          {index < 6 && <div className="w-px flex-1 bg-slate-300/60 min-h-[80px]" />}
         </div>
         {/* Content side */}
         <div className="flex-1 pb-10">
-          <div className="bg-stone-50 rounded-xl border border-stone-200 overflow-hidden hover:border-stone-300 transition-all duration-300 hover:-translate-y-1">
+          <div className="neu-card rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-1">
             <div className="relative aspect-[16/10] w-full overflow-hidden">
               <CraftCanvas variant="thread" kanji="継" rounded={false} className="absolute inset-0 h-full w-full hover:scale-105 transition-transform duration-500" />
             </div>
@@ -34,8 +34,8 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
                 <span className="text-teal-700 text-2xl font-bold">{event.year}</span>
                 <span className="text-teal-500 text-sm font-medium">{event.month}月</span>
               </div>
-              <h3 className="text-stone-800 text-base font-bold mb-1">{event.title}</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">{event.description}</p>
+              <h3 className="text-slate-800 text-base font-bold mb-1">{event.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{event.description}</p>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
           <>
             {/* Left content */}
             <div className="text-right pr-8">
-              <div className="bg-stone-50 rounded-xl border border-stone-200 overflow-hidden hover:border-stone-300 transition-all duration-300 hover:-translate-y-1 inline-block text-left w-full max-w-lg">
+              <div className="neu-card rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-1 inline-block text-left w-full max-w-lg">
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                   <CraftCanvas variant="thread" kanji="継" rounded={false} className="absolute inset-0 h-full w-full hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -56,16 +56,16 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
                     <span className="text-teal-700 text-3xl font-bold">{event.year}</span>
                     <span className="text-teal-500 text-sm font-medium">{event.month}月</span>
                   </div>
-                  <h3 className="text-stone-800 text-lg font-bold mb-2">{event.title}</h3>
-                  <p className="text-stone-600 text-sm leading-relaxed">{event.description}</p>
+                  <h3 className="text-slate-800 text-lg font-bold mb-2">{event.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{event.description}</p>
                 </div>
               </div>
             </div>
             {/* Center dot */}
             <div className="relative flex items-center justify-start pl-8">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-teal-600 ring-8 ring-teal-50" />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-teal-500 shadow-[0_0_0_4px_rgba(85,96,227,.12)]" />
               {index < 6 && (
-                <div className="absolute left-[7px] top-1/2 h-[calc(100%+4rem)] w-px bg-gradient-to-b from-teal-200 to-stone-200" />
+                <div className="absolute left-[7px] top-1/2 h-[calc(100%+4rem)] w-px bg-slate-300/60" />
               )}
             </div>
           </>
@@ -73,14 +73,14 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
           <>
             {/* Center dot */}
             <div className="relative flex items-center justify-end pr-8">
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-teal-600 ring-8 ring-teal-50" />
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-teal-500 shadow-[0_0_0_4px_rgba(85,96,227,.12)]" />
               {index < 6 && (
-                <div className="absolute right-[7px] top-1/2 h-[calc(100%+4rem)] w-px bg-gradient-to-b from-teal-200 to-stone-200" />
+                <div className="absolute right-[7px] top-1/2 h-[calc(100%+4rem)] w-px bg-slate-300/60" />
               )}
             </div>
             {/* Right content */}
             <div className="pl-8">
-              <div className="bg-stone-50 rounded-xl border border-stone-200 overflow-hidden hover:border-stone-300 transition-all duration-300 hover:-translate-y-1 inline-block w-full max-w-lg">
+              <div className="neu-card rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-1 inline-block w-full max-w-lg">
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                   <CraftCanvas variant="thread" kanji="継" rounded={false} className="absolute inset-0 h-full w-full hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -89,8 +89,8 @@ const TimelineItem: FC<{ event: TimelineEvent; index: number; isLeft: boolean }>
                     <span className="text-teal-700 text-3xl font-bold">{event.year}</span>
                     <span className="text-teal-500 text-sm font-medium">{event.month}月</span>
                   </div>
-                  <h3 className="text-stone-800 text-lg font-bold mb-2">{event.title}</h3>
-                  <p className="text-stone-600 text-sm leading-relaxed">{event.description}</p>
+                  <h3 className="text-slate-800 text-lg font-bold mb-2">{event.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{event.description}</p>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@ const TimelineSection: FC = () => {
           <p className="text-teal-600 text-xs tracking-[0.3em] uppercase mb-3">
             {t('about.timeline.label')}
           </p>
-          <h2 className="text-stone-800 text-2xl md:text-3xl font-bold tracking-wide mb-4">
+          <h2 className="text-slate-800 text-2xl md:text-3xl font-bold tracking-wide mb-4">
             {t('about.timeline.heading')}
           </h2>
           <div className="w-12 h-px bg-teal-400 mx-auto" />
@@ -121,7 +121,7 @@ const TimelineSection: FC = () => {
 
         <div className="relative">
           {/* Desktop center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-teal-300 via-teal-200 to-stone-200 -translate-x-1/2" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-300/60 -translate-x-1/2" />
 
           <div className="space-y-0 md:space-y-0">
             {timelineEvents.map((event, index) => (

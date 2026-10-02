@@ -129,7 +129,7 @@ const ServicesOverview: FC = () => {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 neu-btn neu-btn-primary text-sm font-medium px-6 py-3 rounded-lg transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center gap-2 neu-btn neu-btn-primary text-sm font-medium px-6 py-3 whitespace-nowrap"
             >
               {t("servicesOverview.collaborationCta")}
               <span className="w-4 h-4 flex items-center justify-center">

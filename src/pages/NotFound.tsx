@@ -18,7 +18,7 @@ export default function NotFound() {
         ogUrl={`${baseUrl}${location.pathname}`}
       />
       <div className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 pt-[72px]">
-        <h1 className="absolute bottom-0 text-9xl md:text-[12rem] font-black text-slate-100 select-none pointer-events-none z-0">
+        <h1 className="absolute bottom-0 text-9xl md:text-[12rem] font-black select-none pointer-events-none z-0" style={{ color: "var(--neu-bg)", textShadow: "6px 6px 14px rgba(163,177,198,.5), -6px -6px 14px rgba(255,255,255,.85)" }}>
           404
         </h1>
         <div className="relative z-10">
@@ -31,7 +31,7 @@ export default function NotFound() {
           </p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-md transition-colors whitespace-nowrap"
+            className="neu-btn neu-btn-primary inline-flex items-center gap-2 mt-8 px-6 py-3 text-sm font-medium whitespace-nowrap"
           >
             <i className="ri-home-line" />
             {t('notFound.backHome')}

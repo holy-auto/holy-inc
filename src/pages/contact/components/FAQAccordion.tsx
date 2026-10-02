@@ -95,15 +95,11 @@ const FAQAccordion: FC = () => {
         return (
           <div
             key={id}
-            className={`bg-white rounded-lg border overflow-hidden transition-colors duration-200 ${
-              isOpen ? 'border-teal-300' : 'border-slate-100'
-            }`}
+            className="neu-card rounded-[20px] overflow-hidden"
           >
             <button
               onClick={() => toggle(id)}
-              className={`w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 ${
-                isOpen ? 'bg-teal-50/50' : 'hover:bg-slate-50'
-              }`}
+              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
             >
               <span className="text-sm font-medium text-slate-800 flex-1">
                 {faq.question}

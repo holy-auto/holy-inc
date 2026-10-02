@@ -68,7 +68,7 @@ const NewsIndexPage: FC = () => {
                       <time dateTime={post.date} className="w-24 shrink-0 text-sm tabular-nums tracking-wide text-slate-400">
                         {formatNewsDate(post.date)}
                       </time>
-                      <span className="inline-flex w-fit shrink-0 items-center rounded-full border border-accent-teal/30 px-2.5 py-0.5 text-[11px] tracking-wide text-accent-teal">
+                      <span className="inline-flex w-fit shrink-0 items-center neu-chip rounded-full px-2.5 py-0.5 text-[11px] tracking-wide text-accent-teal">
                         {category}
                       </span>
                       <p className="text-sm leading-relaxed text-slate-700 transition-colors duration-200 group-hover:text-slate-900 md:text-base">

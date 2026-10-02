@@ -192,7 +192,7 @@ const HolyAutoPage: FC = () => {
                 {/* Problem */}
                 <div className="neu-card rounded-[20px] p-8 md:p-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-red-100 flex-shrink-0">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-full neu-well flex-shrink-0">
                       <i className="ri-alert-line text-red-600" />
                     </span>
                     <h3 className="text-slate-800 text-lg font-bold">
@@ -214,10 +214,10 @@ const HolyAutoPage: FC = () => {
                 </div>
 
                 {/* Solution */}
-                <div className="bg-white rounded-lg p-8 md:p-10">
+                <div className="neu-card rounded-[20px] p-8 md:p-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 flex-shrink-0">
-                      <i className="ri-lightbulb-line text-teal-600" />
+                    <span className="w-10 h-10 flex items-center justify-center rounded-full neu-well flex-shrink-0">
+                      <i className="ri-lightbulb-line text-teal-500" />
                     </span>
                     <h3 className="text-slate-800 text-lg font-bold">
                       {problemSolution.solutionTitle}
@@ -244,7 +244,7 @@ const HolyAutoPage: FC = () => {
         <SectionConnector color="slate" />
 
         {/* Services Section */}
-        <section id="services" className="w-full py-20 md:py-28 bg-slate-50">
+        <section id="services" className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <div className="text-center mb-16">
@@ -314,7 +314,7 @@ const HolyAutoPage: FC = () => {
                           <p className="text-slate-500 text-xs mb-1">{t('brandHolyauto.services.priceLabel')}</p>
                           <p className="text-slate-800 text-sm font-bold">{service.priceRange}</p>
                         </div>
-                        <div className="w-px h-8 bg-slate-200" />
+                        <div className="w-px h-8 bg-slate-300/40" />
                         <div>
                           <p className="text-slate-500 text-xs mb-1">{t('brandHolyauto.services.durationLabel')}</p>
                           <p className="text-slate-800 text-sm font-bold">{service.duration}</p>
@@ -323,7 +323,7 @@ const HolyAutoPage: FC = () => {
 
                       <a
                         href="#contact"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap"
+                        className="neu-btn neu-btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-medium whitespace-nowrap"
                       >
                         {t('brandHolyauto.services.consultBtn')}
                         <span className="w-4 h-4 flex items-center justify-center">
@@ -346,7 +346,7 @@ const HolyAutoPage: FC = () => {
         <SectionConnector color="slate" />
 
         {/* Process Section */}
-        <section className="w-full py-20 md:py-28 bg-slate-50">
+        <section className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <div className="text-center mb-16">
@@ -367,11 +367,11 @@ const HolyAutoPage: FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4">
                 {processSteps.map((item, i) => (
                   <div key={i} className="relative">
-                    <div className="bg-white rounded-lg p-6 text-center h-full">
+                    <div className="neu-card rounded-[20px] p-6 text-center h-full">
                       <span className="text-teal-400/30 text-3xl font-bold block mb-4">
                         {item.step}
                       </span>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 mx-auto mb-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
                         <i className={`${item.icon} text-teal-500`} />
                       </div>
                       <h3 className="text-slate-800 text-base font-bold mb-3">
@@ -418,10 +418,10 @@ const HolyAutoPage: FC = () => {
                 {whyItems.map((item) => (
                   <div
                     key={item.id}
-                    className="neu-card rounded-[20px] p-6 md:p-8 hover:border-teal-200 hover:shadow-sm transition-all duration-300"
+                    className="neu-card rounded-[20px] p-6 md:p-8"
                   >
-                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-teal-50 mb-5">
-                      <i className={`${item.icon} text-teal-600 text-xl`} />
+                    <div className="w-12 h-12 flex items-center justify-center rounded-[14px] neu-well mb-5">
+                      <i className={`${item.icon} text-teal-500 text-xl`} />
                     </div>
                     <h3 className="text-slate-800 text-base font-bold mb-3">
                       {item.title}
@@ -439,7 +439,7 @@ const HolyAutoPage: FC = () => {
         <SectionConnector color="slate" />
 
         {/* Testimonials */}
-        <section className="w-full py-20 md:py-28 bg-slate-50">
+        <section className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
             <FadeIn>
               <div className="text-center mb-16">
@@ -461,7 +461,7 @@ const HolyAutoPage: FC = () => {
                 {testimonials.map((tItem) => (
                   <div
                     key={tItem.id}
-                    className="bg-white rounded-lg p-6 md:p-8"
+                    className="neu-card rounded-[20px] p-6 md:p-8"
                   >
                     <div className="flex items-center gap-1 mb-4">
                       {Array.from({ length: tItem.rating }).map((_, i) => (
@@ -473,7 +473,7 @@ const HolyAutoPage: FC = () => {
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
                       &quot;{tItem.content}&quot;
                     </p>
-                    <div className="border-t border-slate-100 pt-4">
+                    <div className="border-t border-slate-300/40 pt-4">
                       <p className="text-slate-800 text-sm font-bold">{tItem.author}</p>
                       <p className="text-slate-500 text-xs">{tItem.car}</p>
                     </div>
@@ -487,7 +487,7 @@ const HolyAutoPage: FC = () => {
         <SectionConnector color="slate" />
 
         {/* CTA Section */}
-        <section id="contact" className="w-full py-20 md:py-28 bg-slate-50">
+        <section id="contact" className="w-full py-20 md:py-28">
           <div className="w-full px-6 md:px-10 max-w-4xl mx-auto text-center">
             <FadeIn>
               <h2 className="text-slate-900 text-3xl md:text-4xl font-bold tracking-wide mb-4">
@@ -499,13 +499,13 @@ const HolyAutoPage: FC = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/contact"
-                  className="px-10 py-3.5 bg-teal-500 text-white text-sm font-medium rounded-md hover:bg-teal-600 transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn neu-btn-primary px-10 py-3.5 text-sm font-medium whitespace-nowrap"
                 >
                   {t('brandHolyauto.cta.consult')}
                 </a>
                 <a
                   href="/contact"
-                  className="px-10 py-3.5 border border-slate-300 text-slate-700 text-sm font-medium rounded-md hover:border-teal-400 hover:text-teal-600 transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn px-10 py-3.5 text-slate-700 text-sm font-medium hover:text-teal-600 whitespace-nowrap"
                 >
                   {t('brandHolyauto.cta.visit')}
                 </a>
@@ -517,7 +517,7 @@ const HolyAutoPage: FC = () => {
         <SectionConnector color="slate" />
 
         {/* Combo Section */}
-        <section className="w-full py-16 md:py-20 bg-slate-50">
+        <section className="w-full py-16 md:py-20">
           <div className="w-full px-6 md:px-10 max-w-5xl mx-auto">
             <FadeIn>
               <div className="text-center mb-12">
@@ -537,8 +537,8 @@ const HolyAutoPage: FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 mb-10">
                 {/* Step 1 */}
                 <div className="relative">
-                  <div className="bg-white rounded-lg p-6 text-center h-full">
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 mx-auto mb-4">
+                  <div className="neu-card rounded-[20px] p-6 text-center h-full">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
                       <i className="ri-tools-line text-teal-500" />
                     </div>
                     <h3 className="text-slate-800 text-sm font-bold mb-2">
@@ -554,8 +554,8 @@ const HolyAutoPage: FC = () => {
                 </div>
                 {/* Step 2 */}
                 <div className="relative">
-                  <div className="bg-white rounded-lg p-6 text-center h-full">
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 mx-auto mb-4">
+                  <div className="neu-card rounded-[20px] p-6 text-center h-full">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
                       <i className="ri-shield-check-line text-teal-500" />
                     </div>
                     <h3 className="text-slate-800 text-sm font-bold mb-2">
@@ -570,8 +570,8 @@ const HolyAutoPage: FC = () => {
                   </div>
                 </div>
                 {/* Step 3 */}
-                <div className="bg-white rounded-lg p-6 text-center h-full">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 mx-auto mb-4">
+                <div className="neu-card rounded-[20px] p-6 text-center h-full">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well mx-auto mb-4">
                     <i className="ri-drop-line text-teal-500" />
                   </div>
                   <h3 className="text-slate-800 text-sm font-bold mb-2">
@@ -588,7 +588,7 @@ const HolyAutoPage: FC = () => {
               <div className="text-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn neu-btn-primary inline-flex items-center gap-2 px-8 py-3 text-sm font-medium whitespace-nowrap"
                 >
                   {t('brandHolyauto.comboSection.cta')}
                   <span className="w-4 h-4 flex items-center justify-center">
@@ -603,7 +603,7 @@ const HolyAutoPage: FC = () => {
         <SectionConnector color="slate" />
 
         {/* Next Brand Navigation */}
-        <section className="w-full py-16 md:py-20 bg-slate-50 border-t border-slate-200">
+        <section className="w-full py-16 md:py-20">
           <div className="w-full px-6 md:px-10 max-w-5xl mx-auto">
             <FadeIn>
               <div className="text-center mb-10">
@@ -612,7 +612,7 @@ const HolyAutoPage: FC = () => {
                 </p>
                 <div className="flex items-center justify-center gap-3 mb-3">
                   <div className="w-8 h-px bg-teal-400" />
-                  <span className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-50">
+                  <span className="w-8 h-8 flex items-center justify-center rounded-full neu-well">
                     <i className="ri-arrow-right-line text-teal-500 text-sm" />
                   </span>
                   <div className="w-8 h-px bg-teal-400" />
@@ -626,7 +626,7 @@ const HolyAutoPage: FC = () => {
             <FadeIn delay={150}>
               <a
                 href="/ledra"
-                className="group block bg-white rounded-lg overflow-hidden hover:border-teal-300 transition-all duration-300"
+                className="group block neu-card rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="flex flex-col md:flex-row items-stretch">
                   {/* Brand Visual */}
@@ -639,7 +639,7 @@ const HolyAutoPage: FC = () => {
                   {/* Content */}
                   <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2.5 py-0.5 bg-teal-50 text-teal-700 text-xs rounded-full font-medium whitespace-nowrap">
+                      <span className="neu-chip px-2.5 py-0.5 text-teal-600 text-xs rounded-full font-medium whitespace-nowrap">
                         {t('brandHolyauto.nextBrand.next')}
                       </span>
                     </div>
@@ -665,7 +665,7 @@ const HolyAutoPage: FC = () => {
                 <span className="text-slate-400 text-xs">{t('brandHolyauto.nextBrand.otherBrands')}</span>
                 <a
                   href="/mobilewash"
-                  className="px-4 py-1.5 bg-white text-slate-600 text-xs rounded-md hover:border-emerald-300 hover:text-emerald-600 transition-colors duration-200 whitespace-nowrap"
+                  className="neu-btn px-4 py-1.5 text-slate-600 text-xs hover:text-emerald-600 whitespace-nowrap"
                 >
                   MobileWash
                 </a>

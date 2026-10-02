@@ -96,7 +96,7 @@ export default function CareersPage() {
   }));
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen">
       <SeoHead
         title={t("careers.seo.title")}
         description={t("careers.seo.description")}
@@ -157,7 +157,7 @@ export default function CareersPage() {
       </section>
 
       {/* Culture */}
-      <section className="py-14 md:py-20 bg-slate-50">
+      <section className="py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-10">
           <FadeIn>
             <p className="text-teal-600 text-xs tracking-[0.2em] uppercase mb-3 font-medium text-center">{t("careers.cultureLabel", "Culture")}</p>
@@ -166,7 +166,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {culturePoints.map((pt, i) => (
               <FadeIn key={pt.title} delay={i * 100}>
-                <div className="bg-white rounded-lg p-5 md:p-6 transition-shadow">
+                <div className="neu-card rounded-[20px] p-5 md:p-6 h-full">
                   <h3 className="text-sm md:text-base font-bold text-slate-800 mb-2">{pt.title}</h3>
                   <p className="text-xs md:text-sm text-slate-500 leading-relaxed">{pt.description}</p>
                 </div>
@@ -187,12 +187,12 @@ export default function CareersPage() {
             {jobCategories.map((cat, i) => (
               <FadeIn key={cat.id} delay={i * 100}>
                 <div
-                  className={`neu-card rounded-[20px] p-5 md:p-6 border transition-all cursor-pointer ${
-                    activeCategory === cat.id ? "border-teal-400 ring-1 ring-teal-400" : "border-slate-100 hover:border-teal-200"
+                  className={`neu-card rounded-[20px] p-5 md:p-6 transition-all duration-300 cursor-pointer ${
+                    activeCategory === cat.id ? "shadow-[var(--neu-pressed)]" : "hover:-translate-y-0.5"
                   }`}
                   onClick={() => setActiveCategory(activeCategory === cat.id ? "all" : cat.id)}
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-teal-50 text-teal-600 mb-3">
+                  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full neu-well text-teal-500 mb-3">
                     <i className={`${cat.icon} text-lg md:text-xl`} />
                   </div>
                   <h3 className="text-sm md:text-base font-bold text-slate-800 mb-1">{cat.name}</h3>
@@ -209,10 +209,10 @@ export default function CareersPage() {
                 <button
                   key={c.id}
                   onClick={() => setActiveCategory(c.id)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
+                  className={`px-3 py-1.5 text-xs font-medium whitespace-nowrap ${
                     activeCategory === c.id
-                      ? "bg-teal-600 text-white"
-                      : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+                      ? "neu-btn neu-btn-primary"
+                      : "neu-chip text-slate-500 hover:text-teal-600 transition-colors"
                   }`}
                 >
                   {c.label}
@@ -225,14 +225,14 @@ export default function CareersPage() {
           <div className="space-y-3 md:space-y-4">
             {filteredJobs.map((job, i) => (
               <FadeIn key={job.id} delay={i * 80}>
-                <div className="neu-card rounded-[20px] overflow-hidden hover:shadow-sm transition-shadow">
+                <div className="neu-card rounded-[20px] overflow-hidden">
                   <button
                     className="w-full text-left p-4 md:p-5 flex items-start justify-between gap-3"
                     onClick={() => setExpandedJob(expandedJob === job.id ? null : job.id)}
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-teal-50 text-teal-700">{job.category}</span>
+                        <span className="neu-chip text-xs font-medium px-2 py-0.5 rounded-full text-teal-600">{job.category}</span>
                         <span className="text-xs text-slate-500">{job.type}</span>
                         <span className="text-xs text-slate-500">{job.location}</span>
                       </div>
@@ -243,7 +243,7 @@ export default function CareersPage() {
                     </div>
                   </button>
                   {expandedJob === job.id && (
-                    <div className="px-4 md:px-5 pb-5 pt-0 border-t border-slate-50">
+                    <div className="px-4 md:px-5 pb-5 pt-4 border-t border-slate-300/40">
                       <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-4">{job.description}</p>
                       <div className="mb-4">
                         <h4 className="text-xs font-bold text-slate-700 mb-2">{t("careers.requirements", "応募要件")}</h4>
@@ -256,7 +256,7 @@ export default function CareersPage() {
                           ))}
                         </ul>
                       </div>
-                      <div className="bg-teal-50 rounded-md p-3">
+                      <div className="neu-well rounded-[14px] p-3">
                         <p className="text-xs text-teal-700">
                           <span className="font-bold">{t("careers.ideal", "理想の人材")}：</span>
                           {job.idealCandidate}
@@ -275,7 +275,7 @@ export default function CareersPage() {
       </section>
 
       {/* Training */}
-      <section className="py-14 md:py-20 bg-slate-50">
+      <section className="py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-10">
           <FadeIn>
             <p className="text-teal-600 text-xs tracking-[0.2em] uppercase mb-3 font-medium text-center">{t("careers.trainingLabel", "Training")}</p>
@@ -284,8 +284,8 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {trainingPrograms.map((prog, i) => (
               <FadeIn key={prog.id} delay={i * 100}>
-                <div className="bg-white rounded-lg p-5 md:p-6 h-full hover:shadow-sm transition-shadow">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-teal-50 text-teal-600 mb-3">
+                <div className="neu-card rounded-[20px] p-5 md:p-6 h-full">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full neu-well text-teal-500 mb-3">
                     <i className={`${prog.icon} text-lg`} />
                   </div>
                   <h3 className="text-sm font-bold text-slate-800 mb-1">{prog.name}</h3>
@@ -308,8 +308,8 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {benefits.map((b, i) => (
               <FadeIn key={b.id} delay={i * 80}>
-                <div className="flex gap-3 md:gap-4 p-4 md:p-5 rounded-lg hover:border-teal-200 transition-colors">
-                  <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-teal-50 text-teal-600">
+                <div className="neu-card rounded-[20px] flex gap-3 md:gap-4 p-4 md:p-5 h-full">
+                  <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full neu-well text-teal-500">
                     <i className={`${b.icon} text-lg`} />
                   </div>
                   <div>
@@ -324,7 +324,7 @@ export default function CareersPage() {
       </section>
 
       {/* Application Form */}
-      <section id="apply" className="py-14 md:py-20 bg-slate-50">
+      <section id="apply" className="py-14 md:py-20">
         <div className="max-w-2xl mx-auto px-6 md:px-10">
           <FadeIn>
             <p className="text-teal-600 text-xs tracking-[0.2em] uppercase mb-3 font-medium text-center">{t("careers.applyLabel", "Apply")}</p>
@@ -336,8 +336,8 @@ export default function CareersPage() {
 
           <FadeIn delay={150}>
             {formSubmitted ? (
-              <div className="bg-white rounded-lg p-8 text-center border border-teal-100">
-                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full bg-teal-50 text-teal-600">
+              <div className="neu-card rounded-[20px] p-8 text-center">
+                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full neu-well text-teal-500">
                   <i className="ri-check-line text-xl" />
                 </div>
                 <h3 className="text-base font-bold text-slate-800 mb-2">{t("careers.applySuccess", "応募を受け付けました")}</h3>
@@ -358,7 +358,7 @@ export default function CareersPage() {
                     alert(t("careers.applyError", "送信に失敗しました。時間をおいて再度お試しください。"));
                   }
                 }}
-                className="bg-white rounded-lg p-5 md:p-8 space-y-4 md:space-y-5"
+                className="neu-card rounded-[20px] p-5 md:p-8 space-y-4 md:space-y-5"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -367,7 +367,7 @@ export default function CareersPage() {
                       type="text"
                       name="name"
                       required
-                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+                      className="neu-input w-full px-3 py-2.5 text-sm"
                       placeholder={t("careers.formNamePlaceholder", "山田 太郎")}
                     />
                   </div>
@@ -377,7 +377,7 @@ export default function CareersPage() {
                       type="email"
                       name="email"
                       required
-                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+                      className="neu-input w-full px-3 py-2.5 text-sm"
                       placeholder="example@email.com"
                     />
                   </div>
@@ -388,7 +388,7 @@ export default function CareersPage() {
                     <input
                       type="tel"
                       name="phone"
-                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors"
+                      className="neu-input w-full px-3 py-2.5 text-sm"
                       placeholder="090-1234-5678"
                     />
                   </div>
@@ -397,7 +397,7 @@ export default function CareersPage() {
                     <select
                       name="position"
                       required
-                      className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors bg-white"
+                      className="neu-input w-full px-3 py-2.5 text-sm"
                     >
                       <option value="">{t("careers.formPositionPlaceholder", "選択してください")}</option>
                       {jobOpenings.map((j) => (
@@ -413,14 +413,14 @@ export default function CareersPage() {
                     rows={4}
                     maxLength={500}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-md text-sm focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 transition-colors resize-none"
+                    className="neu-input w-full px-3 py-2.5 text-sm resize-none"
                     placeholder={t("careers.formMessagePlaceholder", "ご自由にご記入ください")}
                   />
                   <p className="text-right text-xs text-slate-500 mt-1">{formData.message.length}/500</p>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium rounded-md transition-colors whitespace-nowrap"
+                  className="neu-btn neu-btn-primary w-full py-3 text-sm font-medium whitespace-nowrap"
                 >
                   {t("careers.formSubmit", "応募する")}
                 </button>

@@ -56,7 +56,7 @@ const PrivacyPage: FC = () => {
               <FadeIn key={section.num} delay={100}>
                 <div className="mb-12">
                   <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 text-sm font-bold">
+                    <span className="w-8 h-8 flex items-center justify-center neu-well rounded-full text-teal-600 text-sm font-bold">
                       {section.num}
                     </span>
                     {section.title}
@@ -95,10 +95,10 @@ const PrivacyPage: FC = () => {
             ))}
 
             <FadeIn delay={150}>
-              <div className="mt-12 pt-8 border-t border-slate-100 text-center">
+              <div className="mt-12 pt-8 border-t border-slate-300/40 text-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 hover:border-teal-400 text-slate-600 hover:text-teal-600 text-sm font-medium rounded-md transition-colors whitespace-nowrap"
+                  className="neu-btn inline-flex items-center justify-center px-8 py-3 text-slate-600 text-sm font-medium whitespace-nowrap"
                 >
                   {t('privacy.contactBtn')}
                 </a>

@@ -66,7 +66,7 @@ const NewsPostPage: FC = () => {
               <time dateTime={post.date} className="text-sm tabular-nums tracking-wide text-slate-400">
                 {formatNewsDate(post.date)}
               </time>
-              <span className="inline-flex items-center rounded-full border border-accent-teal/30 px-2.5 py-0.5 text-[11px] tracking-wide text-accent-teal">
+              <span className="inline-flex items-center neu-chip rounded-full px-2.5 py-0.5 text-[11px] tracking-wide text-accent-teal">
                 {category}
               </span>
             </div>
@@ -80,7 +80,7 @@ const NewsPostPage: FC = () => {
           <div className="w-full px-6 md:px-10 max-w-3xl mx-auto">
             <FadeIn>
               {post.image && (
-                <figure className="mb-10 rounded-2xl bg-white px-6 py-8 md:px-10 md:py-12 shadow-sm">
+                <figure className="mb-10 neu-card rounded-[20px] px-6 py-8 md:px-10 md:py-12">
                   <img src={post.image} alt={post.imageAlt} className="w-full h-auto" decoding="async" />
                 </figure>
               )}

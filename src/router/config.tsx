@@ -1,24 +1,24 @@
 import { lazy, Suspense } from "react";
 import type { RouteObject } from "react-router-dom";
+import { pages } from "./loaders";
 
-const NotFound = lazy(() => import("../pages/NotFound"));
-const Home = lazy(() => import("../pages/home/page"));
-const About = lazy(() => import("../pages/about/page"));
-const Ledra = lazy(() => import("../pages/ledra/page"));
-const MobileWash = lazy(() => import("../pages/mobilewash/page"));
-const HolyAuto = lazy(() => import("../pages/holyauto/page"));
-const Careers = lazy(() => import("../pages/careers/page"));
-const NewsIndex = lazy(() => import("../pages/news/page"));
-const NewsPost = lazy(() => import("../pages/news/post"));
-const Contact = lazy(() => import("../pages/contact/page"));
-const Privacy = lazy(() => import("../pages/privacy/page"));
-const Terms = lazy(() => import("../pages/terms/page"));
+const NotFound = lazy(pages.notFound.factory);
+const Home = lazy(pages.home.factory);
+const About = lazy(pages.about.factory);
+const Ledra = lazy(pages.ledra.factory);
+const MobileWash = lazy(pages.mobilewash.factory);
+const HolyAuto = lazy(pages.holyauto.factory);
+const Careers = lazy(pages.careers.factory);
+const NewsIndex = lazy(pages.newsIndex.factory);
+const NewsPost = lazy(pages.newsPost.factory);
+const Contact = lazy(pages.contact.factory);
+const Privacy = lazy(pages.privacy.factory);
+const Terms = lazy(pages.terms.factory);
 
-const fallback = (
-  <div className="min-h-[60vh] bg-slate-50 flex flex-col items-center justify-center animate-pulse">
-    <div className="w-8 h-8 border-2 border-teal-400 border-t-transparent rounded-full animate-spin" />
-  </div>
-);
+// Chunks are preloaded before the first render and before every navigation
+// (see main.tsx / useSmoothNavigation), so this is only a last resort. Keep it
+// an empty matte block rather than a spinner, so a slow network never flashes.
+const fallback = <div className="min-h-[100svh]" aria-busy="true" />;
 
 const routes: RouteObject[] = [
   { path: "/", element: <Suspense fallback={fallback}><Home /></Suspense> },

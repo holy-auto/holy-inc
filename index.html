@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#e0e5ec" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,115 +33,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Critical CSS inline: Hero section render-blocking-free paint -->
+    <!-- Critical CSS inline: the pre-React placeholder, drawn in the same Soft UI as the real hero -->
     <style>
-      /* Critical path: Hero background and text rendered instantly before JS */
+      html, body { background: #e0e5ec; margin: 0; }
       #hero-crit {
         position: relative;
         width: 100%;
-        min-height: 700px;
+        min-height: 100vh;
+        min-height: 100svh;
         display: flex;
         align-items: center;
-        justify-content: center;
         overflow: hidden;
-        background: #0c0a09;
-        pointer-events: none;
+        background: #e0e5ec;
+        color: #33405a;
         font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-      }
-      #hero-crit::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(115% 85% at 50% 118%, rgba(217,119,6,0.20), rgba(217,119,6,0.05) 38%, transparent 62%);
-      }
-      #hero-crit::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        box-shadow: inset 0 -140px 160px -60px rgba(0,0,0,0.9), inset 0 0 240px 40px rgba(0,0,0,0.55);
+        -webkit-font-smoothing: antialiased;
       }
       #hero-crit-inner {
         position: relative;
-        z-index: 10;
-        text-align: left;
         width: 100%;
-        padding: 0 1.5rem;
         max-width: 72rem;
         margin: 0 auto;
+        padding: 7rem 1.5rem 6rem;
+        box-sizing: border-box;
       }
       #hero-crit .overline {
         display: flex;
         align-items: center;
         gap: 1rem;
-        margin-bottom: 2rem;
+        margin: 0 0 2rem;
       }
       #hero-crit .overline i {
         display: inline-block;
         width: 2.5rem;
         height: 1px;
-        background: linear-gradient(90deg, #fbbf24, rgba(251,191,36,0));
+        background: linear-gradient(90deg, #5560e3, rgba(85,96,227,0));
       }
       #hero-crit .subtitle {
-        color: rgba(252,211,77,0.9);
+        color: #5560e3;
         font-size: 0.8rem;
         letter-spacing: 0.35em;
         font-weight: 500;
       }
       #hero-crit h1 {
-        color: #ffffff;
+        margin: 0;
+        color: #33405a;
         font-size: 2.6rem;
         font-weight: 500;
         letter-spacing: -0.01em;
         line-height: 1.14;
       }
-      #hero-crit h1 .accent {
-        background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+      #hero-crit h1 .accent { color: #5560e3; }
       #hero-crit .lead {
-        color: rgba(214,211,209,0.9);
+        color: #5b6577;
         font-size: 1rem;
-        font-weight: 300;
-        letter-spacing: 0.02em;
         line-height: 1.7;
-        margin-top: 2rem;
+        margin: 2rem 0 0;
         max-width: 36rem;
       }
       #hero-crit .cta-row {
         margin-top: 2.5rem;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 2rem;
+        gap: 1.25rem;
       }
-      #hero-crit .cta-primary {
+      #hero-crit .cta-primary,
+      #hero-crit .cta-secondary {
         display: inline-flex;
         align-items: center;
-        gap: 0.75rem;
-        background: #fbbf24;
-        color: #0c0a09;
-        padding: 0.85rem 2rem;
+        padding: 0.875rem 2rem;
         border-radius: 9999px;
         font-size: 0.875rem;
         font-weight: 600;
         letter-spacing: 0.025em;
         text-decoration: none;
         white-space: nowrap;
+        box-shadow: -6px -6px 14px rgba(255,255,255,.85), 6px 6px 14px rgba(163,177,198,.6);
       }
-      #hero-crit .cta-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: rgba(255,255,255,0.7);
-        font-size: 0.875rem;
-        font-weight: 500;
-        letter-spacing: 0.025em;
-        text-decoration: none;
-        white-space: nowrap;
-      }
+      #hero-crit .cta-primary { background: #5560e3; color: #ffffff; }
+      #hero-crit .cta-secondary { background: #e0e5ec; color: #33405a; font-weight: 500; }
       @media (min-width: 640px) {
         #hero-crit h1 { font-size: 4.5rem; }
+        #hero-crit-inner { padding-left: 2.5rem; padding-right: 2.5rem; }
       }
     </style>
     <!-- Remixicon async load -->
@@ -150,9 +124,12 @@
     <meta name="google-site-verification" content="27K3gIFCI2EIKcF7QOjLX9XBUSSE7WCJ-XoBhI2dKhA" />
 </head>
   <body>
-    <div id="root"></div>
-    <!-- Critical HTML: visible before React mounts, eliminates white-screen LCP penalty -->
-    <section id="hero-crit" aria-label="HOLY">
+    <!--
+      Critical HTML lives INSIDE #root: it is visible before React mounts and
+      React replaces it in the same frame as its first commit, so there is no
+      cross-fade and no second hero stacked under the app.
+    -->
+    <div id="root"><section id="hero-crit" aria-label="HOLY">
       <div id="hero-crit-inner">
         <p class="overline"><i></i><span class="subtitle">株式会社HOLY</span></p>
         <h1>職人の技術を、<br><span class="accent">次へつなぐ。</span></h1>
@@ -162,35 +139,7 @@
           <a href="/about" class="cta-secondary">HOLYについて</a>
         </div>
       </div>
-    </section>
+    </section></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Hide critical hero only after React has actually mounted content
-      (function() {
-        var root = document.getElementById('root');
-        var crit = document.getElementById('hero-crit');
-        if (!root || !crit) return;
-        var attempts = 0;
-        function check() {
-          attempts++;
-          if (root.children.length > 0 && root.textContent.length > 300) {
-            // プリレンダした JSON-LD は React が同等のものを描画するので取り除く
-            var pre = document.getElementById('prerender-jsonld');
-            if (pre) pre.remove();
-            crit.style.opacity = '0';
-            crit.style.transition = 'opacity 0.3s ease';
-            setTimeout(function() { crit.style.display = 'none'; }, 300);
-            return;
-          }
-          if (attempts < 90) {
-            requestAnimationFrame(check);
-          } else {
-            crit.style.opacity = '0';
-            setTimeout(function() { crit.style.display = 'none'; }, 300);
-          }
-        }
-        setTimeout(check, 200);
-      })();
-    </script>
   </body>
 </html>
